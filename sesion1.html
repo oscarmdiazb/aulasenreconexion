@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesión 1: Círculo de las Emociones | Aulas en Re-Conexión</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rojo: #E8302A;
+            --naranja: #F47920;
+            --amarillo: #F9C200;
+            --verde: #4BAD4E;
+            --azul: #3AABE3;
+            --morado: #8B4EA6;
+            --gris-oscuro: #2D2D2D;
+            --gris-texto: #4A4A4A;
+            --gris-suave: #F5F5F5;
+            --linea: #E8E8E8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+            color: var(--gris-texto);
+            background: #fff;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: white;
+            border-top: 6px solid transparent;
+            border-image: linear-gradient(90deg,
+                var(--rojo) 0%,
+                var(--naranja) 16.66%,
+                var(--amarillo) 33.33%,
+                var(--verde) 50%,
+                var(--azul) 66.66%,
+                var(--morado) 100%) 1;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 20px;
+        }
+
+        .logo {
+            height: 40px;
+            width: auto;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--gris-texto);
+            font-family: 'Nunito', sans-serif;
+            font-weight: 600;
+            font-size: 13px;
+            padding: 8px 14px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: var(--gris-suave);
+        }
+
+        nav a.active {
+            background: var(--rojo);
+            color: white;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, var(--rojo) 0%, rgba(232, 48, 42, 0.9) 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .session-number {
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            opacity: 0.95;
+        }
+
+        .hero h1 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .chips {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 0;
+        }
+
+        .chip {
+            background: rgba(255,255,255,0.25);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.4);
+        }
+
+        /* CONTENT */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .intro-block {
+            background: var(--gris-suave);
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 50px;
+            border-left: 5px solid var(--rojo);
+        }
+
+        .intro-block h2 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--gris-oscuro);
+            margin-bottom: 20px;
+        }
+
+        .intro-block h3 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--gris-oscuro);
+            margin-top: 25px;
+            margin-bottom: 12px;
+        }
+
+        .intro-block p {
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        .intro-block ul {
+            margin: 15px 0 15px 20px;
+            padding-left: 10px;
+        }
+
+        .intro-block li {
+            margin-bottom: 8px;
+        }
+
+        .hse-desc {
+            background: white;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid var(--rojo);
+        }
+
+        .hse-desc strong {
+            color: var(--rojo);
+        }
+
+        /* INTRODUCCIÓN AL PROCESO */
+        .intro-proceso {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 50px;
+            border: 2px dashed var(--rojo);
+        }
+
+        .intro-proceso h2 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--gris-oscuro);
+            margin-bottom: 20px;
+        }
+
+        .intro-proceso p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .intro-proceso ul {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+
+        .intro-proceso li {
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        /* MOMENTO CARDS */
+        .momento-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            border: 1px solid var(--linea);
+        }
+
+        .momento-header {
+            background: var(--rojo);
+            color: white;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .momento-num {
+            font-family: 'Nunito', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            opacity: 0.3;
+            min-width: 60px;
+        }
+
+        .momento-info {
+            flex: 1;
+        }
+
+        .momento-title {
+            font-family: 'Nunito', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .tiempo-chip {
+            font-size: 13px;
+            font-weight: 600;
+            opacity: 0.95;
+        }
+
+        .momento-body {
+            padding: 40px;
+        }
+
+        .momento-body h3 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--gris-oscuro);
+            margin: 25px 0 15px 0;
+        }
+
+        .momento-body h4 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--rojo);
+            margin: 20px 0 12px 0;
+        }
+
+        .momento-body p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .momento-body ul {
+            margin: 15px 0 15px 20px;
+        }
+
+        .momento-body li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+
+        .momento-body ol {
+            margin: 15px 0 15px 20px;
+        }
+
+        .momento-body ol li {
+            margin-bottom: 10px;
+        }
+
+        /* TIP BLOCKS */
+        .tip-block {
+            background: rgba(232, 48, 42, 0.08);
+            border-left: 4px solid var(--rojo);
+            padding: 16px 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .tip-block strong {
+            color: var(--rojo);
+            font-weight: 700;
+        }
+
+        /* KEY ATTITUDES */
+        .key-attitudes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            margin: 25px 0;
+        }
+
+        .attitude {
+            background: var(--gris-suave);
+            padding: 18px;
+            border-radius: 6px;
+            border-left: 4px solid var(--rojo);
+        }
+
+        .attitude strong {
+            color: var(--rojo);
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .attitude-def {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* FOOTER NAVIGATION */
+        .session-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 60px;
+            padding: 40px 0;
+            border-top: 2px solid var(--linea);
+        }
+
+        .nav-button {
+            background: var(--rojo);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-button:hover {
+            background: #d12722;
+            transform: translateX(4px);
+        }
+
+        .nav-button:disabled,
+        .nav-button.disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            pointer-events: none;
+            transform: none;
+        }
+
+        .nav-spacer {
+            flex: 1;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .chips {
+                gap: 8px;
+            }
+
+            .chip {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+
+            .container {
+                padding: 40px 16px;
+            }
+
+            .intro-block {
+                padding: 24px;
+            }
+
+            .momento-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .momento-num {
+                margin-bottom: 10px;
+            }
+
+            .momento-body {
+                padding: 24px;
+            }
+
+            .session-nav {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .nav-button {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav>
+        <div class="navbar-container">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVkAAACSCAMAAADYdEkqAAABblBMVEX+/v7////dKjvdKzz+//8ApLnleSuVwSBhU57mHnQ5qODcJzn1xB7cHzMAorg4p+DcGzD99PX65ef1ys788vP76+3kdB3bFSzbDij1wQDldyXhRFPxs7jlAGz9+fnfOUj31djjWWX20dTuoKf43d/0w8fbACPmbnhcTZtZSpriUV7fPUzqiJCOvQD1+v3rkZjnfYXvpqzzur/mcXvkY23i8vrtmJ/qi5Lt+fr0ya8irsHN5/bogIjxrbPjXWhQr+L66d79+emBdrLt6/P2yz/65J27ttT3+vDqlV3a6bqyrM743cn4xtv88dCx2/KY0O6OhbnO7vHvsYvQ46VrXqTywKN5wumkykL30GPxjbS/2YDohz/rmmLtdaCy4edpw9D524Huq3/Z1uaFzdi45Onq8tnJ35SHx+q002zqWZDpQYX1q8rto3D42HihmsT9" alt="Aulas en Re-Conexión" class="logo">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="resumen.html">Resumen</a></li>
+                <li><a href="timeline.html">Línea de Tiempo</a></li>
+                <li><a href="sesion1.html" class="active">Sesión 1</a></li>
+                <li><a href="sesion2.html">Sesión 2</a></li>
+                <li><a href="sesion3.html">Sesión 3</a></li>
+                <li><a href="sesion4.html">Sesión 4</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-content">
+            <div class="session-number">Sesión 1</div>
+            <h1>Círculo de las Emociones: Reconocimiento Propio y Mutuo</h1>
+            <div class="chips">
+                <span class="chip">⏱ 90 min</span>
+                <span class="chip">🧠 Autoconciencia</span>
+                <span class="chip">🎯 Autorregulación</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <!-- INTRO BLOCK -->
+        <div class="intro-block">
+            <h2>Objetivo de la Sesión</h2>
+            <p>Explorar la relación entre las emociones y las acciones — tanto propias como de quienes nos rodean — para desarrollar mayor conciencia sobre cómo lo que sentimos influye en cómo actuamos.</p>
+
+            <h3>Habilidad Socioemocional: Autoconciencia</h3>
+            <div class="hse-desc">
+                <p><strong>Autoconciencia</strong> es la habilidad para conocerse y valorarse a sí mismo. Implica dirigir la mirada hacia el mundo interior y tomar conciencia de las propias emociones, experiencias, y cómo influyen en el comportamiento en diferentes contextos. También se relaciona con las actitudes y las creencias del individuo sobre sí, lo cual deriva en la posibilidad de conocernos, entendernos y confiar en nosotros mismos.</p>
+                <p style="margin-top: 12px;"><strong>Habilidad específica:</strong> Autorregulación</p>
+            </div>
+
+            <h3>Materiales Necesarios</h3>
+            <ul>
+                <li>📚 Escarapelas</li>
+                <li>📝 Papel periódico o implemento para tomar notas</li>
+                <li>✏️ Lápices, esferos, colores y marcadores</li>
+                <li>🗿 Tótem de la palabra (objeto pequeño y fácil de manipular)</li>
+                <li>📌 Post-it</li>
+                <li>🟥🟩 Una tarjeta verde y una roja (papel iris)</li>
+            </ul>
+        </div>
+
+        <!-- INTRODUCCIÓN AL PROCESO -->
+        <div class="intro-proceso">
+            <h2>Introducción de Todo el Proceso</h2>
+            <p>Para comenzar, el/la gestor/a que lidera el ejercicio presenta una introducción de los 4 encuentros que se desarrollarán a partir de ese día. La introducción se realiza de forma dinámica mediante un ejercicio libre que el/la gestor/a facilite y decida según el contexto del grupo, ya que esto permitirá activar la participación desde el inicio, reconocer expectativas e intereses de las y los participantes y conectar el propósito de la jornada con su experiencia cotidiana, favoreciendo mayor disposición, apropiación y sentido frente a los encuentros que se proyectan.</p>
+
+            <p><strong>Mensaje clave a comunicar:</strong></p>
+            <p>Con el fin de fortalecer la convivencia escolar, se propone una estrategia basada en cuatro espacios pedagógicos:</p>
+            <ul>
+                <li><strong>Sesión 1:</strong> Promoverá el reconocimiento propio y mutuo, así como la comunicación asertiva, indispensables para la gestión de los conflictos.</li>
+                <li><strong>Sesión 2:</strong> Se organizarán actividades de aplicación práctica, en las que los y las estudiantes pondrán en acción estas habilidades a través de dinámicas y simulaciones.</li>
+                <li><strong>Sesión 3:</strong> Será un espacio de diálogo reflexivo, donde los y las estudiantes podrán compartir sus experiencias personales sobre conflictos vividos en el entorno escolar.</li>
+                <li><strong>Sesión 4:</strong> Se creará un espacio de retroalimentación colectiva, donde se analizarán los aprendizajes obtenidos, reforzando así el compromiso con una convivencia más respetuosa y armoniosa en el aula.</li>
+            </ul>
+        </div>
+
+        <!-- MOMENTO 1 -->
+        <div class="momento-card">
+            <div class="momento-header">
+                <div class="momento-num">1</div>
+                <div class="momento-info">
+                    <div class="momento-title">Dinámica de Conexión</div>
+                    <div class="tiempo-chip">⏱ 10-15 min</div>
+                </div>
+            </div>
+            <div class="momento-body">
+                <p><em>Nota:</em> La actividad puede realizarse de acuerdo con la autonomía del/la mediador/a pedagógico/a considerando el manejo del tiempo. Es muy importante llegar con suficiente tiempo a los momentos centrales de la sesión.</p>
+
+                <h3>Descripción de Actividades</h3>
+                <p><strong>Opción 1: Círculos Concéntricos</strong></p>
+                <p>Los estudiantes se numeran en dos grupos y forman dos círculos concéntricos: el grupo 1 en el interno y el grupo 2 en el externo, quedando en parejas frente a frente. Cada pareja responde la misma pregunta por turnos. Al terminar, el círculo externo rota dos pasos a la derecha — con una palmada por cada paso — para formar una nueva pareja y responder la siguiente pregunta.</p>
+
+                <p><strong>Opción 2: Subgrupos en Círculos</strong></p>
+                <p>Se divide el grupo en 6 o 7 subgrupos. Cada subgrupo forma un círculo. Cada estudiante compartirá dos preguntas con su compañero/a del lado derecho (ambos responden) y una pregunta con su compañero/a del lado izquierdo (ambos responden).</p>
+
+                <h4>Preguntas para la Dinámica</h4>
+                <ul>
+                    <li>¿Cómo te llamas?</li>
+                    <li>¿Cómo te gusta que te llamen?</li>
+                    <li>¿Qué superpoder te gustaría tener?</li>
+                </ul>
+
+                <p><em>Después de responder cada pregunta, le daremos las gracias a la persona que nos escuchó.</em></p>
+
+                <div class="tip-block">
+                    💡 <strong>Nota:</strong> Este es un buen momento para iniciar la reflexión sobre la importancia de conocerse y respetar cómo cada persona quiere ser llamada.
+                </div>
+            </div>
+        </div>
+
+        <!-- MOMENTO 2 -->
+        <div class="momento-card">
+            <div class="momento-header">
+                <div class="momento-num">2</div>
+                <div class="momento-info">
+                    <div class="momento-title">Diseño de Escarapelas: ¿Cómo me Gusta que me Llamen?</div>
+                    <div class="tiempo-chip">⏱ 15-20 min</div>
+                </div>
+            </div>
+            <div class="momento-body">
+                <h3>Paso a Paso</h3>
+                <ol>
+                    <li><strong>Entrega de materiales:</strong> Entrega una escarapela o ficha bibliográfica a cada estudiante. En el centro del espacio, dispón marcadores y colores para que los estudiantes los usen a medida que los necesiten.</li>
+                    <li><strong>Escarapelas de identificación:</strong> Cada estudiante escribirá en su ficha la forma en que le gusta que le llamen en el salón de clases — no solo sus amigos cercanos, sino todos sus compañeros.</li>
+                    <li><strong>Socialización:</strong> Pide a cada estudiante que se ponga de pie y comparta con el grupo cómo le gusta que lo llamen. El grupo completo debe hacerlo en menos de dos minutos.</li>
+                    <li><strong>Reconoce a un compañero/a:</strong> Pide a cada estudiante que se gire hacia la persona a su lado. Al dirigirse a él o ella, debe leer el nombre en su escarapela y hacerle la siguiente pregunta: <em>"[Nombre en escarapela], ¿qué es lo que más te gusta hacer para divertirte?"</em> Dale al grupo 30 segundos para este intercambio.</li>
+                    <li><strong>Uso de escarapelas:</strong> Cada estudiante se pondrá la escarapela durante el resto de las sesiones.</li>
+                </ol>
+
+                <h3>Reflexión Sobre Autoconciencia</h3>
+                <p>Este es un buen momento para reflexionar sobre la habilidad socioemocional central de la sesión: la <strong>Autoconciencia</strong>. A partir de la actividad de <em>cómo me gusta que me llamen</em>, invita al grupo a pensar en la importancia de conocerse y valorarse a uno mismo/a.</p>
+
+                <p>Como personas, tenemos derecho a que los demás nos llamen como nos gusta — y a pedir que no nos llamen como no nos gusta. Reconocer eso es un primer paso para conocerse y respetarse.</p>
+
+                <div class="tip-block">
+                    💡 <strong>Para después de la sesión:</strong> Al finalizar la jornada, el/la gestor/a recogerá todas las escarapelas para traerlas a las próximas sesiones. En los encuentros siguientes, se repartirán nuevamente para reforzar el mensaje sobre la importancia de conocer y respetar cómo cada persona quiere ser llamada.
+                </div>
+            </div>
+        </div>
+
+        <!-- MOMENTO 3 -->
+        <div class="momento-card">
+            <div class="momento-header">
+                <div class="momento-num">3</div>
+                <div class="momento-info">
+                    <div class="momento-title">Acuerdos para Establecer la Confianza</div>
+                    <div class="tiempo-chip">⏱ 20-30 min</div>
+                </div>
+            </div>
+            <div class="momento-body">
+                <h3>Organización del Espacio: El Círculo</h3>
+                <ul>
+                    <li>Se dispondrán las sillas en un círculo, evitando formas como óvalos, U o doble círculo.</li>
+                    <li>Todos y todas deben estar equidistantes del centro, en igualdad de condiciones para expresarse y ser escuchados/as.</li>
+                    <li>Si hay sillas vacías o faltan, el círculo no estará completo. Es importante cerrar el círculo para que todos y todas puedan verse y la energía fluya sin barreras.</li>
+                </ul>
+
+                <div class="tip-block">
+                    💡 <strong>Explica</strong> la intención de encontrarse de esta manera: <em>En círculo nos podemos ver todas y todos. En círculo todas y todos somos iguales, no hay jerarquías. En círculo nadie se esconde detrás de nadie. En círculo la palabra circula y la energía fluye.</em>
+                </div>
+
+                <h3>Actitudes Clave para un Círculo Armonioso</h3>
+                <p>Estas actitudes clave pueden introducirse mediante un rompecabezas de palabras y conceptos distribuido de forma aleatoria entre las y los estudiantes. A continuación, se irán socializando en voz alta: cada estudiante mencionará la palabra o concepto que le correspondió y el grupo intentará identificar quién tiene la definición asociada.</p>
+
+                <div class="key-attitudes">
+                    <div class="attitude">
+                        <strong>Sinceridad</strong>
+                        <div class="attitude-def">Decir lo que se piensa de corazón.</div>
+                    </div>
+                    <div class="attitude">
+                        <strong>Aceptación</strong>
+                        <div class="attitude-def">Respetar la opinión de los demás.</div>
+                    </div>
+                    <div class="attitude">
+                        <strong>Empatía</strong>
+                        <div class="attitude-def">Comprender y validar las emociones de los demás sin juzgar.</div>
+                    </div>
+                    <div class="attitude">
+                        <strong>Humildad</strong>
+                        <div class="attitude-def">Reconocer que todas las personas somos igualmente valiosas.</div>
+                    </div>
+                    <div class="attitude">
+                        <strong>Confianza</strong>
+                        <div class="attitude-def">Creer en quienes nos rodean.</div>
+                    </div>
+                    <div class="attitude">
+                        <strong>Paciencia</strong>
+                        <div class="attitude-def">Escuchar con atención y respetar turnos de palabra.</div>
+                    </div>
+                    <div class="attitude">
+                        <strong>Confidencialidad</strong>
+                        <div class="attitude-def">Mantener en el círculo lo que allí se comparte.</div>
+                    </div>
+                    <div class="attitude">
+                        <strong>Perseverancia</strong>
+                        <div class="attitude-def">Cuidar el círculo, incluso si surgen dificultades.</div>
+                    </div>
+                </div>
+
+                <h3>Construcción de Acuerdos del Grupo</h3>
+                <p>Se realizará la entrega de marcadores y papel kraft para hacer el diseño de la cartelera de acuerdos del proceso de formación.</p>
+
+                <p>Invita a los estudiantes a construir una serie de acuerdos que fomenten la confianza y que se tendrán en cuenta en cada una de las sesiones posteriores. Adicional a los acuerdos que proponga el curso, el/la gestor/a que lidera propone los siguientes:</p>
+
+                <ul>
+                    <li>Cada vez que alguien hable debe hacerlo en primera persona.</li>
+                    <li>Se tendrá medición del tiempo de las palabras, con el fin de que todas las personas tengan la posibilidad de participar. Habrá un estudiante designado para la medición y tendrá dos tarjetas para avisar el uso de la palabra: una verde y una roja.</li>
+                    <li>No usar el celular en el desarrollo del ejercicio.</li>
+                    <li>Lo que se dice en el círculo, se queda en círculo. Excepto cuando lo que se mencione afecte la integridad de alguna de las personas participantes.</li>
+                    <li>En el círculo todas las opiniones son válidas, excepto aquellas que tengan como finalidad generar daño, sean discriminatorias, xenófobas, sexistas, etc.</li>
+                </ul>
+
+                <div class="tip-block">
+                    💡 <strong>Importante:</strong> Luego de esto, se ubicará la "cartelera" de los acuerdos en un lugar visible en TODAS las sesiones del proceso. Estos acuerdos colectivos son la BASE del proceso. ¡No olvides traerlos en la próxima sesión!
+                </div>
+            </div>
+        </div>
+
+        <!-- MOMENTO 4 -->
+        <div class="momento-card">
+            <div class="momento-header">
+                <div class="momento-num">4</div>
+                <div class="momento-info">
+                    <div class="momento-title">El Círculo de la Palabra</div>
+                    <div class="tiempo-chip">⏱ 15-20 min</div>
+                </div>
+            </div>
+            <div class="momento-body">
+                <blockquote style="font-style: italic; padding: 20px; background: var(--gris-suave); border-left: 4px solid var(--rojo); margin: 20px 0; border-radius: 4px;">
+                    <p>"El círculo no es simplemente una reunión con sillas ubicadas en forma redonda, es más bien una manera de escucharse, de construir sabiduría, de construir comunidad, de tomar decisiones de modo muy diferente a como se acostumbra. Esta forma de utilizar el espacio transmite una voluntad, por parte de quienes lo integran, de socialización en una conversación y escucha profunda y respetuosa."</p>
+                    <p style="margin-top: 10px; font-weight: 600;">— Jean Smith (2024)</p>
+                </blockquote>
+
+                <h3>Paso a Paso</h3>
+                <p>Como parte de esta apertura, se invita a las y los estudiantes a responder las siguientes preguntas. Para este momento, es importante tener un Tótem de la palabra, que puede ser algún elemento que esté en el salón o algún elemento que cada profesional quiera utilizar. El Tótem rotará por el círculo y solo quien lo tiene toma la palabra.</p>
+
+                <h3>Preguntas Sugeridas</h3>
+                <ul>
+                    <li>¿Qué necesito para sentirme feliz y aceptado en un espacio?</li>
+                    <li>¿Qué es lo que más me gusta de mi salón?</li>
+                    <li>¿Qué quisieras transformar de mi salón?</li>
+                </ul>
+
+                <div class="tip-block">
+                    💡 <strong>Nota:</strong> Estas preguntas son sugeridas, pero el/la gestor/a puede utilizar las que considere pertinentes o proponer otras que cumplan con el objetivo de fortalecer la confianza en el grupo.
+                </div>
+
+                <p style="margin-top: 20px; font-size: 14px; line-height: 1.7;"><strong>Recuerda:</strong> El Tótem de la palabra es un símbolo de respeto y atención. Solo la persona que lo sostiene tiene derecho a hablar. Todos los demás escuchan con atención, sin interrumpir y sin distraerse.</p>
+            </div>
+        </div>
+
+        <!-- MOMENTO 5 -->
+        <div class="momento-card">
+            <div class="momento-header">
+                <div class="momento-num">5</div>
+                <div class="momento-info">
+                    <div class="momento-title">Cierre del Círculo - Reflexión y Compromiso</div>
+                    <div class="tiempo-chip">⏱ 10-15 min</div>
+                </div>
+            </div>
+            <div class="momento-body">
+                <p>Tan importante como iniciar el círculo, <strong>es cerrarlo de manera significativa</strong>. Para esto, se propone la siguiente revisión:</p>
+
+                <ul>
+                    <li>Reconocer los logros alcanzados.</li>
+                    <li>Expresar emociones y experiencias.</li>
+                    <li>Recoger las ideas fundamentales.</li>
+                    <li>Definir compromisos individuales y grupales.</li>
+                </ul>
+
+                <h3>Paso a Paso</h3>
+                <ol>
+                    <li>Dar una ficha bibliográfica o nota adhesiva a cada participante.</li>
+                    <li>En las fichas o papeles, las y los estudiantes escribirán las respuestas a las siguientes preguntas:
+                        <ul style="margin-top: 10px;">
+                            <li>¿Cuál frase, palabra o emoción describe mi experiencia o aprendizajes durante el círculo?</li>
+                            <li>¿Qué puedo hacer yo, desde mi lugar, para que este salón sea un espacio donde todos nos sintamos bien?</li>
+                        </ul>
+                    </li>
+                    <li>Posteriormente, cada estudiante realiza la lectura en voz alta y pone en el centro del espacio sus aportes, formando un mándala en el piso. Estos papeles se recogerán y serán sustento de la sistematización del proceso.</li>
+                    <li>El facilitador/a termina con una reflexión final de la sesión.</li>
+                </ol>
+
+                <div class="tip-block">
+                    💡 <strong>Para el facilitador/a:</strong> Este momento es sagrado. Es donde los estudiantes sintetizan su aprendizaje y generan un compromiso personal. Respeta los silencios y valida todas las respuestas, sin importar cuán simples o profundas sean.
+                </div>
+            </div>
+        </div>
+
+        <!-- NAVIGATION -->
+        <div class="session-nav">
+            <button class="nav-button disabled">← Anterior</button>
+            <div class="nav-spacer"></div>
+            <a href="sesion2.html" class="nav-button">Sesión 2 →</a>
+        </div>
+    </div>
+</body>
+</html>

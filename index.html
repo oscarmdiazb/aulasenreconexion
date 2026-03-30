@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aulas en Re-Conexión – Formación en Habilidades Socioemocionales</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rojo:    #E8302A;
+    --naranja: #F47920;
+    --amarillo:#F9C200;
+    --verde:   #4BAD4E;
+    --azul:    #3AABE3;
+    --morado:  #8B4EA6;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    font-family: 'Nunito Sans', sans-serif;
+    background: #ffffff;
+    color: #333;
+  }
+
+  /* ══════════════════════════════
+     NAVBAR — sticky top
+     ══════════════════════════════ */
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-top: 6px solid;
+    border-image: linear-gradient(to right,
+      var(--rojo)     0%,    var(--rojo)     16.66%,
+      var(--naranja)  16.66%, var(--naranja)  33.32%,
+      var(--amarillo) 33.32%, var(--amarillo) 49.98%,
+      var(--verde)    49.98%, var(--verde)    66.64%,
+      var(--azul)     66.64%, var(--azul)     83.3%,
+      var(--morado)   83.3%,  var(--morado)   100%) 1;
+  }
+
+  .navbar-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+  }
+
+  .navbar-logo {
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+  }
+
+  .navbar-logo span {
+    display: inline-block;
+  }
+
+  .nl-a { color: var(--rojo); }
+  .nl-u { color: var(--naranja); }
+  .nl-l { color: var(--amarillo); }
+  .nl-s { color: var(--verde); }
+  .nl-r { color: var(--azul); }
+  .nl-c { color: var(--morado); }
+  .nl-gray { color: #999; }
+
+  .navbar-nav {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    list-style: none;
+  }
+
+  .navbar-nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    position: relative;
+  }
+
+  .navbar-nav a:hover {
+    color: var(--rojo);
+  }
+
+  .navbar-nav a.active {
+    color: var(--rojo);
+    font-weight: 700;
+  }
+
+  .navbar-nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--rojo);
+    border-radius: 2px;
+  }
+
+  /* ══════════════════════════════
+     HERO SECTION — full screen
+     ══════════════════════════════ */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #1a1a2e;
+    padding: 0 2rem;
+  }
+
+  /* diagonal stripes background */
+  .hero-stripes {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    z-index: 0;
+  }
+
+  .stripe {
+    flex: 1;
+    opacity: 0.08;
+    transform: skewX(-8deg) scaleX(1.1);
+  }
+
+  .s1 { background: var(--rojo); }
+  .s2 { background: var(--naranja); }
+  .s3 { background: var(--amarillo); }
+  .s4 { background: var(--verde); }
+  .s5 { background: var(--azul); }
+  .s6 { background: var(--morado); }
+
+  /* rainbow top bar */
+  .hero-rainbow-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(to right,
+      var(--rojo)     0%,    var(--rojo)     16.66%,
+      var(--naranja)  16.66%, var(--naranja)  33.32%,
+      var(--amarillo) 33.32%, var(--amarillo) 49.98%,
+      var(--verde)    49.98%, var(--verde)    66.64%,
+      var(--azul)     66.64%, var(--azul)     83.3%,
+      var(--morado)   83.3%,  var(--morado)   100%);
+    z-index: 10;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 900px;
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hero-title {
+    margin-bottom: 1.5rem;
+    line-height: 1;
+  }
+
+  .title-aula {
+    display: block;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: clamp(48px, 10vw, 96px);
+    letter-spacing: -2px;
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .ta { color: var(--rojo); }
+  .tu { color: var(--naranja); }
+  .tl { color: var(--amarillo); }
+  .ts { color: var(--verde); }
+
+  .title-subtitle {
+    display: block;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: clamp(24px, 6vw, 48px);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 2rem;
+  }
+
+  .hero-subtitle {
+    font-family: 'Nunito', sans-serif;
+    font-size: clamp(14px, 2vw, 20px);
+    font-weight: 700;
+    color: #b0b0d0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .hero-description {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: clamp(15px, 2vw, 18px);
+    color: #d0d0e8;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* nav buttons */
+  .hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 14px 32px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary {
+    background: var(--rojo);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: #d12520;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(232, 48, 42, 0.3);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid #b0b0d0;
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+    transform: translateY(-2px);
+  }
+
+  /* ══════════════════════════════
+     ABOUT SECTION
+     ══════════════════════════════ */
+  .about {
+    background: #ffffff;
+    padding: 5rem 2rem;
+  }
+
+  .about-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .about-title {
+    font-family: 'Nunito', sans-serif;
+    font-size: 38px;
+    font-weight: 900;
+    color: #1a1a2e;
+    margin-bottom: 3rem;
+    text-align: center;
+    letter-spacing: -1px;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .stat-card {
+    padding: 2.5rem;
+    border-radius: 12px;
+    color: white;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+
+  .stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  }
+
+  .stat-card-1 { background: linear-gradient(135deg, var(--rojo), #c92318); }
+  .stat-card-2 { background: linear-gradient(135deg, var(--azul), #2a8ec4); }
+  .stat-card-3 { background: linear-gradient(135deg, var(--verde), #3a9638); }
+
+  .stat-number {
+    font-size: 48px;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.6;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .about-text {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #555;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .about-text strong {
+    color: var(--rojo);
+    font-weight: 700;
+  }
+
+  /* ══════════════════════════════
+     FOOTER
+     ══════════════════════════════ */
+  footer {
+    background: #1a1a2e;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    border-top: 6px solid;
+    border-image: linear-gradient(to right,
+      var(--rojo)     0%,    var(--rojo)     16.66%,
+      var(--naranja)  16.66%, var(--naranja)  33.32%,
+      var(--amarillo) 33.32%, var(--amarillo) 49.98%,
+      var(--verde)    49.98%, var(--verde)    66.64%,
+      var(--azul)     66.64%, var(--azul)     83.3%,
+      var(--morado)   83.3%,  var(--morado)   100%) 1;
+  }
+
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .footer-logo {
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+  }
+
+  .fl-a { color: var(--rojo); }
+  .fl-u { color: var(--naranja); }
+  .fl-l { color: var(--amarillo); }
+  .fl-s { color: var(--verde); }
+  .fl-r { color: var(--azul); }
+  .fl-c { color: var(--morado); }
+  .fl-gray { color: #999; }
+
+  .footer-tagline {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 14px;
+    color: #aaa;
+    font-weight: 600;
+    font-style: italic;
+  }
+
+  .footer-meta {
+    margin-top: 1.5rem;
+    font-size: 13px;
+    color: #888;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 1.5rem;
+  }
+
+  /* ══════════════════════════════
+     RESPONSIVE
+     ══════════════════════════════ */
+  @media (max-width: 768px) {
+    .navbar-content {
+      padding: 0 1rem;
+      height: 60px;
+    }
+
+    .navbar-logo {
+      font-size: 12px;
+    }
+
+    .navbar-nav {
+      gap: 1rem;
+      font-size: 12px;
+    }
+
+    .navbar-nav a {
+      font-size: 12px;
+    }
+
+    .hero {
+      padding: 1rem;
+    }
+
+    .hero-buttons {
+      gap: 1rem;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      font-size: 13px;
+    }
+
+    .about {
+      padding: 3rem 1rem;
+    }
+
+    .about-title {
+      font-size: 28px;
+    }
+
+    .stats-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .stat-card {
+      padding: 2rem;
+    }
+
+    .stat-number {
+      font-size: 36px;
+    }
+
+    .stat-label {
+      font-size: 14px;
+    }
+
+    .about-text {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .navbar-nav {
+      display: none;
+    }
+
+    .title-aula {
+      font-size: 40px;
+    }
+
+    .title-subtitle {
+      font-size: 18px;
+      letter-spacing: 1px;
+    }
+
+    .hero-subtitle {
+      font-size: 12px;
+    }
+
+    .hero-description {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav class="navbar">
+  <div class="navbar-content">
+    <div class="navbar-logo">
+      <span class="nl-a">A</span><span class="nl-u">u</span><span class="nl-l">l</span><span class="nl-a">a</span><span class="nl-s">s</span>
+      <span class="nl-gray"> en </span>
+      <span class="nl-r">R</span><span class="nl-c">e</span><span class="nl-gray">-</span><span class="nl-a">C</span><span class="nl-u">o</span><span class="nl-l">n</span><span class="nl-s">e</span><span class="nl-r">x</span><span class="nl-c">i</span><span class="nl-a">ó</span><span class="nl-u">n</span>
+    </div>
+    <ul class="navbar-nav">
+      <li><a href="index.html" class="active">Inicio</a></li>
+      <li><a href="resumen.html">Resumen</a></li>
+      <li><a href="timeline.html">Línea de Tiempo</a></li>
+      <li><a href="sesion1.html">Sesión 1</a></li>
+      <li><a href="sesion2.html">Sesión 2</a></li>
+      <li><a href="sesion3.html">Sesión 3</a></li>
+      <li><a href="sesion4.html">Sesión 4</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── HERO SECTION ── -->
+<section class="hero">
+  <div class="hero-rainbow-top"></div>
+
+  <!-- stripes background -->
+  <div class="hero-stripes">
+    <div class="stripe s1"></div>
+    <div class="stripe s2"></div>
+    <div class="stripe s3"></div>
+    <div class="stripe s4"></div>
+    <div class="stripe s5"></div>
+    <div class="stripe s6"></div>
+  </div>
+
+  <!-- hero content -->
+  <div class="hero-content">
+    <div class="hero-title">
+      <span class="title-aula">
+        <span class="ta">A</span><span class="tu">U</span><span class="tl">L</span><span class="ta">A</span><span class="ts">S</span>
+      </span>
+      <span class="title-subtitle">EN RE-CONEXIÓN</span>
+    </div>
+
+    <p class="hero-subtitle">Procesos de Formación en Habilidades Socioemocionales para la Gestión de Conflictos</p>
+
+    <p class="hero-description">
+      Una secuencia pedagógica de 4 sesiones para transformar la convivencia escolar en aulas en conflicto. Bogotá, Colombia.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#about" class="btn btn-primary">Conocer más</a>
+      <a href="sesion1.html" class="btn btn-secondary">Comenzar sesiones</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT SECTION ── -->
+<section class="about" id="about">
+  <div class="about-content">
+    <h2 class="about-title">Sobre el Programa</h2>
+
+    <div class="stats-grid">
+      <div class="stat-card stat-card-1">
+        <div class="stat-number">4</div>
+        <div class="stat-label">Sesiones de Aprendizaje<br>90 min c/u</div>
+      </div>
+      <div class="stat-card stat-card-2">
+        <div class="stat-number">96</div>
+        <div class="stat-label">Aulas Participantes<br>Bogotá 2025</div>
+      </div>
+      <div class="stat-card stat-card-3">
+        <div class="stat-number">3</div>
+        <div class="stat-label">Ejes Fundamentales<br>Autoconciencia · Empatía · Cuidado</div>
+      </div>
+    </div>
+
+    <p class="about-text">
+      <strong>Aulas en Re-Conexión</strong> es un programa de intervención basado en <strong>Prácticas Restaurativas</strong> diseñado para transformar la convivencia escolar en aulas marcadas por la violencia entre pares. A través de 4 sesiones de 90 minutos, facilitadores certificados guían a estudiantes en procesos de autoconciencia, empatía y construcción de habilidades para la gestión constructiva de conflictos, fomentando una cultura de cuidado mutuo y responsabilidad colectiva.
+    </p>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-logo">
+      <span class="fl-a">A</span><span class="fl-u">u</span><span class="fl-l">l</span><span class="fl-a">a</span><span class="fl-s">s</span>
+      <span class="fl-gray"> en </span>
+      <span class="fl-r">R</span><span class="fl-c">e</span><span class="fl-gray">-</span><span class="fl-a">C</span><span class="fl-u">o</span><span class="fl-l">n</span><span class="fl-s">e</span><span class="fl-r">x</span><span class="fl-c">i</span><span class="fl-a">ó</span><span class="fl-u">n</span>
+    </div>
+    <p class="footer-tagline">
+      "Cada día es una oportunidad de ser el ambiente que queremos."
+    </p>
+    <div class="footer-meta">
+      <p>Programa de Prácticas Restaurativas para Escuelas en Bogotá, Colombia</p>
+      <p>En asociación con la Secretaría de Educación de Bogotá</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

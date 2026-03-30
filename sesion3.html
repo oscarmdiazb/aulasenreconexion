@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesión 3: Identificando el Conflicto | Aulas en Re-Conexión</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rojo: #E8302A;
+            --naranja: #F47920;
+            --amarillo: #F9C200;
+            --verde: #4BAD4E;
+            --azul: #3AABE3;
+            --morado: #8B4EA6;
+            --gris-oscuro: #2D2D2D;
+            --gris-texto: #4A4A4A;
+            --gris-suave: #F5F5F5;
+            --linea: #E8E8E8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+            color: var(--gris-texto);
+            background-color: #fafafa;
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+            border-top: 6px solid;
+            border-image: linear-gradient(to right, var(--rojo), var(--naranja), var(--amarillo), var(--verde), var(--azul), var(--morado)) 1;
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gris-texto);
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--verde);
+        }
+
+        .nav-links a.active {
+            color: var(--verde);
+            border-bottom: 3px solid var(--verde);
+            padding-bottom: 5px;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #4BAD4E 0%, #5bc85a 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .hero-chips {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .chip {
+            background: rgba(255,255,255,0.25);
+            padding: 10px 18px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* Content */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Intro block */
+        .intro-block {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            margin-bottom: 50px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .intro-block h2 {
+            font-family: 'Nunito', sans-serif;
+            color: var(--verde);
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .intro-section {
+            margin-bottom: 30px;
+        }
+
+        .intro-section h3 {
+            font-family: 'Nunito', sans-serif;
+            color: var(--gris-oscuro);
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .intro-section p, .intro-section ul {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--gris-texto);
+        }
+
+        .intro-section ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .intro-section li {
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .intro-section li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--verde);
+            font-weight: bold;
+        }
+
+        .hse-description {
+            background: var(--gris-suave);
+            padding: 20px;
+            border-left: 4px solid var(--verde);
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .hse-description strong {
+            color: var(--verde);
+            font-family: 'Nunito', sans-serif;
+        }
+
+        /* Momento cards */
+        .momento-card {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .momento-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .momento-header {
+            background: var(--verde);
+            color: white;
+            padding: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .momento-header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .momento-num {
+            font-family: 'Nunito', sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            background: rgba(255,255,255,0.25);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .momento-title {
+            font-family: 'Nunito', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .tiempo-chip {
+            background: rgba(255,255,255,0.25);
+            padding: 8px 14px;
+            border-radius: 16px;
+            font-size: 13px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .momento-body {
+            padding: 30px;
+        }
+
+        .momento-body h3 {
+            font-family: 'Nunito', sans-serif;
+            color: var(--gris-oscuro);
+            font-size: 17px;
+            font-weight: 700;
+            margin: 20px 0 15px 0;
+        }
+
+        .momento-body h4 {
+            font-family: 'Nunito', sans-serif;
+            color: var(--gris-oscuro);
+            font-size: 15px;
+            font-weight: 700;
+            margin: 15px 0 10px 0;
+        }
+
+        .paso-paso {
+            background: var(--gris-suave);
+            padding: 15px 20px;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+
+        .paso-paso ol {
+            margin-left: 20px;
+            padding: 0;
+        }
+
+        .paso-paso li {
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .tip-block {
+            background: #FFF9E6;
+            border-left: 4px solid var(--amarillo);
+            padding: 16px 20px;
+            margin: 15px 0;
+            border-radius: 4px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .tip-block strong {
+            color: var(--gris-oscuro);
+        }
+
+        .momento-body p {
+            margin-bottom: 15px;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .momento-body ul, .momento-body ol {
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+
+        .momento-body li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .quote {
+            font-style: italic;
+            border-left: 4px solid var(--verde);
+            padding-left: 20px;
+            margin: 20px 0;
+            color: var(--gris-oscuro);
+        }
+
+        /* Navigation */
+        .session-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 2px solid var(--linea);
+        }
+
+        .nav-button {
+            padding: 14px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .nav-button.prev {
+            background: var(--gris-suave);
+            color: var(--gris-texto);
+        }
+
+        .nav-button.prev:hover {
+            background: var(--linea);
+        }
+
+        .nav-button.next {
+            background: var(--verde);
+            color: white;
+        }
+
+        .nav-button.next:hover {
+            background: #459043;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--gris-oscuro);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 80px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 15px;
+                font-size: 12px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero-chips {
+                gap: 10px;
+                font-size: 12px;
+            }
+
+            .intro-block {
+                padding: 25px;
+            }
+
+            .momento-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .momento-header-left {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .session-nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-button {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="navbar-container">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVkAAACSCAMAAADYdEkqAAABblBMVEX+/v7////dKjvdKzz+//8ApLnleSuVwSBhU57mHnQ5qODcJzn1xB7cHzMAorg4p+DcGzD99PX65ef1ys788vP76+3kdB3bFSzbDij1wQDldyXhRFPxs7jlAGz9+fnfOUj31djjWWX20dTuoKf43d/0w8fbACPmbnhcTZtZSpriUV7fPUzqiJCOvQD1+v3rkZjnfYXvpqzzur/mcXvkY23i8vrtmJ/qi5Lt+fr0ya8irsHN5/bogIjxrbPjXWhQr+L66d79+emBdrLt6/P2yz/65J27ttT3+vDqlV3a6bqyrM743cn4xtv88dCx2/KY0O6OhbnO7vHvsYvQ46VrXqTywKN5wumkykL30GPxjbS/2YDohz/rmmLtdaCy4edpw9D524Huq3/Z1uaFzdi45Onq8tnJ35SHx+q002zqWZDpQYX1q8rto3D42HihmsT9" alt="Aulas en Re-Conexión" class="logo">
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="resumen.html">Resumen</a></li>
+                <li><a href="timeline.html">Línea de Tiempo</a></li>
+                <li><a href="sesion1.html">Sesión 1</a></li>
+                <li><a href="sesion2.html">Sesión 2</a></li>
+                <li><a href="sesion3.html" class="active">Sesión 3</a></li>
+                <li><a href="sesion4.html">Sesión 4</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="hero-container">
+            <h1>Identificando el Conflicto: Situaciones que Afectan Nuestra Convivencia Escolar</h1>
+            <div class="hero-chips">
+                <div class="chip">⏱ 80 min</div>
+                <div class="chip">🧠 Manejo de conflictos</div>
+                <div class="chip">Com. asertiva</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Intro Block -->
+        <div class="intro-block">
+            <h2>Descripción General de la Sesión</h2>
+
+            <div class="intro-section">
+                <h3>Objetivo</h3>
+                <p>Organizar ejercicios que promuevan la mediación y resolución de conflictos de manera asertiva, evitando la acción con daño.</p>
+            </div>
+
+            <div class="intro-section">
+                <h3>Habilidad Socioemocional a Fortalecer</h3>
+                <div class="hse-description">
+                    <p><strong>Manejo de conflictos:</strong> Va más allá de su resolución o gestión. Es una habilidad que se enfoca en generar cambios constructivos en las dinámicas, relaciones y estructuras que los originan. Se considera el conflicto como una oportunidad para el desarrollo democrático y social, buscando acciones que aporten a transformar, no solo eliminar o controlar el conflicto (Lederach, 2003).</p>
+                    <p style="margin-top: 10px;"><strong>Habilidad específica:</strong> Comunicación asertiva.</p>
+                </div>
+            </div>
+
+            <div class="intro-section">
+                <h3>Materiales Sugeridos</h3>
+                <ul>
+                    <li>Escarapelas y carteleras de acuerdos de sesiones previas</li>
+                    <li>Carteleras o diapositivas con principios de la actividad</li>
+                    <li>Reloj o temporizador</li>
+                    <li>Hojas de papel</li>
+                    <li>Lápices o esferos</li>
+                    <li>Tarjeta verde y roja para medir tiempos de palabra</li>
+                </ul>
+            </div>
+
+            <div class="intro-section">
+                <h3>Acuerdos para el Desarrollo de la Sesión</h3>
+                <ul>
+                    <li>Cada vez que alguien hable debe hacerlo en primera persona</li>
+                    <li>Se tendrá medición del tiempo de las palabras para que todos participen. Un estudiante designado medirá con tarjetas verde y roja</li>
+                    <li>No usar celular u otros elementos que generen desconexión</li>
+                    <li>Lo que se dice en la sesión se queda en la sesión (excepto cuando afecte integridad de personas)</li>
+                    <li>Todas las opiniones son válidas, excepto aquellas que busquen generar daño o sean discriminatorias</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Momento 1 -->
+        <div class="momento-card">
+            <div class="momento-header">
+                <div class="momento-header-left">
+                    <div class="momento-num">1</div>
+                    <div class="momento-title">Dinámica de Conexión</div>
+                </div>
+                <div class="tiempo-chip">⏱ 10 min</div>
+            </div>
+            <div class="momento-body">
+                <p><strong>Nota:</strong> La dinámica de conexión puede realizarse de acuerdo con la autonomía del facilitador/a. Si desea puede aplicar la estrategia del uso de escarapelas para todas las sesiones u otras estrategias que le hayan funcionado previamente. Es muy importante llegar con suficiente tiempo a los momentos centrales de la sesión.</p>
+
+                <h3>Paso a Paso</h3>
+                <div class="paso-paso">
+                    <ol>
+                        <li><strong>Ubicación y formación:</strong> Realizar un círculo interno y uno externo, viéndose frente a frente y asegurando un espacio adecuado para la expresión corporal sin interferencias.</li>
+                        <li><strong>Asignación de Roles:</strong>
+                            <ul style="margin-top: 10px;">
+                                <li><strong>Rol que crea:</strong> Recibe una palabra y la interpreta únicamente con su cuerpo, sin palabras ni sonidos. La creatividad y la expresividad son clave.
+                                    <div style="margin-top: 10px; background: #f0f0f0; padding: 10px; border-radius: 4px; font-size: 14px;">
+                                        <strong>Palabras a dramatizar:</strong> juzgar, evitar, rechazar, ignorar, gritar, escuchar, conversar, diálogo, desacuerdo, comprender, agredir, pegar, llorar, interrumpir, negociar, respirar, reflexionar, reparar, proponer
+                                    </div>
+                                </li>
+                                <li><strong>Rol que observa:</strong> Presta atención a los movimientos de su compañero, identificando emociones, intenciones y dinámicas en la escena representada.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Discusión grupal:</strong> ¿Qué palabras asocian más con los conflictos? ¿Qué emociones sintieron durante la actividad?</li>
+                    </ol>
+                </div>
+
+                <div class="tip-block">
+                    💡 <strong>Nota:</strong> Esta actividad ayuda a preparar el cuerpo y la mente para reflexionar sobre los conflictos. Los movimientos corporales facilitan la expresión emocional de manera segura.
+                </div>
+            </div>
+        </div>
+
+        <!-- Momento 2 -->
+        <div class="momento-card">
+            <div class="momento-header">
+                <div class="momento-header-left">
+                    <div class="momento-num">2</div>
+                    <div class="momento-title">Identificación de Situaciones que Afectan la Convivencia en Mi Aula</div>
+                </div>
+                <div class="tiempo-chip">⏱ 20 min</div>
+            </div>
+            <div class="momento-body">
+                <h3>Paso a Paso</h3>
+                <div class="paso-paso">
+                    <ol>
+                        <li><strong>Disposición del espacio y las personas:</strong> Se propone realizar el ejercicio en círculo, garantizando que todos puedan escucharse mutuamente.</li>
+                        <li><strong>Explicación inicial:</strong> El facilitador/a explica que van a identificar juntos las situaciones que afectan la convivencia en el aula, reconociendo que estos conflictos son oportunidades para aprender y transformar.</li>
+                        <li><strong>Lluvia de ideas:</strong> De manera voluntaria y con apoyo del Tótem de la palabra, los estudiantes comparten las situaciones conflictivas que han observado o vivido en el aula:
+                            <ul style="margin-top: 10px;">
+                                <li>¿Qué situaciones en el aula nos afectan a todos/as?</li>
+                                <li>¿Cuáles son las dinámicas que generan conflicto?</li>
+                                <li>¿Quiénes se ven involucrados en estos conflictos?</li>
+                                <li>¿Cómo nos sentimos cuando estos conflictos ocurren?</li>
+                            </ul>
+                        </li>
+                        <li><strong>Registro:</strong> El facilitador/a registra en una cartelera visible las situaciones mencionadas, organizándolas por tipos (verbal, psicológico, físico, exclusión, etc.).</li>
+                    </ol>
+                </div>
+
+                <div class="tip-block">
+                    💡 <strong>Nota facilitadora:</strong> Es importante validar todas las experiencias compartidas sin juzgar. El objetivo no es identificar culpables, sino reconocer patrones que afectan el ambiente del aula. Esto crea un espacio seguro donde los estudiantes se sienten escuchados.
+                </div>
+            </div>
+        </div>
+
+        <!-- Momento 3 -->
+        <div class="momento-card">
+            <div class="momento-header">
+                <div class="momento-header-left">
+                    <div class="momento-num">3</div>
+                    <div class="momento-title">Estrategias para Abordar Situaciones Conflictivas en mi Aula</div>
+                </div>
+                <div class="tiempo-chip">⏱ 40 min</div>
+            </div>
+            <div class="momento-body">
+                <p><strong>Nota importante:</strong> Para esta actividad será importante mencionar cómo las emociones se reconocen desde el cuerpo, la sensación y percepción de este.</p>
+
+                <h3>Paso a Paso</h3>
+                <div class="paso-paso">
+                    <ol>
+                        <li><strong>Dibujo de la corpografía:</strong> Cada participante realiza un dibujo de sí mismo/a en una hoja de papel en forma de silueta mostrando el cuerpo completo. El dibujo debe ser proporcional a la hoja para poder señalar posteriormente las partes del cuerpo donde sienten las emociones.</li>
+                        <li><strong>Instrucciones:</strong> Deja espacio a los costados para responder las preguntas sugeridas. Se busca la narración de la reacción y la emoción de cómo se vivió el conflicto en el cuerpo.</li>
+                        <li><strong>Serie de preguntas principales (subrayadas como sugeridas):</strong>
+                            <div style="background: var(--gris-suave); padding: 15px; border-radius: 4px; margin: 15px 0;">
+                                <ol style="margin-left: 20px;">
+                                    <li><strong>¿Cómo mis acciones han hecho sentir a las otras personas?</strong> Señala en la corpografía en qué parte del cuerpo sienten la emoción asociada a tu respuesta (puede ser con flecha o símbolo).</li>
+                                    <li><strong>¿Cómo me siento cuando mi forma de responder ante un conflicto no fue la mejor?</strong> Señala en la corpografía dónde sientes esa emoción.</li>
+                                    <li><strong>Recuerda un conflicto que se haya manejado de una manera poco asertiva. ¿Qué sucedió?</strong> (Sin narrar la situación completa) Escribe brevemente qué pasó en alguna parte de la hoja.</li>
+                                    <li><strong>Preguntas complementarias para ubicar en distintas partes del cuerpo:</strong>
+                                        <ul>
+                                            <li>¿En qué estaba pensando en ese momento?</li>
+                                            <li>¿Qué emoción sentía en ese momento?</li>
+                                            <li>¿Cómo se sentía mi cuerpo durante el conflicto?</li>
+                                            <li>¿Qué pude haber hecho para mejorar la situación?</li>
+                                        </ul>
+                                    </li>
+                                </ol>
+                            </div>
+                        </li>
+                        <li><strong>Preguntas opcionales según el rol:</strong> El facilitador/a puede seleccionar preguntas adicionales según si el estudiante ha sido lastimado, testigo, o ha observado agresión:
+                            <ul style="margin-top: 10px;">
+                                <li><strong>Si he sido lastimado:</strong> ¿Qué sentí? ¿Qué impacto ha tenido para mí? ¿Qué ha sido lo más difícil? ¿Qué necesito para sentirme mejor?</li>
+                                <li><strong>Si he sido testigo de alguien siendo lastimado:</strong> ¿Qué sentí al ver esto? ¿Por qué creo que esa persona actuó así? ¿Qué puedo hacer para crear un ambiente más seguro?</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="tip-block">
+                    💡 <strong>Nota facilitadora:</strong> Ninguna de las preguntas es obligatoria. El objetivo es que cada estudiante reflexione a su propio ritmo y profundidad. Recuerda que la participación activa y pasiva son ambas válidas. Los dibujos no necesitan nombres para proteger la privacidad.
+                </div>
+
+                <h3>Reflexión Central: La Corpografía como Herramienta</h3>
+                <p>La corpografía (dibujo del cuerpo con anotaciones emocionales) es una herramienta poderosa porque:</p>
+                <ul>
+                    <li>Conecta la mente racional con la experiencia emocional del cuerpo</li>
+                    <li>Permite expresar lo que a veces no se puede decir con palabras</li>
+                    <li>Crea una distancia segura para reflexionar sobre conflictos propios y ajenos</li>
+                    <li>Desarrolla la inteligencia emocional y la autoconsciencia</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Momento 4 -->
+        <div class="momento-card">
+            <div class="momento-header">
+                <div class="momento-header-left">
+                    <div class="momento-num">4</div>
+                    <div class="momento-title">Mándala Socioemocional</div>
+                </div>
+                <div class="tiempo-chip">⏱ 10 min</div>
+            </div>
+            <div class="momento-body">
+                <p><strong>Objetivo:</strong> Crear un símbolo visual colectivo de las emociones y reflexiones del grupo, cerrando la sesión con compromisos individuales y grupales.</p>
+
+                <h3>Paso a Paso</h3>
+                <div class="paso-paso">
+                    <ol>
+                        <li><strong>Reorganización del espacio:</strong> Pide a los estudiantes que muevan las sillas y mesas hacia los bordes del salón para dejar el centro libre.</li>
+                        <li><strong>Construcción de la mandala:</strong> Ubica los dibujos de la corpografía del momento anterior en el piso, formando una mandala (patrón circular) con los aportes de todos.</li>
+                        <li><strong>Formación del círculo:</strong> Invita a los estudiantes a sentarse en círculo alrededor de la mandala. Tómate un momento para señalar que esa mandala la construyeron entre todos: cada dibujo representa una experiencia real del grupo.</li>
+                        <li><strong>Reflexión grupal desde el círculo:</strong> Desde ese espacio, invita al grupo a reflexionar sobre el papel de cada persona en la convivencia del aula:
+                            <ul>
+                                <li>¿Cómo pueden contribuir al cambio?</li>
+                                <li>¿Qué puede hacer cada uno para que el salón sea un lugar donde todos se sientan bien?</li>
+                            </ul>
+                        </li>
+                        <li><strong>Socialización de compromisos:</strong> Cada estudiante comparte en voz alta su compromiso personal usando la estructura de la Tarjeta de Diálogo:
+                            <div style="background: var(--verde); color: white; padding: 15px; border-radius: 4px; margin: 15px 0;">
+                                <p><strong>Yo me siento...</strong></p>
+                                <p><strong>Cuando...</strong></p>
+                                <p><strong>Porque...</strong></p>
+                                <p><strong>Me gustaría...</strong></p>
+                                <p><strong>Me comprometo a...</strong></p>
+                            </div>
+                        </li>
+                        <li><strong>Ejemplo:</strong>
+                            <div style="background: #f0f0f0; padding: 15px; border-radius: 4px; margin: 15px 0; font-style: italic;">
+                                <p><strong>Yo me siento</strong> triste</p>
+                                <p><strong>Cuando</strong> alguien lastima a otro y nadie dice nada</p>
+                                <p><strong>Porque</strong> todos merecemos sentirnos bien acá</p>
+                                <p><strong>Me gustaría</strong> que pudiéramos hablar sin miedo</p>
+                                <p><strong>Yo me comprometo</strong> a escuchar y hablar si veo algo que no está bien, y tratar mejor a mis compañeros</p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="tip-block">
+                    💡 <strong>Nota:</strong> Pasa las tarjetas una por una. No es obligatorio que todos compartan en voz alta. Las participaciones activas y pasivas son igualmente válidas. El silencio reflexivo también es una forma de participación valiosa.
+                </div>
+
+                <h3>Cierre Significativo</h3>
+                <p>La mandala que crean juntos representa:</p>
+                <ul>
+                    <li>La diversidad de experiencias del grupo</li>
+                    <li>Un espejo colectivo de cómo el conflicto nos afecta a todos</li>
+                    <li>Un símbolo de que el cambio es posible cuando trabajamos juntos</li>
+                    <li>El arte de transformar el dolor en aprendizaje</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Session Navigation -->
+        <div class="session-nav">
+            <a href="sesion2.html" class="nav-button prev">← Sesión 2</a>
+            <a href="sesion4.html" class="nav-button next">Sesión 4 →</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Aulas en Re-Conexión | Secretaría de Educación de Bogotá | Oficina para la Convivencia Escolar</p>
+        <p style="margin-top: 10px; font-size: 12px;">Programa de Prácticas Restaurativas para el Fortalecimiento de la Convivencia Escolar</p>
+    </footer>
+</body>
+</html>

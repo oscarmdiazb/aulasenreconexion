@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesión 2: Comprendiendo el Conflicto | Aulas en Re-Conexión</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rojo: #E8302A;
+            --naranja: #F47920;
+            --amarillo: #F9C200;
+            --verde: #4BAD4E;
+            --azul: #3AABE3;
+            --morado: #8B4EA6;
+            --gris-oscuro: #2D2D2D;
+            --gris-texto: #4A4A4A;
+            --gris-suave: #F5F5F5;
+            --linea: #E8E8E8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+            color: var(--gris-texto);
+            background: #fff;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: white;
+            border-top: 6px solid transparent;
+            border-image: linear-gradient(90deg,
+                var(--rojo) 0%,
+                var(--naranja) 16.66%,
+                var(--amarillo) 33.33%,
+                var(--verde) 50%,
+                var(--azul) 66.66%,
+                var(--morado) 100%) 1;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 20px;
+        }
+
+        .logo {
+            height: 40px;
+            width: auto;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--gris-texto);
+            font-family: 'Nunito', sans-serif;
+            font-weight: 600;
+            font-size: 13px;
+            padding: 8px 14px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: var(--gris-suave);
+        }
+
+        nav a.active {
+            background: var(--naranja);
+            color: white;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, var(--naranja) 0%, rgba(244, 121, 32, 0.9) 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .session-number {
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            opacity: 0.95;
+        }
+
+        .hero h1 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .chips {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 0;
+        }
+
+        .chip {
+            background: rgba(255,255,255,0.25);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.4);
+        }
+
+        /* CONTENT */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .intro-block {
+            background: var(--gris-suave);
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 50px;
+            border-left: 5px solid var(--naranja);
+        }
+
+        .intro-block h2 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--gris-oscuro);
+            margin-bottom: 20px;
+        }
+
+        .intro-block h3 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--gris-oscuro);
+            margin-top: 25px;
+            margin-bottom: 12px;
+        }
+
+        .intro-block p {
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        .intro-block ul {
+            margin: 15px 0 15px 20px;
+            padding-left: 10px;
+        }
+
+        .intro-block li {
+            margin-bottom: 8px;
+        }
+
+        .hse-desc {
+            background: white;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid var(--naranja);
+        }
+
+        .hse-desc strong {
+            color: var(--naranja);
+        }
+
+        /* REFLEXIÓN INICIAL */
+        .reflexion-inicial {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 50px;
+            border: 2px dashed var(--naranja);
+        }
+
+        .reflexion-inicial h2 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--gris-oscuro);
+            margin-bottom: 20px;
+        }
+
+        .reflexion-inicial p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        /* ACUERDOS */
+        .acuerdos-sesion {
+            background: rgba(244, 121, 32, 0.05);
+            padding: 30px;
+            border-radius: 8px;
+            margin: 30px 0;
+            border-left: 4px solid var(--naranja);
+        }
+
+        .acuerdos-sesion h3 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--gris-oscuro);
+            margin-bottom: 15px;
+        }
+
+        .acuerdos-sesion ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .acuerdos-sesion li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        /* MOMENTO CARDS */
+        .momento-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            border: 1px solid var(--linea);
+        }
+
+        .momento-header {
+            background: var(--naranja);
+            color: white;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .momento-num {
+            font-family: 'Nunito', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            opacity: 0.3;
+            min-width: 60px;
+        }
+
+        .momento-info {
+            flex: 1;
+        }
+
+        .momento-title {
+            font-family: 'Nunito', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .tiempo-chip {
+            font-size: 13px;
+            font-weight: 600;
+            opacity: 0.95;
+        }
+
+        .momento-body {
+            padding: 40px;
+        }
+
+        .momento-body h3 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--gris-oscuro);
+            margin: 25px 0 15px 0;
+        }
+
+        .momento-body h4 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--naranja);
+            margin: 20px 0 12px 0;
+        }
+
+        .momento-body p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .momento-body ul {
+            margin: 15px 0 15px 20px;
+        }
+
+        .momento-body li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+
+        .momento-body ol {
+            margin: 15px 0 15px 20px;
+        }
+
+        .momento-body ol li {
+            margin-bottom: 10px;
+        }
+
+        /* TIP BLOCKS */
+        .tip-block {
+            background: rgba(244, 121, 32, 0.08);
+            border-left: 4px solid var(--naranja);
+            padding: 16px 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .tip-block strong {
+            color: var(--naranja);
+            font-weight: 700;
+        }
+
+        /* PRINCIPLES BOX */
+        .principles {
+            background: var(--gris-suave);
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .principles strong {
+            display: block;
+            color: var(--naranja);
+            margin-top: 12px;
+            margin-bottom: 8px;
+        }
+
+        .principles strong:first-child {
+            margin-top: 0;
+        }
+
+        /* QUESTION CATEGORIES */
+        .question-category {
+            margin: 25px 0;
+        }
+
+        .question-category h4 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--naranja);
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--naranja);
+        }
+
+        .question-category ul {
+            margin: 0 0 0 20px;
+        }
+
+        .question-category li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        /* EXAMPLE TABLE */
+        .escena-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 13px;
+        }
+
+        .escena-table td {
+            border: 1px solid var(--linea);
+            padding: 16px;
+            vertical-align: top;
+        }
+
+        .escena-table strong {
+            color: var(--naranja);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* FOOTER NAVIGATION */
+        .session-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 60px;
+            padding: 40px 0;
+            border-top: 2px solid var(--linea);
+        }
+
+        .nav-button {
+            background: var(--naranja);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-button:hover {
+            background: #e06810;
+            transform: translateX(4px);
+        }
+
+        .nav-button:disabled,
+        .nav-button.disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            pointer-events: none;
+            transform: none;
+        }
+
+        .nav-spacer {
+            flex: 1;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .chips {
+                gap: 8px;
+            }
+
+            .chip {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+
+            .container {
+                padding: 40px 16px;
+            }
+
+            .intro-block {
+                padding: 24px;
+            }
+
+            .momento-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .momento-num {
+                margin-bottom: 10px;
+            }
+
+            .momento-body {
+                padding: 24px;
+            }
+
+            .escena-table td {
+                padding: 12px;
+                font-size: 12px;
+            }
+
+            .session-nav {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .nav-button {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav>
+        <div class="navbar-container">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVkAAACSCAMAAADYdEkqAAABblBMVEX+/v7////dKjvdKzz+//8ApLnleSuVwSBhU57mHnQ5qODcJzn1xB7cHzMAorg4p+DcGzD99PX65ef1ys788vP76+3kdB3bFSzbDij1wQDldyXhRFPxs7jlAGz9+fnfOUj31djjWWX20dTuoKf43d/0w8fbACPmbnhcTZtZSpriUV7fPUzqiJCOvQD1+v3rkZjnfYXvpqzzur/mcXvkY23i8vrtmJ/qi5Lt+fr0ya8irsHN5/bogIjxrbPjXWhQr+L66d79+emBdrLt6/P2yz/65J27ttT3+vDqlV3a6bqyrM743cn4xtv88dCx2/KY0O6OhbnO7vHvsYvQ46VrXqTywKN5wumkykL30GPxjbS/2YDohz/rmmLtdaCy4edpw9D524Huq3/Z1uaFzdi45Onq8tnJ35SHx+q002zqWZDpQYX1q8rto3D42HihmsT9" alt="Aulas en Re-Conexión" class="logo">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="resumen.html">Resumen</a></li>
+                <li><a href="timeline.html">Línea de Tiempo</a></li>
+                <li><a href="sesion1.html">Sesión 1</a></li>
+                <li><a href="sesion2.html" class="active">Sesión 2</a></li>
+                <li><a href="sesion3.html">Sesión 3</a></li>
+                <li><a href="sesion4.html">Sesión 4</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-content">
+            <div class="session-number">Sesión 2</div>
+            <h1>Comprendiendo el Conflicto: Emociones, Violencias y Convivencia</h1>
+            <div class="chips">
+                <span class="chip">⏱ 90 min</span>
+                <span class="chip">🧠 Empatía</span>
+                <span class="chip">💝 Conexión Afectiva</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <!-- INTRO BLOCK -->
+        <div class="intro-block">
+            <h2>Objetivo de la Sesión</h2>
+            <p>Abrir encuentros de conversación reflexiva que posibiliten reconocer la interacción entre las emociones, pensamientos y acciones en la vida cotidiana.</p>
+
+            <h3>Habilidad Socioemocional: Empatía</h3>
+            <div class="hse-desc">
+                <p><strong>Empatía</strong> es la habilidad que le permite a una persona entender, conectar emocionalmente y actuar en beneficio del bienestar de los demás.</p>
+                <p style="margin-top: 12px;"><strong>Habilidad específica:</strong> Conexión Afectiva</p>
+            </div>
+
+            <h3>Materiales Necesarios</h3>
+            <ul>
+                <li>💡 Escarapelas y cartelera de acuerdos diseñadas en la sesión previa</li>
+                <li>⏳ Reloj o temporizador para medir los tiempos</li>
+                <li>📽️ Videos sobre acoso escolar y tipos de violencia</li>
+                <li>📺 Video beam o televisor</li>
+                <li>📄 Hojas</li>
+                <li>✏️ Lápices</li>
+                <li>🟥🟩 Una tarjeta verde y una roja</li>
+            </ul>
+        </div>
+
+        <!-- REFLEXIÓN INICIAL -->
+        <div class="reflexion-inicial">
+            <h2>Reflexión Inicial: La Importancia de la Diversidad</h2>
+            <p>Para dar inicio con el encuentro, es importante orientar el diálogo en torno al respeto como elemento fundamental para que la metodología funcione. Se propone una reflexión inicial relacionada a la importancia de reconocer que:</p>
+
+            <p style="margin-top: 20px; font-style: italic; background: rgba(244, 121, 32, 0.1); padding: 20px; border-radius: 6px; border-left: 4px solid var(--naranja);">
+                <em>Las aulas son espacios vivos de aprendizaje y encuentro, donde cada estudiante aporta a la construcción de la comunidad educativa. Sin embargo, a menudo somos testigos de actitudes o comportamientos que reflejan discriminación, muchas veces arraigados en el desconocimiento de las maneras de ser, pensar, sentir y actuar de quienes son diferentes.</em>
+            </p>
+
+            <p style="margin-top: 20px;"><strong>Mensaje central:</strong> Como somos parte de una comunidad, tenemos el privilegio y la responsabilidad de abrazar la diversidad en todas sus manifestaciones: cultural, identitaria, emocional, física, ideológica, lingüística, entre otras. Este compromiso no solo evita los actos de discriminación, sino que también nos permite desafiar la normalización de las violencias en las aulas.</p>
+
+            <p style="margin-top: 15px;"><strong>Recordemos:</strong> Por medio de cada esfuerzo por entender y valorar a quienes son diferentes estaremos aportando hacia un cambio cultural que transformará nuestras aulas en espacios donde se promueva una mejor convivencia.</p>
+        </div>
+
+        <!-- ACUERDOS -->
+        <div class="acuerdos-sesion">
+            <h3>Acuerdos para el Desarrollo de la Sesión</h3>
+            <p style="margin-bottom: 15px; font-size: 14px;"><em>Recuerde tener en cuenta si los acuerdos fueron diferentes a los propuestos en la sesión 1.</em></p>
+            <ul>
+                <li>Cada vez que alguien hable debe hacerlo en primera persona.</li>
+                <li>Se tendrá medición del tiempo de las palabras, con el fin de que todas las personas tengan la posibilidad de participar. Habrá un estudiante designado para la medición y tendrá dos tarjetas para avisar el uso de la palabra: una verde y una roja.</li>
+                <li>Evitar usar el celular u otro elemento que genere desconexión en el desarrollo del ejercicio.</li>
+                <li>Lo que se dice durante la sesión, se queda en la sesión. Excepto cuando lo que se mencione afecte la integridad de alguna de las personas participantes.</li>
+                <li>En la sesión todas las opiniones son válidas, excepto aquellas que tengan como finalidad generar daño, sean discriminatorias, xenófobas, sexistas, etc.</li>
+            </ul>
+            <p style="margin-top: 15px; font-size: 13px;"><em>Nota: El Momento 1 y el Momento 2 pueden realizarse o no de acuerdo con la autonomía del/la gestor/a pedagógico/a, considerando el manejo del tiempo. Es muy importante llegar con suficiente tiempo a los momentos centrales de la sesión.</em></p>
+        </div>
+
+        <!-- MOMENTO 1 -->
+        <div class="momento-card">
+            <div class="momento-header">
+                <div class="momento-num">1</div>
+                <div class="momento-info">
+                    <div class="momento-title">Dinámica de Conexión</div>
+                    <div class="tiempo-chip">⏱ 10-15 min</div>
+                </div>
+            </div>
+            <div class="momento-body">
+                <h3>Objetivo</h3>
+                <p>Disponer al grupo con una actividad divertida de reconocimiento mutuo.</p>
+
+                <p style="margin-top: 20px;">Para dar inicio con la actividad se realizará un breve acuerdo donde todo lo que se hable dentro de la sesión quedará en la confidencialidad. Esto quiere decir que se respeta la palabra de cada persona que hable, así como cada silencio de las personas que deseen no hablar. Serán válidas las participaciones activas y pasivas, por lo que <strong>nada</strong> se trabajará desde la obligatoriedad, sino desde el interés genuino de participar y mejorar la convivencia.</p>
+
+                <h3>Paso a Paso</h3>
+                <ol>
+                    <li>Se invita a las y los estudiantes a ubicarse frente a los carteles de acuerdo con los géneros musicales que les gustan (rock, k-pop, reggaetón, hip-hop, rap, etc).</li>
+                    <li>De acuerdo con la cantidad de grupos y estudiantes por cada uno, el/la gestor puede determinar si desea reducir o ampliar alguno (se sugiere que no sean grupos mayores a 4 estudiantes).</li>
+                    <li>Realizar las siguientes preguntas a cada uno de los grupos y garantizar que cada integrante pueda participar:
+                        <ul style="margin-top: 10px;">
+                            <li>¿Qué emoción sientes al escuchar ese género de música?</li>
+                            <li>¿Qué buscas en una persona para que te genere confianza?</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <div class="tip-block">
+                    💡 <strong>Reflexión pedagógica:</strong> Este puede ser un buen momento para hacer una reflexión breve sobre la empatía y lo que se siente cuando nuestros gustos son distintos a los de otros.
+                </div>
+            </div>
+        </div>
+
+        <!-- MOMENTO 2 -->
+        <div class="momento-card">
+            <div class="momento-header">
+                <div class="momento-num">2</div>
+                <div class="momento-info">
+                    <div class="momento-title">Diálogos Afectivos</div>
+                    <div class="tiempo-chip">⏱ 20-30 min</div>
+                </div>
+            </div>
+            <div class="momento-body">
+                <h3>Objetivo</h3>
+                <p>Aprender a escucharnos de manera profunda y respetuosa.</p>
+
+                <h3>Paso a Paso</h3>
+                <ol>
+                    <li><strong>Espacio y conformación de parejas:</strong> Los estudiantes se numeran en dos grupos y forman dos círculos concéntricos: el grupo 1 en el interno y el grupo 2 en el externo, quedando en parejas frente a frente. El círculo externo rota el número de pasos y en la dirección que indique el facilitador hasta conformar las parejas definitivas. Una vez formadas, los estudiantes se sientan en el piso frente a frente y responden todas las preguntas con la misma pareja.</li>
+                    <li><strong>Conformación de grupos de aficiones:</strong> El facilitador presenta diferentes géneros musicales, deportes, películas o actividades, y los estudiantes se agrupan por afinidad.</li>
+                </ol>
+
+                <h3>Principios de la Conversación</h3>
+                <div class="principles">
+                    <strong>🔒 Confidencialidad:</strong> No compartimos lo conversado fuera del espacio.
+                    <strong>🗣️ Hablar en primera persona:</strong> Expresamos nuestras experiencias sin generalizar.
+                    <strong>🤝 Decidir qué compartir:</strong> Solo decimos lo que nos haga sentir cómodos.
+                    <strong>👂 Escucha activa:</strong> Atención plena sin interrumpir ni juzgar.
+                    <strong>⏳ Tiempo por ronda:</strong> Se asignan entre 1 y 3 minutos, ajustando según el grupo.
+                </div>
+
+                <div class="tip-block">
+                    💡 <strong>Para el facilitador:</strong> Recuerda que hay que tomar el tiempo. Usa estímulo visual para dar el cambio entre rondas.
+                </div>
+
+                <h3>Preguntas Sugeridas por Categoría</h3>
+
+                <div class="question-category">
+                    <h4>Sensibilidad y Gestión Emocional</h4>
+                    <ul>
+                        <li><strong>¿Cómo te sientes en este momento?</strong></li>
+                        <li>¿Cuál ha sido el momento más feliz que has pasado recientemente?</li>
+                        <li>¿Quién es la persona que más quieres y por qué?</li>
+                        <li>¿Cuál es tu mayor anhelo?</li>
+                        <li>¿Qué acciones de los demás te generan confianza?</li>
+                        <li>¿Qué es lo que más te gusta de ti?</li>
+                    </ul>
+                </div>
+
+                <div class="question-category">
+                    <h4>Comunicación y Pertenencia</h4>
+                    <ul>
+                        <li>¿Qué es lo que más admiras en tus compañero/as?</li>
+                        <li>¿Qué quisieras escuchar en un momento de tristeza?</li>
+                        <li><strong>¿Qué necesitas para sentirte parte de un grupo?</strong></li>
+                        <li><strong>¿Si tuvieras que elegir un animal con el que te identificas, cuál sería y por qué?</strong></li>
+                    </ul>
+                </div>
+
+                <div class="question-category">
+                    <h4>Autoconciencia e Identidad</h4>
+                    <ul>
+                        <li>¿Qué crees que te hace una persona única y especial?</li>
+                        <li>¿Qué significa para ti la confianza?</li>
+                        <li><strong>¿Qué es para ti el respeto?</strong></li>
+                    </ul>
+                </div>
+
+                <div class="question-category">
+                    <h4>Reflexión sobre Violencia y Discriminación</h4>
+                    <ul>
+                        <li>¿Alguna vez has dicho algo negativo sobre una persona que es, piensa o siente diferente a ti?</li>
+                        <li>¿Alguna vez te has sentido incómodo/a con la presencia de una persona que piensa, actúa o siente diferente a ti?</li>
+                    </ul>
+                </div>
+
+                <h3>Reflexión Final de los Diálogos</h3>
+                <div class="question-category">
+                    <h4>Preguntas Cierre</h4>
+                    <ul>
+                        <li><strong>¿Cómo te sentiste al ser escuchado sin interrupciones?</strong></li>
+                        <li><strong>¿Cómo te sentiste al escuchar con atención y sin interrumpir?</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- MOMENTO 3 -->
+        <div class="momento-card">
+            <div class="momento-header">
+                <div class="momento-num">3</div>
+                <div class="momento-info">
+                    <div class="momento-title">Desnaturalizar las Violencias</div>
+                    <div class="tiempo-chip">⏱ 25-35 min</div>
+                </div>
+            </div>
+            <div class="momento-body">
+                <h3>Objetivo</h3>
+                <p>Que los estudiantes identifiquen los diferentes roles en un conflicto — quien recibe el daño, quien lo genera y quien lo presencia — y que puedan ponerse en el lugar de cada uno de ellos. Así mismo, que entiendan que conflicto y violencia no son sinónimos y que la violencia no es algo natural.</p>
+
+                <h3>Paso a Paso</h3>
+                <ol>
+                    <li>Ubica a los estudiantes en círculo e introduce una discusión sobre la diferencia entre conflicto y violencia. Esto servirá de introducción para la actividad. Usa las siguientes preguntas como guía:
+                        <ul style="margin-top: 10px;">
+                            <li>¿Qué es un conflicto para ustedes?</li>
+                            <li>¿Quiénes están involucrados en un conflicto?</li>
+                            <li>¿Todos los conflictos involucran violencia?</li>
+                        </ul>
+                    </li>
+                    <li>Para este momento hay <strong>tres propuestas de actividad</strong>: la primera es la proyección de un video sobre los roles de testigo, persona que realiza un daño y persona que recibe un daño; la segunda es contar una historia con esos mismos roles; y la tercera es un ejercicio de dramatización. La elección dependerá del criterio del facilitador y de los recursos disponibles.</li>
+                </ol>
+
+                <h3>Opción A: Proyección de Video</h3>
+                <p><strong>Video recomendado:</strong> "Acoso escolar — cortometraje" (Duración: 3:43 minutos)</p>
+                <p><a href="https://www.youtube.com/watch?v=91HgatU6zL8" style="color: var(--naranja); text-decoration: none; font-weight: 600;">Ver en YouTube: https://www.youtube.com/watch?v=91HgatU6zL8</a></p>
+
+                <h3>Opción B: Dramatización</h3>
+                <p>Pide voluntarios para crear un grupo de personas, en donde cada una asume un rol (persona que recibe el daño, persona que realiza el daño, espectador/a).</p>
+
+                <p style="margin-top: 15px;">El objetivo es que cada grupo pueda dramatizar una situación que consideren conflictiva, donde se vinculen los tres roles. Esto <strong>no debe estar asociado a un conflicto actual del aula</strong> ya que podría generar un acto de revictimización o acción con daño.</p>
+
+                <div class="tip-block">
+                    💡 <strong>Sugerencias:</strong> Ten preparadas la situación que quieres que dramaticen. Recuerda que pueden ser conflictos de todo tipo. Propón varios tipos de conflictos, por ejemplo, entre estudiantes, transeúnte y moto, profe y estudiante, mamá e hijo, ¡sé creativo/a!
+                </div>
+
+                <div class="tip-block">
+                    💡 <strong>Nota pedagógica importante:</strong> Es común que se confunda conflicto con violencia. Una forma divertida y pedagógica de ver esto es decirles a los estudiantes mientras actúan <em>"Que aumente el conflicto"</em> — verás que muchas veces lo que aumenta es la violencia, no el conflicto.
+                </div>
+
+                <h3>Ejemplo de Escena Dramatizada</h3>
+                <p>A continuación, un ejemplo de cómo escalada un conflicto hacia la violencia:</p>
+                <table class="escena-table">
+                    <tr>
+                        <td>
+                            <strong>Escena 1 — Conflicto Inicial</strong>
+                            <p>Sofía y Valentina mirando un celular, cuchicheando y riéndose.</p>
+                            <p><strong>Sofía:</strong> Parce, ¿vio la cara que puso Camila hoy cuando le preguntaron la tarea? ¡Qué oso!</p>
+                            <p><strong>Valentina:</strong> Jajaja re-tonta, y encima es la más lambona del salón. ¡Qué mamera esa vieja!</p>
+                        </td>
+                        <td>
+                            <strong>Escena 2 — Difusión</strong>
+                            <p>Andrés y Juliana miran sus celulares por separado, les llega la notificación.</p>
+                            <p><strong>Juliana:</strong> <em>(se ríe)</em> ¡Ay no, qué buena! Otra vez Camila haciendo el Oso <em>(repostea de una)</em> Esto debería ser un sticker, ¡está demasiado chistoso!</p>
+                            <p><strong>Andrés:</strong> <em>(mira el celular, se le borra la sonrisa)</em> Juemadre... pobre Camila. <em>(pausa)</em> Pero si me meto me van a caer a mí también... mejor me callo <em>(cierra el celular y se queda callado)</em></p>
+                        </td>
+                        <td>
+                            <strong>Escena 3 — Violencia</strong>
+                            <p>Camila corre con rabia hacía Sofía y Valentina.</p>
+                            <p><strong>Camila:</strong> ¡Ustedes publicaron ese video!</p>
+                        </td>
+                    </tr>
+                </table>
+
+                <h3>Opción C: Narración de Historia</h3>
+                <p>Cuenta una historia para reconocer cada uno de los roles. Cuéntalo poco a poco, desglosado y preguntando lo que va pasando, para que sea una reflexión y capturar la atención. Deja que el salón participe.</p>
+
+                <div class="tip-block">
+                    💡 <strong>Facilitación:</strong> Di: <em>"Voy a leer una historia. La idea es que escuchen y traten de identificar las situaciones principales, los personajes y sus emociones. Esta historia tiene dos personajes principales, ¿qué nombres les ponemos?"</em> (Asegúrate que esos nombres no estén en el salón).
+                </div>
+
+                <p style="margin-top: 20px;"><strong>La Historia de Amarillo y Rojo (adaptable):</strong></p>
+
+                <p style="margin-top: 15px;"><em><strong>Escena 1.</strong> Una tarde, durante el recreo, AMARILLO vio algo que la dejó paralizada: un grupo de estudiantes tenían arrinconado a ROJO, el más pequeño del curso. Lo empujaban, le gritaban y se reían de él mientras ROJO lloraba.</em></p>
+
+                <p style="margin-top: 10px;"><em>AMARILLO quiso hacer algo, pero no se atrevía — <strong>si me meto, me trataran de sapo</strong>, pensaba...</em></p>
+
+                <p style="margin-top: 15px;"><em><strong>Escena 2.</strong> La siguiente semana, AMARILLO vio a todos en el salón mirando el celular, y riéndose. ¿Qué pasa? — Preguntó. Mientras tanto vio a ROJO salir corriendo al baño... al parecer un compañero había hecho un post de Instagram con un meme burlándose de una caída que ROJO tuvo durante educación física. Todos se estaban burlando. A AMARILLO le dio rabia y tristeza y fue hasta donde la profe para contarle que no le parecía como a ROJO lo trataban sus compañeros... pero antes de llegar, se arrepintió porque el miedo le pudo más — <strong>mejor no me meto, seguro si digo algo me empiezan a molestar a mí</strong>, pensaba...</em></p>
+
+                <p style="margin-top: 10px;"><em>Sin embargo, desde ese día, AMARILLO no podía dejar de pensar en ROJO. La forma como otros lo trataban le estaba afectando tanto que en las noches no podía dormir cuando se acordaba de lo triste que ROJO estaba. Decidió tratar de acercarse y apoyarlo; lo buscaba con la mirada en los pasillos, compartía con él cuando podía, y trataba de hacerse con él en las actividades de grupo. Sin embargo, cuando alguien lo molestaba o lo excluía, AMARILLO no decía o hacía nada, seguía callada...</em></p>
+
+                <p style="margin-top: 15px;"><em><strong>Escena 3.</strong> Un día AMARILLO se dio cuenta que el pupitre de ROJO estaba vacío y llevaba vacío varios días. Cuando la profe llegó, AMARILLO levantó la mano y le preguntó dónde estaba ROJO; la profe les contó a todos que ROJO se había cambiado de colegio.</em></p>
+
+                <p style="margin-top: 10px;"><em>Esa noche llegó AMARILLO a la casa callada y preocupada, pensando en la mirada de ROJO y la tristeza que lo rodeaba, y preguntándose <strong>si habría sido por la forma en que lo trataban que se había ido del colegio</strong>. Su papá notó su tristeza y le preguntó qué le pasaba. AMARILLO dudó un momento, empezó a llorar, y le contó todo.</em></p>
+            </div>
+        </div>
+
+        <!-- MOMENTO 4 -->
+        <div class="momento-card">
+            <div class="momento-header">
+                <div class="momento-num">4</div>
+                <div class="momento-info">
+                    <div class="momento-title">Ponerse en los Zapatos del Otro</div>
+                    <div class="tiempo-chip">⏱ 10-15 min</div>
+                </div>
+            </div>
+            <div class="momento-body">
+                <p>Explorando roles y emociones en el conflicto.</p>
+
+                <h3>Paso a Paso</h3>
+                <ol>
+                    <li>Organice tres grupos entre todas las personas participantes y asigne un rol de los propuestos a continuación:
+                        <ul style="margin-top: 10px;">
+                            <li><strong>Grupo 1:</strong> Espectadores del conflicto</li>
+                            <li><strong>Grupo 2:</strong> Persona(s) que realizaron un daño</li>
+                            <li><strong>Grupo 3:</strong> Persona(s) que recibieron un daño</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Preguntas de Análisis para Cada Grupo</h3>
+                <ul>
+                    <li>¿Cuál fue el conflicto principal en el video/historia?</li>
+                    <li>¿Qué rol desempeñó tu personaje en la escena?</li>
+                    <li>¿Cómo actuó este rol frente a la violencia? ¿Por qué crees que actuó así?</li>
+                    <li><strong>¿Qué emociones crees que sintieron estos personajes?</strong></li>
+                    <li><strong>¿Cómo te habrías sentido de estar en sus zapatos?</strong></li>
+                    <li>¿De qué otra forma crees que esta persona pudo haber actuado diferente?</li>
+                </ul>
+
+                <div class="tip-block">
+                    💡 <strong>Nota:</strong> Es importante que cada grupo tenga claridad sobre qué rol representa. Esto facilitará la reflexión empática.
+                </div>
+            </div>
+        </div>
+
+        <!-- MOMENTO 5 -->
+        <div class="momento-card">
+            <div class="momento-header">
+                <div class="momento-num">5</div>
+                <div class="momento-info">
+                    <div class="momento-title">Conexión con la Empatía</div>
+                    <div class="tiempo-chip">⏱ 15-20 min</div>
+                </div>
+            </div>
+            <div class="momento-body">
+                <h3>Reflexión: El Conflicto como Oportunidad de Cambio</h3>
+                <p><strong>Objetivo:</strong> Por medio de esta reflexión se invita a concebir las situaciones conflictivas como oportunidades para identificar qué se puede cambiar por el bien de la convivencia, reconociendo el papel de cada integrante de la comunidad educativa.</p>
+
+                <p style="margin-top: 15px;">Se propone actuar desde el reconocimiento de las emociones y la gestión asertiva de las mismas. Esto favorece a una toma de decisiones más adecuada respecto a situaciones que pueden ser confrontativas.</p>
+
+                <h3>Base de la Empatía Verdadera</h3>
+                <p style="margin-top: 20px;"><strong>Es inevitable pensar o sentir diferente.</strong></p>
+
+                <p>La clave para que este ejercicio funcione radica en la sensibilidad desde la empatía. Para llegar a ella, es necesario partir de:</p>
+                <ul style="margin-top: 15px;">
+                    <li>El <strong>yo</strong> mismo</li>
+                    <li>El <strong>cómo me siento</strong></li>
+                    <li>El <strong>cómo expreso</strong> esto que estoy sintiendo</li>
+                </ul>
+
+                <h3>Expresión Artística de la Empatía</h3>
+                <p style="margin-top: 20px;"><strong>Paso a paso:</strong> Cada participante elige cómo quiere expresar un mensaje dirigido al rol que le fue asignado en la actividad anterior. Puede ser una carta, un dibujo, un poema, un cómic o cualquier otra forma que prefiera.</p>
+
+                <p style="margin-top: 15px;"><strong>Importante:</strong> Sin importar el formato, el mensaje debe responder a todas o alguna de estas preguntas:</p>
+
+                <h3>Preguntas para Guiar el Ejercicio</h3>
+                <p style="margin-top: 15px;"><em>Se pueden realizar todas o al menos una.</em></p>
+                <ul>
+                    <li><strong>¿Cómo crees que se sintió la persona en esa situación?</strong></li>
+                    <li><strong>¿Qué le dirías para ayudarle a gestionar sus emociones?</strong></li>
+                    <li><strong>¿Cómo podrías intervenir si estuvieras en su lugar?</strong></li>
+                </ul>
+
+                <p style="margin-top: 20px;"><em><strong>Ejemplo:</strong> Si te asignaron el rol de espectador, escribirás un mensaje a la persona del video, dramatización o historia que también fue espectadora del conflicto.</em></p>
+
+                <div class="tip-block">
+                    💡 <strong>Antes de comenzar:</strong> Lee las preguntas en voz alta y pide a los estudiantes que tengan al menos una en mente mientras trabajan. Esto asegura que todas las expresiones, sin importar el formato, estén conectadas con la reflexión sobre empatía.
+                </div>
+
+                <p style="margin-top: 20px;"><strong>Formatos disponibles:</strong> Los estudiantes pueden usar los formatos de expresión artística disponibles (Dibujo, Poema, Cómic, Chat, Rap o cualquier otro formato que consideren apropiado).</p>
+            </div>
+        </div>
+
+        <!-- NAVIGATION -->
+        <div class="session-nav">
+            <a href="sesion1.html" class="nav-button">← Sesión 1</a>
+            <div class="nav-spacer"></div>
+            <a href="sesion3.html" class="nav-button">Sesión 3 →</a>
+        </div>
+    </div>
+</body>
+</html>
