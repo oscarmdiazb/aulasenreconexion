@@ -1,0 +1,914 @@
+# Currículum - Aulas en Re-Conexión (versión 2026)
+
+Estimadas y estimados gestores/as territoriales,
+
+A su disposición se encuentra un conjunto de herramientas pedagógicas que conforman una guía de implementación, desarrollada como parte de un proceso colaborativo que integra la experiencia, el tiempo y el conocimiento de distintos equipos de la Oficina para la Convivencia Escolar.
+
+Muchas de las actividades incluidas resultarán familiares, dado que han sido cuidadosamente seleccionadas a partir de las cajas de herramientas pedagógicas desarrolladas por la Secretaría de Educación Distrital. El propósito fundamental ha sido construir sobre el trabajo ya realizado y reconocer la invaluable labor que los distintos miembros de la comunidad educativa han llevado a cabo a lo largo del tiempo.
+
+Aulas en Re-Conexión es una secuencia pedagógica dirigida a estudiantes de aulas en las que se han presentado situaciones conflictivas, con la convicción de que las sesiones propuestas pueden contribuir significativamente a una mejor comprensión y gestión de los conflictos, tanto actuales como futuros.
+
+Las sesiones han sido diseñadas con los siguientes propósitos:
+
+Fortalecer vínculos positivos entre estudiantes mediante el reconocimiento propio y mutuo. 
+
+Promover la reflexión sobre el rol de cada estudiante en los conflictos y su capacidad de transformarlos. 
+
+Desnaturalizar la violencia y establecer una distinción clara entre conflicto y violencia. 
+
+Desarrollar habilidades socioemocionales para una mejor convivencia: el autoconocimiento, la empatía y el manejo de conflictos. 
+
+Proveer herramientas concretas para la gestión y resolución de conflictos dentro y fuera del aula.
+
+Agradecemos profundamente su compromiso implementando esta secuencia pedagógica y reconocemos su labor como un pilar de la creación de un mejor clima de aula para todos y todas. 
+
+Atentamente, 
+
+Equipo de la Oficina de Convivencia Escolar
+
+## Recomendaciones pedagógicas para el desarrollo de las sesiones
+
+A continuación, se comparten una serie de principios y recomendaciones transversales a todo el proceso, que se consideran fundamentales para el buen desarrollo del proceso. 
+
+La importancia del círculo
+
+De acuerdo con previas experiencias, se ha considerado que esta es una excelente estrategia para gestionar el espacio, entendiendo que el círculo se gesta como una manera para escuchar colectivamente, construir comunidad, tomar decisiones y formar relaciones horizontales.
+
+Habilidades socioemocionales (HSE) y expresión emocional
+
+Es necesario hacer la socialización de aquella HSE que será trabajada por cada sesión. A su vez, para iniciar el ejercicio se propone preguntar a las y los asistentes qué emoción sienten y a su vez, validar constantemente sus respuestas, ya que no hay respuestas correctas o incorrectas.
+
+Acuerdos del grupo y creación de contenido
+
+Al inicio de todo el proceso es necesario establecer los acuerdos de grupo de manera colectiva. Estos acuerdos podrán ser exhibidos en el salón en carteleras que puedan poner en el aula, según lo consideren colectivamente.
+
+Contacto con el responsable del curso
+
+Se recomienda establecer comunicación con la persona encargada del curso que relizará el proceso. A través de este contacto, se podrá obtener información detallada sobre el contexto del grupo, comprender las dinámicas de convivencia y conocer las expectativas de la Institución Educativa Distrital (IED) y de la comunidad educativa respecto a la integración de la educación socioemocional en el aula. Es importante vincular a las y los docentes presentes en la sesión desde el inicio, ya sea haciéndoles partícipes de la ejecución de cada taller o asignándoles, con una invitación amable, alguna labor que aporte al desarrollo del espacio, como el registro de actitudes, reacciones o percepciones que se evidencien o se expresen en las y los estudiantes.
+
+Acuerdos con la IED
+
+Es importante que en esta gestión se acuerden los siguientes puntos:
+
+Lugar donde se realizarán las sesiones: el espacio tiene un gran impacto en las actividades. Por ello, se recomienda solicitar un espacio amplio y adecuado para las todas las sesiones.
+
+Disponibilidad de tiempo libre de interrupciones: teniendo en cuenta que el proceso de cada sesión tiene varias momentos, se sugiere que al establecer contacto con la IED se determine que los tiempos de cada encuentro estén libres de interrupciones y eventos alternos del colegio como izadas de bandera u otros espacios académicos alternos, así como descansos o entregas de refrigerios, ya que las interrupciones pueden afectar el proceso de fortalecimiento. 
+
+Corresponsabilidad por la IED: de acuerdo con lo establecido, las instituciones educativas tendrán una persona a cargo del proceso, que tenga la disponibilidad y disposición para asistir, apoyar, y participar en el espacio. 
+
+Preparación de materiales y modificaciones metodológicas 
+
+Cada planeación cuenta con unos materiales propuestos para la realización las sesiones, por lo que será necesario revisar y preparar los materiales, así como identificar si debido al contexto específico es pertinente realizar modificaciones en las acciones de las metodologías planteadas en este documento, tales como ajustes en preguntas o actividades.
+
+Esta herramienta puede adaptarse de acuerdo con el criterio de quien la utilice, sin embargo, el objetivo de cada sesión debe ser cuidado y priorizado, y las actividades centrales deben hacerse en las 4 sesiones. Por ello, se invita a gestionar el tiempo de tal manera que se garantice el espacio central que está enfocado en la habilidad socioemocional a trabajar.
+
+Cada persona que implemente la herramienta podrá decidir cómo liderar y realizar la actividad rompe hielo o espacio de conexión. En este caso, se sugiere que independiente de si se realiza modificación, se tengan en cuenta los tiempos propuestos.
+
+    7. Implementación de acciones complementarias 
+
+Adicional a las sesiones de formación, se le recomendará a la IED, a través de la persona encargada del curso, dar continuidad al proceso e implementar acciones dirigidas al fortalecimiento de las habilidades socioemocionales. Para ello, se recomienda el uso de la malla de aprendizaje en habilidades socioemocionales de la Secretaría de Educación Distrital (SED).
+
+## Sesión 1: Circulo de las Emociones: Reconocimiento Propio y Mutuo
+
+Duración: 90 minutos.
+
+Objetivo: Explorar la relación entre las emociones y las acciones — tanto propias como de quienes nos rodean — para desarrollar mayor conciencia sobre cómo lo que sentimos influye en cómo actuamos.
+
+Habilidad socioemocional que fortalecer: Autoconciencia
+
+Descripción: Entendida como la habilidad para conocerse y valorarse a sí mismo. Implica dirigir la mirada hacia el mundo interior y tomar conciencia de las propias emociones, experiencias, y cómo influyen en el comportamiento en diferentes contextos. De igual manera, se relaciona con las actitudes y las creencias del individuo sobre sí, lo cual deriva en la posibilidad de conocernos, entendernos y confiar en nosotros mismos.
+
+Habilidad específica: Autorregulación
+
+Materiales
+
+📚 Escarapelas.
+
+📝 Papel periódico o implemento para tomar notas (para registrar saberes).
+
+✏️ Lápices, esferos, colores y marcadores.
+
+🗿 Tótem de la palabra (objeto pequeño y fácil de manipular).
+
+📌 Post-it.
+
+🟥🟩 Una tarjeta verde y una roja (puede hacerse con papel iris)
+
+### Introducción de todo el proceso
+
+Para comenzar, el/la gestor/a que lidera el ejercicio presenta una introducción de los 4 encuentros que se desarrollarán a partir de ese día. La introducción se realiza de forma dinámica mediante un ejercicio libre que el/la gestor(a) facilite y decida según el contexto del grupo, ya que esto permitirá activar la participación desde el inicio, reconocer expectativas e intereses de las y los participantes y conectar el propósito de la jornada con su experiencia cotidiana, favoreciendo mayor disposición, apropiación y sentido frente a los encuentros que se proyectan. Se explicará que:
+
+Con el fin de fortalecer la convivencia escolar, se propone una estrategia basada en cuatro espacios pedagógicos. 
+
+El primero promoverá el reconocimiento propio y mutuo, así como la comunicación asertiva, indispensables para la gestión de los conflictos. 
+
+En un segundo momento, se organizarán actividades de aplicación práctica, en las que los y las estudiantes pondrán en acción estas habilidades a través de dinámicas y simulaciones. 
+
+Posteriormente, será un espacio de diálogo reflexivo, donde los y las estudiantes podrán compartir sus experiencias personales sobre conflictos vividos en el entorno escolar. 
+
+Finalmente, se creará un espacio de retroalimentación colectiva, donde se analizarán los aprendizajes obtenidos, reforzando así el compromiso con una convivencia más respetuosa y armoniosa en el aula.
+
+### Momento 1: Dinámica de conexión
+
+Nota: La actividad puede realizarse de acuerdo con la autonomía del(la) mediador(a) pedagógico(a) considerando el manejo del tiempo. Es muy importante llegar con suficiente tiempo a los momentos centrales de la sesión. 
+
+Descripción actividad: 
+
+Opción 1. Círculos concéntricos: Los estudiantes se numeran en dos grupos y forman dos círculos concéntricos: el grupo 1 en el interno y el grupo 2 en el externo, quedando en parejas frente a frente. Cada pareja responde la misma pregunta por turnos. Al terminar, el círculo externo rota dos pasos a la derecha — con una palmada por cada paso — para formar una nueva pareja y responder la siguiente pregunta.
+
+Opción 2. Subgrupos en círculos. Se divide el grupo en 6 o 7 subgrupos. Cada subgrupo forma un círculo. Cada estudiante compartirá dos preguntas con su compañero/a del lado derecho (ambos responden) y una pregunta con su compañero/a del lado izquierdo (ambos responden).
+
+¿Cómo te llamas? 
+
+¿Cómo te gusta que te llamen?
+
+¿Qué super poder te gustaría tener?
+
+Después de responder cada pregunta, le daremos las gracias a la persona que nos escuchó.
+
+### Momento 2: Diseño de escarapelas: ¿Cómo me gusta que me llamen?
+
+Paso a paso:
+
+Entrega de materiales: Entrega una escarapela o ficha bibliografía a cada estudiante (Revisa el material adjunto: Escarapelas – Aulas en Re-Conexión). En el centro del espacio, dispón marcadores y colores para que los estudiantes los usen a medida que los necesiten.
+
+Escarapelas de identificación: Cada estudiante escribirá en su ficha la forma en que le gusta que le llamen en el salón de clases — no solo sus amigos cercanos, sino todos sus compañeros.
+
+Socialización: Pide a cada estudiante que se ponga de pie y comparta con el grupo cómo le gusta que lo llamen. El grupo completo debe hacerlo en menos de dos minutos.
+
+Reconoce a un compañero/a: Pide a cada estudiante que se gire hacia la persona a su lado. Al dirigirse a él o ella, debe leer el nombre en su escarapela y hacerle la siguiente pregunta: [Nombre en escarapela], ¿qué es lo que más te gusta hacer para divertirte? Dale al grupo 30 segundos para este intercambio.
+
+Uso de escarapelas: Cada estudiante se pondrá la escarapela durante el resto de las sesiones. 
+
+Este es un buen momento para reflexionar sobre la habilidad socioemocional central de la sesión: la Auto-Conciencia. A partir de la actividad de cómo me gusta que me llamen, invita al grupo a pensar en la importancia de conocerse y valorarse a uno mismo/a. Como personas, tenemos derecho a que los demás nos llamen como nos gusta — y a pedir que no nos llamen como no nos gusta. Reconocer eso es un primer paso para conocerse y respetarse.
+
+💡 Al finalizar la jornada, el/la gestor/a recogerá todas las escarapelas para traerlas a las próximas sesiones. En los encuentros siguientes, se repartirán nuevamente para reforzar el mensaje sobre la importancia de conocer y respetar cómo cada persona quiere ser llamada.
+
+### Momento 3:  Acuerdos para Establecer la Confianza
+
+#### Organización del Espacio
+
+🔸 Se dispondrán las sillas en un círculo, evitando formas como óvalos, U o doble círculo.
+
+🔸 Todos y todas deben estar equidistantes del centro, en igualdad de condiciones para expresarse y ser escuchados/as.
+
+🔸 Si hay sillas vacías o faltan, el círculo no estará completo. Es importante cerrar el círculo para que todos y todas puedan verse y la energía fluya sin barreras.
+
+💡 Explica la intención de encontrarse de esta manera: en círculo nos podemos ver todas y todos. En círculo todas y todos somos iguales, no hay jerarquías, en círculo nadie se esconde detrás de nadie, en círculo la palabra circula y la energía fluye.
+
+Actitudes Clave para un Círculo Armonioso
+
+Estas actitudes clave pueden introducirse mediante un rompecabezas de palabras y conceptos, distribuido de forma aleatoria entre las y los estudiantes (Revisa el material adjunto: Rompecabezas – Actitudes Clave – Aulas en Re-Conexión). A continuación, se irán socializando en voz alta: cada estudiante mencionará la palabra o concepto que le correspondió y el grupo intentará identificar quién tiene la definición asociada. Una vez se haga el emparejamiento palabra–definición, se retomará cada elemento para recalcar que estas serán las actitudes clave que guiarán el círculo.
+
+•	Sinceridad: Decir lo que se piensa de corazón.
+
+•	Aceptación: Respetar la opinión de los demás.
+
+•	Empatía: Comprender y validar las emociones de los demás sin juzgar.
+
+•	Humildad: Reconocer que todas las personas somos igualmente valiosas.
+
+•	Confianza: Creer en quienes nos rodean.
+
+•	Paciencia: Escuchar con atención y respetar turnos de palabra.
+
+•	Confidencialidad: Mantener en el círculo lo que allí se comparte.
+
+•	Perseverancia: Cuidar el círculo, incluso si surgen dificultades.
+
+Acuerdos para un Círculo Armonioso
+Uso de materiales:  Se realizará la entrega de marcadores y papel kraft para hacer el diseño de la cartelera de acuerdos del proceso de formación.
+
+Invita a los estudiantes a construir una serie de acuerdos que fomentan la confianza y que se tendrán en cuenta en cada una de las sesiones posteriores. Adicional a los acuerdos que proponga el curso, el/la gestor/a que lidera propone los siguientes: 
+
+Cada vez que alguien hable debe hacerlo en primera persona.
+
+Se tendrá medición del tiempo de las palabras, con el fin de que todas las personas tengan la posibilidad de participar. Habrá un estudiante designado para la medición y tendrá dos tarjetas para avisar el uso de la palabra: una verde y una roja.
+
+No usar el celular en el desarrollo del ejercicio.
+
+Lo que se dice en el circulo, se queda en círculo. Excepto cuando lo que se mencione afecte la integridad de alguna de las personas participantes.
+
+En el círculo todas las opiniones son válidas, excepto aquellas que tengan como finalidad generar daño, sean discriminatorias, xenófobas, sexistas, etc. 
+
+💡 Luego de esto, se ubicará la “cartelera” de los acuerdos en un lugar visible en TODAS las sesiones del proceso. Estos acuerdos colectivos son la BASE del proceso. ¡No olvides traerlos en la próxima sesión!
+
+###  Momento 4: El Círculo de la Palabra
+
+“El círculo no es simplemente una reunión con sillas ubicadas en forma redonda, es más bien una manera de escucharse, de construir sabiduría, de construir comunidad, de tomar decisiones de modo muy diferente a como se acostumbra. Esta forma de utilizar el espacio transmite una voluntad, por parte de quienes lo integran, de socialización en una conversación y escucha profunda y respetuosa.” Jean Smith (2024).
+
+Como parte de esta apertura, se invita a las y los estudiantes a responder las siguientes preguntas. Para este momento, es importante tener un Tótem de la palabra, que puede ser algún elemento que este en el salón o algún elemento que cada profesional quiera utilizar. El Tótem rotara por el circulo y solo quien lo tiene toma la palabra.
+
+A continuación, se proyectan una serie de preguntas que la gestora podrá realizar en el marco del encuentro.
+
+¿Qué necesito para sentirme feliz y aceptado en un espacio?
+
+¿Qué es lo que más me gusta de mi salón?
+
+¿Qué quisieras transformar de mi salón?
+
+*Estas preguntas son sugeridas, pero el/la gestor/a puede utilizar las que consideren pertinentes o proponer otras que cumplan con el objetivo de fortalecer la confianza en el grupo.
+
+### Momento 5: Cierre del Círculo - Reflexión y Compromiso
+
+Tan importante como iniciar el círculo, es cerrarlo de manera significativa. Para esto, se propone la siguiente revisión:
+
+Reconocer los logros alcanzados.
+
+Expresar emociones y experiencias.
+
+Recoger las ideas fundamentales.
+
+Definir compromisos individuales y grupales.
+
+Paso a paso: 
+
+Dar una ficha bibliográfica o nota adhesiva a casa participante.
+
+En las fichas o papeles las y los estudiantes escribirán las respuestas a las siguientes preguntas: 
+
+¿Cuál frase, palabra o emoción describe mi experiencia o aprendizajes durante el círculo?
+
+¿Qué puedo hacer yo, desde mi lugar, para que este salón sea un espacio donde todos nos sintamos bien?
+
+Posteriormente, cada estudiante realiza la lectura en voz alta y pondrá en el centro del espacio sus aportes, formando un mándala en el piso del espacio. Posteriormente, estos papeles se recogerán y serán sustento de la sistematización del proceso. 
+
+El facilitador/a termina con una reflexión final de la sesión.
+
+## Sesión 2: Comprendiendo el Conflicto: Emociones, Violencias y Convivencia
+
+Duración estimada: 90 minutos. 
+
+Objetivo: Abrir encuentros de conversación reflexiva que posibiliten reconocer la interacción entre las emociones, pensamientos y acciones en la vida cotidiana.
+
+Habilidad socioemocional por fortalecer: Empatía
+
+Descripción: Habilidad que le permite a una persona entender, conectar emocionalmente y actuar en beneficio del bienestar de los demás. 
+
+Habilidad específica: Conexión afectiva
+
+Materiales sugeridos:
+
+💡 Escarapelas y cartelera de acuerdos diseñadas en la sesión previa
+
+⏳ Reloj o temporizador para medir los tiempos.
+
+📽️ Videos sobre acoso escolar y tipos de violencia (revisar metodología).
+
+📺 Video beam o televisor (hay una opción para colegios que no tienen posibilidad de proyectar).
+
+📄 Hojas.
+
+✏️ Lápices.
+
+🟥🟩 Una tarjeta verde y una roja.
+
+Reflexión Inicial 
+
+Para dar inicio con el encuentro, es importante orientar el diálogo en torno al respeto como elemento fundamental para que la metodología funcione. Por ello, se propone una reflexión inicial relacionada a la importancia de reconocer que las aulas son espacios vivos de aprendizaje y encuentro, donde cada estudiante aporta a la construcción de la comunidad educativa. Sin embargo, a menudo somos testigos de actitudes o comportamientos que reflejan discriminación, muchas veces arraigados en el desconocimiento de las maneras de ser, pensar, sentir y actuar de quienes son diferentes. Como somos parte de una comunidad, tenemos el privilegio y la responsabilidad de abrazar la diversidad en todas sus manifestaciones: cultural, identitaria, emocional, física, ideológica, lingüística, entre otras. Este compromiso no solo evita los actos de discriminación, sino que también nos permite desafiar la normalización de las violencias en las aulas. Recordemos que por medio de cada esfuerzo por entender y valorar a quienes son diferentes estaremos aportando hacia un cambio cultural que transformará nuestras aulas en espacios donde se promueva una mejor convivencia.
+
+### Acuerdos para el desarrollo de la sesión
+
+Recuerde tener en cuenta si los acuerdos fueron diferentes a los propuestos en la sesión 1 (los verá a continuación).
+
+🔸 Cada vez que alguien hable debe hacerlo en primera persona.
+
+🔸 Se tendrá medición del tiempo de las palabras, con el fin de que todas las personas tengan la posibilidad de participar. Habrá un estudiante designado para la medición y tendrá dos tarjetas para avisar el uso de la palabra: una verde y una roja.
+
+🔸 Evitar usar el celular u otro elemento que genere desconexión en el desarrollo del ejercicio.
+
+🔸 Lo que se dice durante la sesión, se queda en la sesión. Excepto cuando lo que se mencione afecte la integridad de alguna de las personas participantes.
+
+🔸 En la sesión todas las opiniones son válidas, excepto aquellas que tengan como finalidad generar daño, sean discriminatorias, xenófobas, sexistas, etc.
+
+Nota: El momento 1, la actividad rompe hielo o dinámica de conexión, y el Momento 2, diálogos afectivos, pueden realizarse o no de acuerdo con la autonomía del(la) gestor(a) pedagógico(a), ya que si desea puede aplicar la estrategia del uso de escarapelas en la sesión 1 para todas las sesiones u otras estrategias que considere que le han funcionado previamente, considerando el manejo del tiempo. Es muy importante llegar con suficiente tiempo a los momentos centrales de la sesión.
+
+### Momento 1: Dinámica de conexión
+
+#### Objetivo: Disponer al grupo con una actividad divertida de reconocimiento mutuo.
+
+Para dar inicio con la actividad se realizará un breve acuerdo donde todo lo que se hable dentro de la sesión quedará en la confidencialidad. Esto quiere decir, que se respeta la palabra de cada persona que hable, así como cada silencio de las personas que deseen no hablar. Serán válidas las participaciones activas y pasivas, por lo que nada se trabajará desde la obligatoriedad, sino desde el interés genuino de participar y mejorar la convivencia.
+
+Paso a paso:
+
+ Se invita a las y los estudiantes a ubicarse frente a los carteles de acuerdo con los géneros musicales que les gustan (rock, k-pop, reggaetón, hip-hop, rap, etc).
+
+💡 Este puede ser un buen momento para hacer una reflexión breve sobre la empatía y lo que se siente cuando nuestros gustos son distintos a los de otros.
+
+De acuerdo con la cantidad de grupos y estudiantes por cada uno, el /la gestor puede determinar si desea reducir o ampliar alguno (se sugiere que no sean grupos mayores a 4 estudiantes).
+
+Realizar las siguientes preguntas a cada uno de los grupos y garantizar que cada integrante pueda participar:
+
+¿Qué emoción sientes al escuchar ese género de música?
+
+¿Qué buscas en una persona para que te genere confianza?
+
+### Momento 2: Diálogos Afectivos
+
+#### Objetivo: Aprender a escucharnos.
+
+#### Paso a paso: 
+
+Espacio y conformación de parejas: Los estudiantes se numeran en dos grupos y forman dos círculos concéntricos: el grupo 1 en el interno y el grupo 2 en el externo, quedando en parejas frente a frente. El círculo externo rota el número de pasos y en la dirección que indique el facilitador hasta conformar las parejas definitivas. Una vez formadas, los estudiantes se sientan en el piso frente a frente y responden todas las preguntas con la misma pareja.
+
+Nota: Recuerda que hay que tomar el tiempo. Usa con estimulo visual dar el cambio. 
+
+Principios de la conversación: 
+
+🔒 Confidencialidad: No compartimos lo conversado fuera del espacio. 
+
+🗣️ Hablar en primera persona: Expresamos nuestras experiencias sin generalizar. 
+
+🤝 Decidir qué compartir: Solo decimos lo que nos haga sentir cómodos.
+
+➕ Principios adicionales: Se pueden añadir según el grupo.
+
+👂 Escucha activa: Atención plena sin interrumpir ni juzgar. 
+
+🗣️ Expresión personal: Hablar desde la propia experiencia en primera persona.
+
+⏳ Tiempo por ronda: Se asignan entre 1 y 3 minutos, ajustando según el grupo. 
+
+Selección de las preguntas: Estarán subrayadas aquellas preguntas que se recomiendan hacer en el espacio, sin embargo, el o la gestora puede sugerir otras preguntas, según cómo perciba la recepción de parte de las y los participantes. 
+
+Sensibilidad y gestión emocional
+
+¿Cómo te sientes en este momento?
+
+¿Cuál ha sido el momento más feliz que has pasado recientemente? 
+
+¿Quién es la persona que más quieres y por qué?
+
+¿Cuál es tu mayor anhelo?
+
+¿Qué acciones de los demás te generan confianza?
+
+¿Qué es lo que más te gusta de ti?
+
+Comunicación
+
+¿Qué es lo que más admiras en tus compañero/as?
+
+¿Qué quisieras escuchar en un momento de tristeza?
+
+¿Qué necesitas para sentirte parte de un grupo?
+
+¿Si tuvieras que elegir un animal con el que te identificas, cuál sería y por qué?
+
+Para fomentar la autoconciencia y la identidad:
+
+
+¿Qué crees que te hace una persona única y especial?
+
+¿Qué significa para ti la confianza?
+
+¿Qué es para ti el respeto?
+
+Para reflexionar sobre la violencia y la discriminación:
+
+¿Alguna vez has dicho algo negativo sobre una persona que es, piensa o siente diferente a ti?
+
+¿Alguna vez te has sentido incómodo/a con la presencia de una persona que piensa, actúa o siente diferente a ti?
+
+Reflexión final:
+
+¿Cómo te sentiste al ser escuchado sin interrupciones?
+
+¿Cómo te sentiste al escuchar con atención y sin interrumpir?
+
+### Momento 3: Desnaturalizar las Violencias
+
+#### Objetivo: Que los estudiantes identifiquen los diferentes roles en un conflicto — quien recibe el daño, quien lo genera y quien lo presencia — y que puedan ponerse en el lugar de cada uno de ellos. Así mismo, que entiendan que conflicto y violencia no son sinónimos y que la violencia no es algo natural. 
+Paso a paso:
+
+Ubica a los estudiantes en círculo e introduce una discusión sobre la diferencia entre conflicto y violencia. Esto servirá de introducción para la actividad. Usa las siguientes preguntas como guía:
+
+¿Qué es un conflicto para ustedes? 
+
+¿Quiénes están involucrados en un conflicto? 
+
+¿Todos los conflictos involucran violencia?
+
+Para este momento hay tres propuestas de actividad: la primera es la proyección de un video sobre los roles de testigo, persona que realiza un daño y persona que recibe un daño; la segunda es contar una historia con esos mismos roles; y la tercera es un ejercicio de dramatización. La elección dependerá del criterio del facilitador y de los recursos disponibles.
+
+Proyección del video: Acoso escolar – cortometraje (Duración de 3:43 minutos) - Acoso Escolar - Cortometraje - YouTube: https://www.youtube.com/watch?v=91HgatU6zL8
+
+Dramatización: Pide voluntarios para crear un grupo de personas, en donde cada una asume un rol (persona que recibe el daño, persona que realiza el daño, espectador/a). 
+
+El objetivo es que cada grupo pueda dramatizar una situación que consideren conflictiva, donde se vinculen los tres roles. Esto no debe estar asociado a un conflicto actual del aula ya que podría generar un acto de revictimización o acción con daño.
+
+💡Ten preparadas la situación que quieres que dramaticen. Recuerda que pueden ser conflictos de todo tipo. Propón varios tipos de conflictos, por ejemplo, entre estudiantes, transeúnte y moto, profe y estudiante, mamá e hijo, ¡se creativo/a! 
+
+Es común que se confunda conflicto con violencia. Una forma divertida y pedagógica de ver esto, es decirles a los estudiantes mientras actúan “Que aumente el conflicto” --> verás que muchas veces lo que aumenta es la violencia... 
+
+A continuación, un ejemplo. 
+
+Historia: Cuenta una historia para reconocer cada uno de los roles (se propone la siguiente, pero es posible usar otra). Cuéntalo poco a poco, desglosado y preguntando lo que va pasando, para que sea una reflexión y capturar la atención. Dejar que el salón participe.
+
+Voy a leer una historia. La idea es que escuchen y traten de identificar las situaciones principales, los personajes y sus emociones. 
+
+Esta historia tiene dos personajes principales, ¿qué nombres les ponemos? (asegúrate que esos nombres no estén en el salón).
+
+Escena 1. Una tarde, durante el recreo, AMARILLO vio algo que la dejó paralizada: un grupo de estudiantes tenían arrinconado a ROJO, el más pequeño del curso. Lo empujaban, le gritaban y se reían de él mientras ROJO lloraba. 
+
+AMARILLO quiso hacer algo, pero no se atrevía — si me meto, me trataran de sapo, pensaba... 
+
+Escena 2. La siguiente semana, AMARILLO vio a todos en el salón mirando el celular, y riéndose. ¿Qué pasa? -- Preguntó. Mientras tanto vio a ROJO salir corriendo al baño... al parecer un compañero había hecho un post de Instagram con un meme burlándose de una caída que ROJO tuvo durante educación física. Todos se estaban burlando. A AMARILLO le dio rabia y tristeza y fue hasta donde la profe para contarle que no le parecía como a ROJO lo trataban sus compañeros... pero antes de llegar, se arrepintió porque el miedo le pudo más — mejor no me meto, seguro si digo algo me empiezan a molestar a mí, pensaba...
+
+Sin embargo, desde ese día, AMARILLO no podía dejar de pensar en ROJO. La forma como otros lo trataban le estaba afectando tanto que en las noches no podía dormir cuando se acordaba de lo triste que ROJO estaba. Decidió tratar de acercarse y apoyarlo; lo buscaba con la mirada en los pasillos, compartía con él cuando podía, y trataba de hacerse con él en las actividades de grupo. Sin embargo, cuando alguien lo molestaba o lo excluía, AMARILLO no decía o hacía nada, seguía callada...
+
+Escena 3. Un día AMARILLO se dio cuenta que el pupitre de ROJO estaba vacío y llevaba vacío varios días. Cuando la profe llegó, AMARILLO levantó la mano y le preguntó dónde estaba ROJO; la profe les contó a todos que ROJO se había cambiado de colegio.  
+
+Esa noche llegó AMARILLO a la casa callada y preocupada, pensando en la mirada de ROJO y la tristeza que lo rodeaba, y preguntándose si habría sido por la forma en que lo trataban que se había ido del colegio. Su papá notó su tristeza y le preguntó qué le pasaba. AMARILLO dudó un momento, empezó a llorar, y le contó todo.
+
+| Escena 1 — Sofía y Valentina mirando un celular, cuchicheando y riéndoseSofía: Parce, ¿vio la cara que puso Camila hoy cuando le preguntaron la tarea? ¡Qué oso!Valentina: Jajaja re-tonta, y encima es la más lambona del salón. ¡Qué mamera esa vieja!Sofía: Tengo una foto de cuando se cayó la semana pasada. La voy a subir con un meme.Valentina: Hágale, hágale. Póngale: "Así le va a la más pilas del curso".Sofía: (escribe en el celular) Listo parce. Publicado en el story. Está muy buena. | Escena 2 — Andrés y Juliana miran sus celulares por separado, les llega la notificaciónJuliana: (se ríe) ¡Ay no, qué buena! Otra vez Camila haciendo el Oso (repostea de una) Esto debería ser un sticker, ¡está demasiado chistoso!Andrés: (mira el celular, se le borra la sonrisa) Juemadre…  pobre Camila. (pausa) Pero si me meto me van a caer a mí también… mejor me callo (cierra el celular y se queda callado) | Escena 3 — Camila corre con rabia hacía Sofía y Valentina. Camila: ¡Ustedes publicaron ese video! |
+|---|---|---|
+
+### Momento 4: Ponerse en los zapatos del otro: explorando roles y emociones en el conflicto
+
+#### Paso a paso: 
+
+Organice tres grupos entre todas las personas participantes y asigne un rol de los propuestos a continuación:
+
+Grupo 1: Espectadores del conflicto
+
+Grupo 2: Persona(s) que realizaron un daño
+
+Grupo 3: Persona(s) que recibieron un daño
+
+Preguntas de análisis: 
+
+¿Cuál fue el conflicto principal en el video/historia?
+
+¿Qué rol desempeñó tu personaje en la escena?
+
+¿Cómo actuó este rol frente a la violencia? ¿Por qué crees que actuó así?
+
+¿Qué emociones crees que sintieron estos personajes? 
+
+¿Cómo te habrías sentido de estar en sus zapatos?
+
+¿De qué otra forma crees que esta persona pudo haber actuado diferente?
+
+### Momento 5: Conexión con la Empatía
+
+Reflexión: El conflicto como oportunidad de cambio
+
+Objetivo: Por medio de esta reflexión se invita a concebir las situaciones conflictivas como oportunidades para identificar qué se puede cambiar por el bien de la convivencia, reconociendo el papel de cada integrante de la comunidad educativa.
+
+Se propone actuar desde el reconocimiento de las emociones y la gestión asertiva de las mismas. Esto favorece a una toma de decisiones más adecuada respecto a situaciones que pueden ser confrontativas.
+
+Es inevitable pensar o sentir diferente
+
+La clave para que este ejercicio funcione radica en la sensibilidad desde la empatía. Para llegar a ella, es necesario partir de:
+
+El yo mismo.
+
+El cómo me siento.
+
+El cómo expreso esto que estoy sintiendo.
+
+Paso a paso: Cada participante elige cómo quiere expresar un mensaje dirigido al rol que le fue asignado en la actividad anterior: puede ser una carta, un dibujo, un poema, un cómic o cualquier otra forma que prefiera. (Revisa el material adjunto Formatos de Expresión Artística – Aulas en Re-Conexión).
+
+Sin importar el formato, el mensaje debe responder a todas o alguna de estas preguntas: 
+
+Preguntas para guiar el ejercicio: Se pueden realizar todas o al menos una.
+
+¿Cómo crees que se sintió la persona en esa situación?
+
+¿Qué le dirías para ayudarle a gestionar sus emociones?
+
+¿Cómo podrías intervenir si estuvieras en su lugar?
+
+Ejemplo: Si te asignaron el rol de espectador, escribirás un mensaje a la persona del video, dramatización o historia que también fue espectadora del conflicto.
+
+💡Antes de que empiecen, lee las preguntas en voz alta y pide a los estudiantes que tengan al menos una en mente mientras trabajan. Esto asegura que todas las expresiones, sin importar el formato, estén conectadas con la reflexión sobre empatía.
+
+Momento 6: Cierre (5-10 min)
+
+Reflexión final sobre el aprendizaje de la sesión.
+
+Recolección voluntaria de los mensajes.
+
+Voluntariamente los y las estudiantes comparten una palabra o frase que se lleva de la experiencia.
+
+## Sesión 3: Identificando el Conflicto: Situaciones que Afectan Nuestra Convivencia Escolar
+
+El conflicto como oportunidad de cambio
+
+Duración estimada: 80 minutos 
+
+Objetivo: Organizar ejercicios que promuevan la mediación y resolución de conflictos de manera asertiva, evitando la acción con daño.
+
+Habilidad socioemocional por fortalecer: Manejo de conflictos 
+
+El manejo de conflictos va más allá de su resolución o gestión. Es una habilidad que se enfoca en generar cambios constructivos en las dinámicas, relaciones y estructuras que los originan. Se considera el conflicto como una oportunidad para el desarrollo democrático y social, buscando acciones que aporten a transformar, no solo eliminar o controlar el conflicto (Lederach, 2003).
+
+Habilidad específica: comunicación asertiva.
+
+### Materiales sugeridos:
+
+️ 💡 Escarapelas y carteleras de acuerdos
+
+🖼️ Carteleras o diapositivas con principios de la actividad.
+
+⏳ Reloj o temporizador.
+
+📄 Hojas.
+
+✏️ Lápices o esferos.
+
+🔲 Las escarapelas diseñadas en la primera sesión.
+
+### Acuerdos para el desarrollo de la sesión
+
+Recuerde tener en cuenta si los acuerdos fueron diferentes a los propuestos en la sesión 1 (los verá a continuación).
+
+🔸 Cada vez que alguien hable debe hacerlo en primera persona.
+
+🔸 Se tendrá medición del tiempo de las palabras, con el fin de que todas las personas tengan la posibilidad de participar. Habrá un estudiante designado para la medición y tendrá dos tarjetas para avisar el uso de la palabra: una verde y una roja.
+
+🔸 No usar el celular en el desarrollo del ejercicio.
+
+🔸 Lo que se dice durante la sesión, se queda en la sesión. Excepto cuando lo que se mencione afecte la integridad de alguna de las personas participantes.
+
+🔸 En la sesión todas las opiniones son válidas, excepto aquellas que tengan como finalidad generar daño, sean discriminatorias, xenófobas, sexistas, etc.
+
+###  Momento 1: Dinámica de Conexión
+
+Nota: La dinámica de conexión puede realizarse de acuerdo con la autonomía del(la) gestor(a) pedagógico(a), ya que si desea puede aplicar la estrategia del uso de escarapelas para todas las sesiones u otras estrategias que considere que le han funcionado previamente, considerando el manejo del tiempo. Es muy importante llegar con suficiente tiempo a los momentos centrales de la sesión. 
+
+Paso a paso:
+
+Ubicación y formación: Realizar un círculo interno y uno externo, viéndose frente a frente y asegurando un espacio adecuado para la expresión corporal sin interferencias.
+
+Asignación de Roles: 
+
+Rol que crea: Recibe una palabra y la interpreta únicamente con su cuerpo, sin palabras ni sonidos. La creatividad y la expresividad son clave. 
+
+Palabras a dramatizar: juzgar, evitar, rechazar, ignorar, gritar, escuchar, conversar, dialogo, desacuerdo, comprender, agredir, pegar, llorar, interrumpir, negociar, respirar, reflexionar, reparar, proponer.
+
+Rol que observa: Presta atención a los movimientos de su compañero, identificando emociones, intenciones y dinámicas en la escena representada.
+
+Discusión grupal: ¿qué palabras asocian más con los conflictos? ¿qué emociones sintieron durante la actividad?
+
+### Momento 2: Identificación de Situaciones que Afectan la Convivencia en Mi Aula
+
+Paso a paso:
+
+Disposición del espacio y las personas: Se propone realizar el ejercicio en círculo.
+
+Memorias del encuentro pasado: Se sugiere realizar un breve recordatorio de los aprendizajes de la sesión anterior, resaltando los puntos clave y cómo se conectan con la sesión actual.
+
+Cada estudiante recibirá una hoja de papel donde escribirá alguna situación general que afecte la convivencia en el aula sin necesidad de referirse a sí mismos o a otros por nombre propio y de manera anónima.
+
+Ejemplo: “Ernesto hace mucho desorden” podría modificarse con “No hay suficiente orden en el aula”. De esta manera no se están generando acusaciones y juicios sobre una situación o persona en particular. 
+
+¿Qué situaciones pueden afectar la convivencia? 
+
+Ejemplos: el uso de groserías o palabras despectivas, insultos, las peleas, la falta de respeto en el trato.
+
+¿Cómo se gestionan actualmente estas situaciones en mi entorno? 
+
+Ejemplo: se resuelven con diálogo, con violencia, con la ley del hielo.
+
+¿Cómo se podría responder de forma no violenta estas situaciones? Piensa en soluciones creativas, que sorprendan a los adultos.
+
+Ejemplo: a través del diálogo, validar el sentir y/o pensar del otro, llegar a acuerdos de grupo.
+
+¿Cuál es mi rol en estas situaciones? 
+
+Disponer de un lugar en el centro del circulo donde se pondrán todos los papeles de la actividad.
+
+Se propone que posteriormente, se realice la lectura de 3 papeles al azar. La única persona que podrá leer sería la o el gestor del espacio, esto, teniendo en cuenta que entre estudiantes se reconocen la letra y podrían verse afectado el anonimato del ejercicio.
+
+### Momento 3: Estrategias para Abordar Situaciones Conflictivas en mi Aula
+
+✔️ Para esta actividad será importante mencionar cómo las emociones se reconocen desde el cuerpo, la sensación y percepción de este. 
+
+Paso a paso:
+
+Se propone que cada participante realice un dibujo de sí mismo/a en una hoja de papel que será proporcionada por el gestor/a del encuentro. En este dibujo en forma de silueta se debe proyectar el cuerpo completo, para posteriormente relacionar las respuestas de las siguientes preguntas. 
+
+El dibujo debe ser proporcional a la hoja, para poder seleccionar posteriormente las partes del cuerpo donde sienten las emociones que se van detallando a lo largo de la actividad. A su vez, se propone dejar espacio a los costados para responder a las preguntas sugeridas.
+
+Serie de preguntas: Se sugiere el uso de las preguntas subrayadas en el documento, sin embargo, pueden ser modificadas o cambiadas por parte de la persona que gestiona el espacio.
+
+Durante la siguiente sección de preguntas se debe hacer la aclaración de que se busca la narración de la reacción y la emoción de cómo se vivió el conflicto en el cuerpo.
+
+Lista de preguntas sugeridas: 
+
+¿Cómo mis acciones han hecho sentir a las otras personas? 
+
+Señala en la corpografía en qué parte del cuerpo sienten la emoción asociada a su respuesta. Pueden señalarla con una flecha o un símbolo.
+
+¿Cómo me siento cuando mi forma de responder ante un conflicto no fue la mejor?
+
+Señalen en la corpografía en qué parte del cuerpo sienten la emoción asociada a su respuesta. Pueden señalarla con una flecha o un símbolo.
+
+Recuerda un conflicto que se haya manejado de una manera poco asertiva ¿Qué sucedió? - sin narrar la situación.
+
+Escriban brevemente la situación en alguna parte de la hoja donde hicieron el dibujo de su corpografía.
+
+Posteriormente, podrán responder a las siguientes preguntas, ubicando las respuestas en distintas partes de su cuerpo:
+
+¿En qué estaba pensando en ese momento?
+
+¿Qué emoción sentía en ese momento?
+
+¿Cómo se sentía mi cuerpo durante el conflicto?
+
+¿Qué pude haber hecho para mejorar la situación?
+
+Preguntas opcionales: 
+
+A continuación, se mostrarán más preguntas de las cuales el o la gestora podría seleccionar algunas para continuar con el ejercicio. Esto, de acuerdo con la percepción y apertura de las personas participantes con la actividad. 
+
+Del mismo modo, la respuesta de estas se realizará en la hoja con la corpografía, y no tendrán el nombre de la o el participante.
+
+️ Nota aclaratoria: ninguna de las preguntas es obligatoria.
+
+Opción 1. Si he sido lastimado por las acciones de otra persona:
+
+¿Qué sentí al ver lo que ocurrió?
+
+¿Qué impacto ha tenido este incidente para ti y otras personas?
+
+¿Qué ha sido lo más difícil para ti?
+
+¿Qué necesito para sentirme mejor?
+
+Opción 2: Si he sido testigo de una situación en la que alguien está causando daño:
+
+¿Qué sentí al ver que alguien estaba siendo lastimado por otra persona?
+
+¿Por qué creo que esa persona actuó de esa manera?
+
+¿Qué impacto crees que tuvo esa acción en la persona afectada?
+
+¿Qué puedo hacer para crear un ambiente más seguro y respetuoso en el aula?
+
+Opción 3: Si he sido testigo de una situación en la que alguien ha sido lastimado:
+
+¿Qué sucedió en la situación que presencié?
+
+¿Cómo me sentí al ver lo que estaba pasando?
+
+¿Por qué creo que esta situación sucedió?
+
+¿De qué manera esa situación afectó a la persona involucrada?
+
+¿Qué pude haber hecho para intervenir o ayudar en ese momento?
+
+¿Cómo creo que me hubiera sentido si yo hubiera sido la persona afectada?
+
+¿Qué acciones puedo tomar para ayudar a evitar que esto vuelva a suceder?
+
+¿Cómo puedo apoyar a la persona que fue afectada, si es necesario?
+
+Estas preguntas fomentan la responsabilidad, el diálogo y la empatía entre las personas participantes.  
+
+### Momento 4: Mándala Socioemocional
+
+Paso a paso:
+
+Reorganización del espacio: Pide a los estudiantes que muevan las sillas y mesas hacia los bordes del salón para dejar el centro libre. Ubica allí los dibujos de la corpografía del momento anterior, formando una mandala en el piso con los aportes de todos.
+
+Formación del círculo: Invita a los estudiantes a sentarse en círculo alrededor de la mandala. Tómate un momento para señalar que esa mandala la construyeron entre todos — cada dibujo representa una experiencia real del grupo.
+
+Reflexión grupal: Desde ese espacio, invita al grupo a reflexionar sobre el papel de cada persona en la convivencia del aula: ¿cómo pueden contribuir al cambio? ¿qué puede hacer cada uno para que el salón sea un lugar donde todos se sientan bien?
+
+Socialización de compromisos: Cada estudiante comparte en voz alta su compromiso personal usando las tarjetas del material impreso "Tarjeta de Dialogo - Aulas en Re-Conexión". La tarjeta guía el diálogo con la siguiente estructura: 
+
+Yo me siento…
+
+Cuando…
+
+Porque… 
+
+Me gustaría…
+
+Me comprometo a…
+
+Por ejemplo, un estudiante puede decir: 
+
+Yo me siento triste 
+
+cuando alguien lastima a otro y nadie dice nada 
+
+porque todos merecemos sentirnos bien acá. 
+
+Me gustaría que pudiéramos hablar sin miedo. 
+
+Yo me comprometo a escuchar y hablar si veo algo que no está bien y tratar mejor a mis compañeros. 
+
+💡 Pasa las tarjetas una por una. No es obligatorio que todos compartan en voz alta — las participaciones activas y pasivas son igualmente válidas.
+
+## Sesión No. 4: Herramientas para una Mejor Convivencia Escolar
+
+Duración estimada: 90 minutos. 
+
+Objetivo: Generar espacios de reflexión crítica y colectiva alrededor de las formas del cuidado, así como sus implicaciones y el rol que juega cada persona. 
+
+Habilidad socioemocional por fortalecer: Empatía
+
+Descripción: Habilidad que le permite a una persona entender, conectar emocionalmente y actuar en beneficio del bienestar de los demás.
+
+Habilidad específica: Cuidado mutuo.
+
+Materiales sugeridos:
+
+📜 Hoja con preguntas específicas sobre ejemplos de conflictos.
+
+📊 Hoja con diagrama de la ventana de las maneras de reaccionar ante el conflicto.
+
+📄 Papeles.
+
+🖊️ Esferos.
+
+📽️ Video beam (opcional).
+
+🔲 Las escarapelas diseñadas en la primera sesión.
+
+### Momento 1: Dinámica de Conexión
+
+Nota: La dinámica de conexión puede realizarse de acuerdo con la autonomía del(la) facilitador(a) pedagógico(a), ya que si desea puede aplicar la estrategia del uso de escarapelas para todas las sesiones u otras estrategias que considere que le han funcionado previamente, considerando el manejo del tiempo. Es muy importante llegar con suficiente tiempo a los momentos centrales de la sesión. 
+
+Disposición del espacio: se propone que se formen grupos de tres participantes, con los siguientes roles:
+
+🎤 Quien escucha: Escuchar atentamente, empáticamente y con la verdad.
+
+💬 Quien habla: Responder a una pregunta específica durante 2 minutos.
+
+🗒️ Quien pregunta: Formular la pregunta, medir el tiempo y mediar la comunicación para evitar interrupciones.
+
+📌 Recomendaciones generales: 
+
+El espacio deberá garantizar la confidencialidad de la información compartida.
+
+Se sugiere que cada estudiante pueda asumir cada uno de los roles establecidos durante el ejercicio durante cada una de las tres preguntas contempladas para el espacio.
+
+💡 Enunciados/ preguntas proyectadas:
+
+Piensa en un recuerdo significativo o importante que hayas compartido con tu curso
+
+Piensa en un recuerdo divertido que hayas compartido con tu curso durante las anteriores sesiones.
+
+Piensa en una acción de cuidado que hayas empezado o quieras empezar a compartir con tus compañeros y compañeras.
+
+### Momento 2:  Explorando el conflicto y su gestión
+
+Se inicia con un espacio de respiración y atención plena para reflexionar y hacer memoria sobre conflictos pasados y cómo estos han sido gestionados.
+
+Parte 1 — Respiración y atención plena
+
+Pide a los estudiantes que formen círculos de máximo 15 personas. Una vez organizados, guíalos a través de dos ejercicios de respiración:
+
+Respiración de la Abeja Los estudiantes cierran los ojos y se tapan los oídos con las palmas de las manos. Luego toman aire y exhalan pronunciando la letra "m", generando un zumbido que ayuda a liberar frustración, ira o ansiedad.
+
+Técnica 5-4-3-2-1 Pide a los estudiantes que observen el entorno e identifiquen:
+
+5 cosas que puedan ver
+
+4 cosas que puedan sentir (ropa, silla, etc.)
+
+3 cosas que escuchan
+
+2 cosas que puedan oler
+
+1 cosa que les guste de sí mismos/as
+
+Parte 2 — Reflexión individual sobre un conflicto
+
+Invita a los estudiantes a cerrar los ojos y centrar la atención en la respiración en 4 tiempos: inhalar 4 segundos, sostener 4 segundos, exhalar 4 segundos. 
+
+Durante cada repetición, cada participante recordará un conflicto de su salón que haya sido gestionado de manera NO violenta, respondiendo en su mente las siguientes preguntas:
+
+Involucrados: ¿Quiénes participaron en el conflicto?
+
+Causas: ¿Qué originó el conflicto? ¿Cuáles fueron las motivaciones, acciones o situaciones que generaron roces entre las partes?
+
+Narración mental: Piensa en el paso a paso de las situaciones que generaron el conflicto.
+
+Escalamiento: ¿Cómo se desarrolló el conflicto?
+
+Emociones: ¿Cómo se pudo sentir cada parte involucrada? ¿Cómo se vivenciaron esas emociones en el cuerpo? Reconocimiento de las emociones de cada parte involucrada.
+
+Gestión: ¿Qué acciones permitieron que el conflicto se gestionara a través de actos no violentos? Identifica cuáles fueron las acciones de cada uno de los involucrados en el conflicto.
+
+Parte 3 — Socialización: Tingo Tango
+
+Una vez que todos hayan respondido las preguntas mentalmente, se realiza un Tingo Tango en cada círculo para compartir las reflexiones.
+
+Dinámica:
+
+Un participante con los ojos vendados repite "tingo, tingo, tingo…" hasta decir "¡TANGO!".
+
+Los demás pasan un objeto rápidamente de mano en mano hasta que se diga "¡TANGO!".
+
+Quien quede con el objeto cuenta la historia del conflicto que pensó, haciendo énfasis en las preguntas de la Parte 2.
+
+Se realizan dos o tres rondas por círculo.
+
+Parte 4 — Plenaria grupal
+
+Al finalizar el Tingo Tango, cada círculo elige un líder para la plenaria. En plenaria, cada líder comparte los elementos más significativos del ejercicio. El/la gestor/a retoma las historias compartidas y escribe en el tablero las siguientes preguntas para guiar la discusión:
+
+✅ ¿Entre quiénes se dio el conflicto?
+
+✅ ¿Qué lazos se rompieron como consecuencia del conflicto?
+
+✅ ¿Cómo se recuperó el vínculo entre las partes?
+
+✅ ¿Qué otras alternativas en la gestión del conflicto se podían aplicar?
+
+💡Retoma elementos de las sesiones previas en torno al conflicto para conectar los aprendizajes del grupo.
+
+### Momento 3: Las Maneras de Reaccionar Ante un Conflicto
+
+Después de la plenaria, se invita a los y las estudiantes que vuelvan a organizarse en sus círculos y se socializa el conflicto según el gráfico adjunto (revisar material Manera de Reaccionar a un Conflicto Aulas en Re-Conexión). El/la gestora realiza una breve explicación del diagrama, retomando los elementos compartidos durante la sesión. 
+
+Se invita a los participantes a identificar sus reacciones habituales ante los conflictos.
+
+En cada uno de los círculos, tres voluntarios ubican su conflicto en uno de los cuadros de la hoja con el diagrama y todo el grupo reflexionará sobre qué estrategias pueden permitir que se asuma el conflicto desde una mirada de cooperación.
+
+De ser posible, deja el cuadro pegado en la pared del salón. 
+
+### Momento 4 - Mensajes desde el corazón.
+
+Objetivo: Darles a los estudiantes la oportunidad de tener un gesto significativo con sus compañeros de clase.  
+
+Después de las reflexiones colectivas, se propicia un espacio de cierre orientado a fortalecer la convivencia y a resignificar lo conversado sobre el rol que cada integrante del aula cumple en la construcción de relaciones más respetuosas, empáticas y pacíficas. Se invita a las y los estudiantes a reconocer que, en la vida escolar, todas las acciones, palabras y actitudes dejan huella, y que cada persona puede aportar a la reconciliación, la reparación y el cuidado del otro.
+
+Para el desarrollo de la actividad, se reparten de manera aleatoria las escarapelas y, a cada estudiante, se le entregan dos medias hojas con la silueta de un corazón humano impresa en blanco y negro (Ver material adjunto Mensaje desde el Corazón – Aulas en Re-Conexión).
+
+Luego, se les invita a escribir un mensaje dirigido al compañero o compañera que les haya correspondido. Este mensaje puede ser de reconocimiento, gratitud o disculpa, y puede realizarse de manera anónima si así se considera pertinente para favorecer la sinceridad y la expresión emocional. Si el/la estudiante lo desea, puede usar la segunda mitad de hoja para darle a la compañera de su preferencia.
+
+Posteriormente, cada estudiante colorea el corazón de forma libre y creativa, procurando que los colores, trazos y detalles representen el sentido del mensaje que desea transmitir.
+
+Durante el ejercicio se resalta que este corazón se convierte en un símbolo de la humanidad compartida, de la diversidad emocional que habita el grupo y de la posibilidad de transformar los conflictos a través de la empatía, el reconocimiento mutuo y la palabra reparadora.
+
+Esta actividad permite cerrar la experiencia desde una clave sensible y significativa, recordando que, aun en medio de las diferencias, existen vínculos que pueden cuidarse, repararse y fortalecerse.
+
+### Momento 5 - El valor de una verdadera amistad
+
+Objetivo: Invitar a los y las estudiantes a reflexionar sobre qué significa ser un buen amigo o buena amiga, cuestionando la normalización de la violencia en las relaciones de amistad, y cerrando con un compromiso de convivencia activa basada en empatía, justicia y solidaridad.
+
+Paso 1 — Preparación del espacio
+
+Asegúrate de que el grupo esté en círculo o en un ambiente de escucha tranquila. Explica con calma la intención del ejercicio antes de empezar.
+
+"Vamos a hacer un ejercicio de reflexión. No se trata de señalar a nadie ni de mirar a ninguna persona en particular. Solo los invito a pensar en sus amigos y amigas… en esas personas con quienes comparten el día a día."
+
+Paso 2 — Las frases de la amistad verdadera
+
+Lee cada frase en voz alta, con pausa entre una y otra. Deja que el silencio haga su trabajo — no expliques ni comentes todavía.
+
+Lee estas frases despacio:
+
+Un verdadero amigo/amiga nunca te mete en líos.
+
+Un verdadero amigo/amiga nunca va a sacar a la luz información que le hayas compartido en confianza.
+
+Un verdadero amigo/amiga nunca va a querer que estés metido/a en situaciones feas.
+
+Un verdadero amigo/amiga nunca te querrá hacer daño, lastimar ni golpear.
+
+...
+
+Paso 3 — El espejo: ¿y tú, qué clase de amigo/amiga eres?
+
+Ahora vira la reflexión hacia adentro. El tono debe ser suave, sin juicio. No se trata de acusar sino de invitar a la honestidad personal.
+
+"Ahora, con la misma honestidad con que pensaron en sus amigos… piensen en ustedes mismos."
+
+Luego lee estas preguntas, también con pausa:
+
+¿Eres tú el amigo/la amiga que le gusta pegarle o agredir a sus amigos?
+
+¿Eres tú el amigo/la amiga que lastima a quienes dice querer?
+
+¿Eres tú el amigo/la amiga que mete a sus amigos en líos o los deja solos en ellos?
+
+¿Eres tú el amigo/la amiga que saca a la luz lo que le contaron en confianza?
+
+...
+
+Muchas veces, por la normalización de la violencia, llegamos a creer que un amigo puede ser quien nos lastima, humilla o ridiculiza. Y no — eso no es amistad. Hoy tenemos la oportunidad de elegir qué clase de amigos y amigas queremos ser.
+
+Paso 4 — Construyendo la convivencia que queremos
+
+¿Cómo nos gustaría que fuera nuestra convivencia diaria? ¿Una en la que las diferencias nos dividan, o una en la que nos respetemos y aprendamos unos de otros?
+
+La violencia, en cualquiera de sus formas, no es algo natural ni inevitable: es una construcción social que podemos transformar si decidimos cuestionarla y actuar diferente.
+
+Esto implica reconocer las particularidades de cada persona, comprender sus contextos y necesidades, y actuar con responsabilidad para reparar los daños cuando ocurren. La convivencia escolar no debe ser un espacio donde se toleren las violencias, sino un lugar donde se construya activamente la paz, el respeto y la equidad. Cada conflicto es una oportunidad para aprender, reflexionar y crecer juntos.
+
+Invitación final: El/la facilitador/a invita a los estudiantes a pensar en una acción concreta que puedan tomar para hacer de su escuela un lugar más justo, respetuoso e inclusivo — y si el tiempo lo permite, compartirla en voz alta.
+
+### Momento 6 - Cierre del Proceso – Aulas en Re-Conexión
+
+Pare cerrar el proceso, de manera voluntaria invítalos a compartir una palabra o frase que se llevan de todo el proceso. 
+
+Así mismo, preséntales el certificado (ver material adjunto Certificado Aula Conectada – Aulas en Re-Conexión) agradeciéndoles y felicitándolos por haber cumplido con todas las actividades propuestas. Invita a todos a firmar el certificado como un gesto simbólico de compromiso para hacer del aula un lugar donde todos nos sintamos bien. De ser posible pega el certificado en una pared del salón.
+
