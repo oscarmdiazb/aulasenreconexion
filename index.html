@@ -118,49 +118,61 @@
   }
 
   /* ══════════════════════════════
-     HERO SECTION — full screen
+     MAIN CONTENT AREA
      ══════════════════════════════ */
   .hero {
-    position: relative;
-    min-height: 100vh;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    background: #1a1a2e;
-    padding: 0 2rem;
+    background: #ffffff;
+    padding: 4rem 2rem;
+    text-align: center;
   }
 
-  /* diagonal stripes background */
-  .hero-stripes {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    z-index: 0;
+  .hero-content {
+    max-width: 1000px;
+    margin: 0 auto;
   }
 
-  .stripe {
-    flex: 1;
-    opacity: 0.08;
-    transform: skewX(-8deg) scaleX(1.1);
+  /* Large multicolor title */
+  .hero-title {
+    margin-bottom: 1.5rem;
   }
 
-  .s1 { background: var(--rojo); }
-  .s2 { background: var(--naranja); }
-  .s3 { background: var(--amarillo); }
-  .s4 { background: var(--verde); }
-  .s5 { background: var(--azul); }
-  .s6 { background: var(--morado); }
+  .title-aula {
+    display: block;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: clamp(48px, 10vw, 72px);
+    letter-spacing: -1px;
+    line-height: 1.2;
+    margin-bottom: 0;
+  }
 
-  /* rainbow top bar */
-  .hero-rainbow-top {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 6px;
+  /* Colored letters cycling through palette */
+  .ta { color: var(--rojo); }
+  .tu { color: var(--naranja); }
+  .tl { color: var(--amarillo); }
+  .ts { color: var(--verde); }
+  .tr { color: var(--azul); }
+  .tc { color: var(--morado); }
+
+  /* Subtitle (small, uppercase) */
+  .hero-subtitle {
+    font-family: 'Nunito', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    color: #AAAAAA;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  /* Mini rainbow divider */
+  .rainbow-divider {
+    width: 60px;
+    height: 4px;
+    margin: 1.5rem auto;
+    border-radius: 2px;
     background: linear-gradient(to right,
       var(--rojo)     0%,    var(--rojo)     16.66%,
       var(--naranja)  16.66%, var(--naranja)  33.32%,
@@ -168,205 +180,126 @@
       var(--verde)    49.98%, var(--verde)    66.64%,
       var(--azul)     66.64%, var(--azul)     83.3%,
       var(--morado)   83.3%,  var(--morado)   100%);
-    z-index: 10;
   }
 
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    max-width: 900px;
-    animation: fadeInUp 0.8s ease-out;
-  }
-
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .hero-title {
-    margin-bottom: 1.5rem;
-    line-height: 1;
-  }
-
-  .title-aula {
-    display: block;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 900;
-    font-size: clamp(48px, 10vw, 96px);
-    letter-spacing: -2px;
-    line-height: 1;
-    margin-bottom: 0.3rem;
-  }
-
-  .ta { color: var(--rojo); }
-  .tu { color: var(--naranja); }
-  .tl { color: var(--amarillo); }
-  .ts { color: var(--verde); }
-
-  .title-subtitle {
-    display: block;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 900;
-    font-size: clamp(24px, 6vw, 48px);
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #ffffff;
-    margin-bottom: 2rem;
-  }
-
-  .hero-subtitle {
-    font-family: 'Nunito', sans-serif;
-    font-size: clamp(14px, 2vw, 20px);
-    font-weight: 700;
-    color: #b0b0d0;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 2rem;
-    line-height: 1.6;
-  }
-
+  /* Description text */
   .hero-description {
     font-family: 'Nunito Sans', sans-serif;
-    font-size: clamp(15px, 2vw, 18px);
-    color: #d0d0e8;
-    line-height: 1.8;
-    margin-bottom: 3rem;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
+    font-size: 16px;
+    line-height: 1.65;
+    color: #4A4A4A;
+    margin: 2rem auto;
+    max-width: 600px;
   }
 
-  /* nav buttons */
-  .hero-buttons {
+  /* ══════════════════════════════
+     PROPÓSITOS SECTION
+     ══════════════════════════════ */
+  .propositos {
+    background: #ffffff;
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  .propositos-content {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .propositos-label {
+    font-family: 'Nunito', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    color: #AAAAAA;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    display: block;
+  }
+
+  .propositos-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .propositos-item {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .propositos-dot {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+
+  .dot-rojo { background: var(--rojo); }
+  .dot-naranja { background: var(--naranja); }
+  .dot-amarillo { background: var(--amarillo); }
+  .dot-verde { background: var(--verde); }
+  .dot-azul { background: var(--azul); }
+
+  .propositos-text {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #4A4A4A;
+  }
+
+  .propositos-text strong {
+    font-weight: 700;
+    color: #333;
+  }
+
+  /* ══════════════════════════════
+     SESSIONS QUICK NAV
+     ══════════════════════════════ */
+  .sessions-nav {
+    background: #ffffff;
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  .sessions-pills {
     display: flex;
     gap: 1.5rem;
     justify-content: center;
     flex-wrap: wrap;
-  }
-
-  .btn {
-    display: inline-block;
-    padding: 14px 32px;
-    font-family: 'Nunito', sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    text-decoration: none;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    cursor: pointer;
-    border: none;
-  }
-
-  .btn-primary {
-    background: var(--rojo);
-    color: white;
-  }
-
-  .btn-primary:hover {
-    background: #d12520;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(232, 48, 42, 0.3);
-  }
-
-  .btn-secondary {
-    background: transparent;
-    color: white;
-    border: 2px solid #b0b0d0;
-  }
-
-  .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: white;
-    transform: translateY(-2px);
-  }
-
-  /* ══════════════════════════════
-     ABOUT SECTION
-     ══════════════════════════════ */
-  .about {
-    background: #ffffff;
-    padding: 5rem 2rem;
-  }
-
-  .about-content {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .about-title {
-    font-family: 'Nunito', sans-serif;
-    font-size: 38px;
-    font-weight: 900;
-    color: #1a1a2e;
-    margin-bottom: 3rem;
-    text-align: center;
-    letter-spacing: -1px;
-  }
-
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-bottom: 4rem;
-  }
-
-  .stat-card {
-    padding: 2.5rem;
-    border-radius: 12px;
-    color: white;
-    text-align: center;
-    font-family: 'Nunito', sans-serif;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  }
-
-  .stat-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-  }
-
-  .stat-card-1 { background: linear-gradient(135deg, var(--rojo), #c92318); }
-  .stat-card-2 { background: linear-gradient(135deg, var(--azul), #2a8ec4); }
-  .stat-card-3 { background: linear-gradient(135deg, var(--verde), #3a9638); }
-
-  .stat-number {
-    font-size: 48px;
-    font-weight: 900;
-    margin-bottom: 0.5rem;
-    line-height: 1;
-  }
-
-  .stat-label {
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 1.6;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  .about-text {
-    font-family: 'Nunito Sans', sans-serif;
-    font-size: 18px;
-    line-height: 1.8;
-    color: #555;
-    text-align: center;
     max-width: 800px;
     margin: 0 auto;
   }
 
-  .about-text strong {
-    color: var(--rojo);
+  .session-pill {
+    display: inline-block;
+    padding: 12px 28px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
     font-weight: 700;
+    text-decoration: none;
+    border-radius: 20px;
+    color: white;
+    transition: all 0.3s ease;
+    text-transform: capitalize;
   }
+
+  .session-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  .pill-1 { background: var(--rojo); }
+  .pill-2 { background: var(--naranja); }
+  .pill-3 { background: var(--verde); }
+  .pill-4 { background: var(--azul); }
 
   /* ══════════════════════════════
      FOOTER
@@ -446,45 +379,50 @@
     }
 
     .hero {
-      padding: 1rem;
+      padding: 2.5rem 1rem;
     }
 
-    .hero-buttons {
-      gap: 1rem;
+    .title-aula {
+      font-size: 48px;
     }
 
-    .btn {
-      padding: 12px 24px;
-      font-size: 13px;
+    .hero-subtitle {
+      font-size: 11px;
+      margin-top: 0.8rem;
     }
 
-    .about {
-      padding: 3rem 1rem;
+    .hero-description {
+      font-size: 15px;
+      line-height: 1.6;
     }
 
-    .about-title {
-      font-size: 28px;
+    .propositos {
+      padding: 2.5rem 1rem;
     }
 
-    .stats-grid {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
+    .propositos-content {
+      max-width: 100%;
     }
 
-    .stat-card {
-      padding: 2rem;
+    .propositos-item {
+      gap: 0.6rem;
     }
 
-    .stat-number {
-      font-size: 36px;
-    }
-
-    .stat-label {
+    .propositos-text {
       font-size: 14px;
     }
 
-    .about-text {
-      font-size: 16px;
+    .sessions-nav {
+      padding: 2.5rem 1rem;
+    }
+
+    .sessions-pills {
+      gap: 1rem;
+    }
+
+    .session-pill {
+      padding: 10px 24px;
+      font-size: 13px;
     }
   }
 
@@ -493,22 +431,62 @@
       display: none;
     }
 
-    .title-aula {
-      font-size: 40px;
+    .hero {
+      padding: 2rem 1rem;
     }
 
-    .title-subtitle {
-      font-size: 18px;
-      letter-spacing: 1px;
+    .title-aula {
+      font-size: 36px;
     }
 
     .hero-subtitle {
-      font-size: 12px;
+      font-size: 10px;
+      margin-top: 0.6rem;
     }
 
     .hero-description {
       font-size: 14px;
-      line-height: 1.6;
+      line-height: 1.55;
+      margin: 1.5rem auto;
+    }
+
+    .rainbow-divider {
+      width: 50px;
+      height: 3px;
+      margin: 1.2rem auto;
+    }
+
+    .propositos {
+      padding: 2rem 1rem;
+    }
+
+    .propositos-label {
+      font-size: 10px;
+      margin-bottom: 1.5rem;
+    }
+
+    .propositos-list {
+      gap: 1rem;
+    }
+
+    .propositos-text {
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .sessions-nav {
+      padding: 2rem 1rem;
+    }
+
+    .sessions-pills {
+      gap: 0.8rem;
+      flex-direction: column;
+    }
+
+    .session-pill {
+      padding: 10px 20px;
+      font-size: 12px;
+      width: 100%;
     }
   }
 </style>
@@ -535,65 +513,68 @@
   </div>
 </nav>
 
-<!-- ── HERO SECTION ── -->
+<!-- ── MAIN CONTENT ── -->
 <section class="hero">
-  <div class="hero-rainbow-top"></div>
-
-  <!-- stripes background -->
-  <div class="hero-stripes">
-    <div class="stripe s1"></div>
-    <div class="stripe s2"></div>
-    <div class="stripe s3"></div>
-    <div class="stripe s4"></div>
-    <div class="stripe s5"></div>
-    <div class="stripe s6"></div>
-  </div>
-
-  <!-- hero content -->
   <div class="hero-content">
+    <!-- Large multicolor title -->
     <div class="hero-title">
       <span class="title-aula">
-        <span class="ta">A</span><span class="tu">U</span><span class="tl">L</span><span class="ta">A</span><span class="ts">S</span>
+        <span class="ta">A</span><span class="tu">u</span><span class="tl">l</span><span class="ta">a</span><span class="ts">s</span>
+        <span class="tr"> en </span>
+        <span class="ta">R</span><span class="tu">e</span><span class="tl">-</span><span class="ts">C</span><span class="tr">o</span><span class="tc">n</span><span class="ta">e</span><span class="tu">x</span><span class="tl">i</span><span class="ts">ó</span><span class="tr">n</span>
       </span>
-      <span class="title-subtitle">EN RE-CONEXIÓN</span>
     </div>
 
+    <!-- Subtitle -->
     <p class="hero-subtitle">Procesos de Formación en Habilidades Socioemocionales para la Gestión de Conflictos</p>
 
-    <p class="hero-description">
-      Una secuencia pedagógica de 4 sesiones para transformar la convivencia escolar en aulas en conflicto. Bogotá, Colombia.
-    </p>
+    <!-- Rainbow divider -->
+    <div class="rainbow-divider"></div>
 
-    <div class="hero-buttons">
-      <a href="#about" class="btn btn-primary">Conocer más</a>
-      <a href="sesion1.html" class="btn btn-secondary">Comenzar sesiones</a>
-    </div>
+    <!-- Description -->
+    <p class="hero-description">
+      Aulas en Re-Conexión es una secuencia pedagógica dirigida a estudiantes de aulas en las que se han presentado situaciones conflictivas, con la convicción de que un trabajo intencional sobre las emociones y las relaciones puede contribuir significativamente a la comprensión y gestión de los conflictos —tanto presentes como futuros.
+    </p>
   </div>
 </section>
 
-<!-- ── ABOUT SECTION ── -->
-<section class="about" id="about">
-  <div class="about-content">
-    <h2 class="about-title">Sobre el Programa</h2>
+<!-- ── PROPÓSITOS SECTION ── -->
+<section class="propositos">
+  <div class="propositos-content">
+    <span class="propositos-label">Propósitos</span>
 
-    <div class="stats-grid">
-      <div class="stat-card stat-card-1">
-        <div class="stat-number">4</div>
-        <div class="stat-label">Sesiones de Aprendizaje<br>90 min c/u</div>
-      </div>
-      <div class="stat-card stat-card-2">
-        <div class="stat-number">96</div>
-        <div class="stat-label">Aulas Participantes<br>Bogotá 2025</div>
-      </div>
-      <div class="stat-card stat-card-3">
-        <div class="stat-number">3</div>
-        <div class="stat-label">Ejes Fundamentales<br>Autoconciencia · Empatía · Cuidado</div>
-      </div>
-    </div>
+    <ul class="propositos-list">
+      <li class="propositos-item">
+        <div class="propositos-dot dot-rojo"></div>
+        <p class="propositos-text"><strong>Fortalecer vínculos positivos</strong> entre estudiantes mediante el reconocimiento propio y mutuo, la empatía y la cooperación.</p>
+      </li>
+      <li class="propositos-item">
+        <div class="propositos-dot dot-naranja"></div>
+        <p class="propositos-text"><strong>Promover la reflexión</strong> sobre el rol de cada estudiante en los conflictos y su capacidad de transformarlos.</p>
+      </li>
+      <li class="propositos-item">
+        <div class="propositos-dot dot-amarillo"></div>
+        <p class="propositos-text"><strong>Desnaturalizar la violencia</strong> y establecer una distinción clara entre conflicto y violencia.</p>
+      </li>
+      <li class="propositos-item">
+        <div class="propositos-dot dot-verde"></div>
+        <p class="propositos-text"><strong>Desarrollar habilidades socioemocionales</strong> para una mejor convivencia: el autoconocimiento, la empatía y el manejo de conflictos.</p>
+      </li>
+      <li class="propositos-item">
+        <div class="propositos-dot dot-azul"></div>
+        <p class="propositos-text"><strong>Proveer herramientas concretas</strong> para la gestión y resolución de conflictos dentro y fuera del aula.</p>
+      </li>
+    </ul>
+  </div>
+</section>
 
-    <p class="about-text">
-      <strong>Aulas en Re-Conexión</strong> es un programa de intervención basado en <strong>Prácticas Restaurativas</strong> diseñado para transformar la convivencia escolar en aulas marcadas por la violencia entre pares. A través de 4 sesiones de 90 minutos, facilitadores certificados guían a estudiantes en procesos de autoconciencia, empatía y construcción de habilidades para la gestión constructiva de conflictos, fomentando una cultura de cuidado mutuo y responsabilidad colectiva.
-    </p>
+<!-- ── SESSIONS QUICK NAV ── -->
+<section class="sessions-nav">
+  <div class="sessions-pills">
+    <a href="sesion1.html" class="session-pill pill-1">Sesión 1</a>
+    <a href="sesion2.html" class="session-pill pill-2">Sesión 2</a>
+    <a href="sesion3.html" class="session-pill pill-3">Sesión 3</a>
+    <a href="sesion4.html" class="session-pill pill-4">Sesión 4</a>
   </div>
 </section>
 

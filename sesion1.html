@@ -60,9 +60,12 @@
             padding: 12px 20px;
         }
 
-        .logo {
-            height: 40px;
-            width: auto;
+        .navbar-logo-text {
+            font-family: 'Nunito', sans-serif;
+            font-size: 15px;
+            font-weight: 900;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
         }
 
         nav ul {
@@ -400,6 +403,89 @@
             flex: 1;
         }
 
+        /* FLOATING INDEX BUTTON */
+        .float-index-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 500;
+            background: var(--rojo);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 24px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+
+        .float-index-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+        }
+
+        /* FLOATING INDEX PANEL */
+        .float-index-panel {
+            position: fixed;
+            bottom: 80px;
+            right: 24px;
+            z-index: 500;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+            padding: 20px;
+            max-width: 280px;
+            display: none;
+        }
+
+        .float-index-panel.active {
+            display: block;
+        }
+
+        .float-index-panel h3 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--gris-oscuro);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .float-index-panel ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .float-index-panel li {
+            margin: 0;
+            padding: 0;
+        }
+
+        .float-index-panel a {
+            display: block;
+            padding: 10px 0;
+            color: var(--rojo);
+            text-decoration: none;
+            font-family: 'Nunito Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            transition: color 0.2s ease;
+            border-bottom: 1px solid var(--linea);
+        }
+
+        .float-index-panel a:last-child {
+            border-bottom: none;
+        }
+
+        .float-index-panel a:hover {
+            color: #d12722;
+        }
+
         /* RESPONSIVE */
         @media (max-width: 768px) {
             .hero h1 {
@@ -452,7 +538,11 @@
     <!-- NAVBAR -->
     <nav>
         <div class="navbar-container">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVkAAACSCAMAAADYdEkqAAABblBMVEX+/v7////dKjvdKzz+//8ApLnleSuVwSBhU57mHnQ5qODcJzn1xB7cHzMAorg4p+DcGzD99PX65ef1ys788vP76+3kdB3bFSzbDij1wQDldyXhRFPxs7jlAGz9+fnfOUj31djjWWX20dTuoKf43d/0w8fbACPmbnhcTZtZSpriUV7fPUzqiJCOvQD1+v3rkZjnfYXvpqzzur/mcXvkY23i8vrtmJ/qi5Lt+fr0ya8irsHN5/bogIjxrbPjXWhQr+L66d79+emBdrLt6/P2yz/65J27ttT3+vDqlV3a6bqyrM743cn4xtv88dCx2/KY0O6OhbnO7vHvsYvQ46VrXqTywKN5wumkykL30GPxjbS/2YDohz/rmmLtdaCy4edpw9D524Huq3/Z1uaFzdi45Onq8tnJ35SHx+q002zqWZDpQYX1q8rto3D42HihmsT9" alt="Aulas en Re-Conexión" class="logo">
+<div class="navbar-logo-text">
+  <span style="color:#E8302A">A</span><span style="color:#F47920">u</span><span style="color:#F9C200">l</span><span style="color:#4BAD4E">a</span><span style="color:#3AABE3">s</span>
+  <span style="color:#8B4EA6"> en </span>
+  <span style="color:#E8302A">R</span><span style="color:#F47920">e</span><span style="color:#F9C200">-</span><span style="color:#4BAD4E">C</span><span style="color:#3AABE3">o</span><span style="color:#8B4EA6">n</span><span style="color:#E8302A">e</span><span style="color:#F47920">x</span><span style="color:#F9C200">i</span><span style="color:#4BAD4E">ó</span><span style="color:#3AABE3">n</span>
+</div>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="resumen.html">Resumen</a></li>
@@ -515,7 +605,7 @@
         </div>
 
         <!-- MOMENTO 1 -->
-        <div class="momento-card">
+        <div class="momento-card" id="momento-1">
             <div class="momento-header">
                 <div class="momento-num">1</div>
                 <div class="momento-info">
@@ -544,7 +634,7 @@
         </div>
 
         <!-- MOMENTO 2 -->
-        <div class="momento-card">
+        <div class="momento-card" id="momento-2">
             <div class="momento-header">
                 <div class="momento-num">2</div>
                 <div class="momento-info">
@@ -573,7 +663,7 @@
         </div>
 
         <!-- MOMENTO 3 -->
-        <div class="momento-card">
+        <div class="momento-card" id="momento-3">
             <div class="momento-header">
                 <div class="momento-num">3</div>
                 <div class="momento-info">
@@ -654,7 +744,7 @@
         </div>
 
         <!-- MOMENTO 4 -->
-        <div class="momento-card">
+        <div class="momento-card" id="momento-4">
             <div class="momento-header">
                 <div class="momento-num">4</div>
                 <div class="momento-info">
@@ -685,7 +775,7 @@
         </div>
 
         <!-- MOMENTO 5 -->
-        <div class="momento-card">
+        <div class="momento-card" id="momento-5">
             <div class="momento-header">
                 <div class="momento-num">5</div>
                 <div class="momento-info">
@@ -727,5 +817,42 @@
             <a href="sesion2.html" class="nav-button">Sesión 2 →</a>
         </div>
     </div>
+
+    <!-- FLOATING INDEX BUTTON AND PANEL -->
+    <button class="float-index-btn" id="indexBtn">📋 Índice</button>
+    <div class="float-index-panel" id="indexPanel">
+        <h3>Momentos</h3>
+        <ul>
+            <li><a href="#momento-1">1. Dinámica de Conexión (10-15 min)</a></li>
+            <li><a href="#momento-2">2. Diseño de Escarapelas (15-20 min)</a></li>
+            <li><a href="#momento-3">3. Acuerdos para Establecer la Confianza (20-30 min)</a></li>
+            <li><a href="#momento-4">4. El Círculo de la Palabra (15-20 min)</a></li>
+            <li><a href="#momento-5">5. Cierre del Círculo (10-15 min)</a></li>
+        </ul>
+    </div>
+
+    <script>
+        const indexBtn = document.getElementById('indexBtn');
+        const indexPanel = document.getElementById('indexPanel');
+        const indexLinks = indexPanel.querySelectorAll('a');
+
+        // Toggle panel on button click
+        indexBtn.addEventListener('click', function() {
+            indexPanel.classList.toggle('active');
+        });
+
+        // Close panel and smooth scroll on link click
+        indexLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                indexPanel.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
