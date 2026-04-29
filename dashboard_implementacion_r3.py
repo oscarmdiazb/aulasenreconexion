@@ -22,10 +22,8 @@ from datetime import date, datetime
 # ---------------------------------------------------------------------------
 # Paths & credentials
 # ---------------------------------------------------------------------------
-# When running in CI (GitHub Actions) or locally inside the site repo,
-# output goes to monitoreo.html next to this script.
 SITE_OUTPUT      = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'monitoreo.html')
-OUTPUT           = SITE_OUTPUT  # same file
+OUTPUT           = SITE_OUTPUT
 CREDENTIALS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'service_account.json')
 
 SPREADSHEET_ID = '1-5i3p0lxTrorr8ObhDi1DJIo6caTUdR9UKS679BL9rc'
@@ -1278,20 +1276,97 @@ HTML = f"""<!DOCTYPE html>
     }}
 
     /* ===== RESPONSIVE ===== */
+
+    /* ── Tablet (≤900px) ── */
     @media (max-width: 900px) {{
       .session-panels {{ grid-template-columns: repeat(3, 1fr); }}
     }}
+
+    /* ── Tablet (≤768px) ── */
     @media (max-width: 768px) {{
       .navbar-content {{ padding: 0 1rem; height: 60px; }}
       .navbar-logo {{ font-size: 12px; }}
       .navbar-nav {{ gap: 1rem; }}
       .navbar-nav a {{ font-size: 12px; }}
+
       .wrap {{ padding: 0 1rem; margin: 1.5rem auto; gap: 1.5rem; }}
       .sc-body {{ padding: 18px 16px; }}
+
+      /* Stats: 3 per row */
+      .stats-row {{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }}
+      .updated-tag {{ grid-column: 1/-1; margin-left: 0; text-align: right; }}
+
+      /* Progress block: stack bar on its own line */
+      .progress-block {{ flex-wrap: wrap; gap: 10px; }}
+      .pb-track {{ width: 100%; flex-basis: 100%; order: 3; }}
+      .pb-legend {{ flex-basis: 100%; order: 4; justify-content: center; }}
+
+      /* Calendar: allow horizontal scroll, simplify chips */
+      .cal-months {{ overflow-x: auto; }}
+      .cal-month-wrap {{ min-width: 480px; }}
+      .ev-chip-school {{ display: none; }}    /* hide school line, keep dupla+session */
+
+      /* School cards */
+      .card-body {{ padding: 16px; }}
+      .card-header-row {{ gap: 12px; }}
+      .card-submeta {{ gap: 8px; font-size: 11px; }}
+      .session-track {{ padding: 10px 8px; }}
+
+      /* Tables: horizontal scroll already on wrapper, just shrink padding */
+      .data-table tbody td,
+      .data-table thead th {{ padding: 7px 8px; font-size: 12px; }}
     }}
+
+    /* ── Mobile (≤480px) ── */
     @media (max-width: 480px) {{
       .navbar-nav {{ display: none; }}
-      .session-panels {{ grid-template-columns: repeat(2, 1fr); }}
+
+      .page-hero {{ padding: 2rem 1rem 1.75rem; }}
+      .page-hero-title {{ font-size: 26px; }}
+
+      /* Stats: 2 per row */
+      .stats-row {{ grid-template-columns: repeat(2, 1fr); gap: 8px; }}
+      .updated-tag {{ grid-column: 1/-1; }}
+      .stat-num {{ font-size: 26px; }}
+      .stat-box {{ padding: 14px 10px 10px; }}
+
+      /* Session panels: 2 per row */
+      .session-panels {{ grid-template-columns: repeat(2, 1fr); gap: 10px; }}
+      .sp-num {{ font-size: 20px; }}
+      .sp-n   {{ font-size: 17px; }}
+
+      /* Calendar: horizontal scroll, only session tag visible */
+      .ev-dupla {{ display: none; }}         /* hide dupla name too, keep only S0/S1 tag */
+
+      /* Legend: wrap tightly */
+      .legend-row {{ gap: 6px; }}
+      .legend-item {{ font-size: 11px; }}
+      .legend-dot  {{ width: 28px; height: 18px; font-size: 8px; }}
+
+      /* Progress block */
+      .pb-label {{ font-size: 10px; }}
+      .pb-pct   {{ font-size: 14px; }}
+      .pb-legend {{ gap: 8px; font-size: 11px; }}
+
+      /* Section card body */
+      .sc-body {{ padding: 14px 12px; }}
+      .sc-title {{ font-size: 14px; margin-bottom: 14px; padding-bottom: 10px; }}
+
+      /* School cards */
+      .card-body {{ padding: 14px 12px; }}
+      .card-title {{ font-size: 14px; }}
+      .card-top-meta {{ gap: 6px; }}
+      .card-progress-block {{ flex-direction: row; align-items: center; gap: 10px; width: 100%; justify-content: flex-start; }}
+      .prog-bar-track {{ width: 80px; }}
+      .track-step {{ min-width: 70px; }}
+      .track-dot  {{ width: 36px; height: 36px; }}
+      .track-icon {{ font-size: 12px; }}
+
+      /* Refresh button */
+      .refresh-btn {{ width: 100%; justify-content: center; }}
+
+      /* Facilitator table: hide % bar on small screens */
+      .pbar-wrap {{ flex-direction: column; align-items: flex-start; gap: 3px; }}
     }}
 
     /* ===== REFRESH BUTTON ===== */
@@ -1441,8 +1516,10 @@ HTML = f"""<!DOCTYPE html>
         <span style="font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;align-self:center;white-space:nowrap;margin-right:4px;">Dupla:</span>
         {dupla_legend_html}
       </div>
-      <div class="cal-months">
-        {cal_html}
+      <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
+        <div class="cal-months">
+          {cal_html}
+        </div>
       </div>
     </div>
   </div>
