@@ -1,0 +1,45 @@
+name: Actualizar dashboard de monitoreo
+
+on:
+  schedule:
+    # Cada día a las 7am hora Colombia (UTC-5 → 12:00 UTC)
+    - cron: '0 12 * * 1-5'
+  # También permite correrlo manualmente desde GitHub
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Instalar dependencias
+        run: pip install gspread google-auth
+
+      - name: Escribir credenciales de Google
+        env:
+          SERVICE_ACCOUNT_JSON: ${{ secrets.SERVICE_ACCOUNT_JSON }}
+        run: echo "$SERVICE_ACCOUNT_JSON" > service_account.json
+
+      - name: Generar dashboard
+        run: python dashboard_implementacion_r3.py
+        # El script escribe monitoreo.html en el mismo directorio
+
+      - name: Limpiar credenciales
+        if: always()
+        run: rm -f service_account.json
+
+      - name: Commit y push si hay cambios
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add monitoreo.html
+          git diff --staged --quiet || git commit -m "chore: actualizar dashboard monitoreo $(date +'%Y-%m-%d %H:%M') UTC"
+          git push
