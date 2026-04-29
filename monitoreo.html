@@ -699,6 +699,49 @@
       .navbar-nav { display: none; }
       .session-panels { grid-template-columns: repeat(2, 1fr); }
     }
+
+    /* ===== REFRESH BUTTON ===== */
+    .refresh-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 1.25rem;
+      padding: 10px 24px;
+      background: var(--rojo);
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 2px 8px rgba(232,48,42,0.3);
+    }
+    .refresh-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(232,48,42,0.4);
+    }
+    .refresh-btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+    .refresh-btn .spin {
+      display: inline-block;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .refresh-status {
+      display: block;
+      margin-top: 0.6rem;
+      font-size: 12px;
+      color: var(--muted);
+      min-height: 1.2em;
+    }
+    .refresh-status.ok   { color: var(--verde); font-weight: 600; }
+    .refresh-status.err  { color: var(--rojo);  font-weight: 600; }
   </style>
 </head>
 <body>
@@ -729,6 +772,10 @@
   <p class="page-hero-label">Proyecto Violencia en Escuelas · PSE · SED Bogotá</p>
   <h1 class="page-hero-title">Progreso de Implementación — Ronda 3</h1>
   <p class="page-hero-sub">Monitoreo de sesiones por aula · Equipo facilitador · Abril–Junio 2026</p>
+  <button class="refresh-btn" id="refreshBtn" onclick="triggerUpdate()">
+    <span id="refreshIcon">↻</span> Actualizar datos
+  </button>
+  <span class="refresh-status" id="refreshStatus"></span>
   <div class="rainbow-divider"></div>
 </section>
 
@@ -742,7 +789,7 @@
       <div class="stat-lbl">Aulas seleccionadas</div>
     </div>
     <div class="stat-box s-verde">
-      <div class="stat-num">64</div>
+      <div class="stat-num">76</div>
       <div class="stat-lbl">Sesiones completadas</div>
     </div>
     <div class="stat-box s-azul">
@@ -750,28 +797,28 @@
       <div class="stat-lbl">Sesiones agendadas</div>
     </div>
     <div class="stat-box">
-      <div class="stat-num" style="color:var(--muted);">20</div>
+      <div class="stat-num" style="color:var(--muted);">8</div>
       <div class="stat-lbl">Por agendar</div>
     </div>
     <div class="stat-box s-verde">
-      <div class="stat-num">37</div>
+      <div class="stat-num">39</div>
       <div class="stat-lbl">Aulas iniciadas</div>
     </div>
     <div class="stat-box s-verde">
       <div class="stat-num">0</div>
       <div class="stat-lbl">Aulas finalizadas</div>
     </div>
-    <div class="updated-tag">Actualizado: 29/04/2026 07:59</div>
+    <div class="updated-tag">Actualizado: 29/04/2026 23:07</div>
   </div>
 
   <!-- OVERALL PROGRESS -->
   <div class="progress-block">
     <span class="pb-label">Progreso global</span>
     <div class="pb-track">
-      <div class="pb-fill-c" style="width:32%;"></div>
+      <div class="pb-fill-c" style="width:38%;"></div>
       <div class="pb-fill-a" style="width:58%;"></div>
     </div>
-    <span class="pb-pct">32% completado</span>
+    <span class="pb-pct">38% completado</span>
     <div class="pb-legend">
       <span><span class="pb-dot" style="background:var(--verde);"></span>Completada</span>
       <span><span class="pb-dot" style="background:var(--azul);opacity:0.7;"></span>Agendada</span>
@@ -794,15 +841,15 @@
         </div>
       </div>
       <div class="sp-counts">
-        <div class="sp-count" style="color:#4BAD4E;"><span class="sp-n">37</span><br>Comp.</div>
-        <div class="sp-count" style="color:#3AABE3;"><span class="sp-n">3</span><br>Agend.</div>
+        <div class="sp-count" style="color:#4BAD4E;"><span class="sp-n">39</span><br>Comp.</div>
+        <div class="sp-count" style="color:#3AABE3;"><span class="sp-n">1</span><br>Agend.</div>
         <div class="sp-count" style="color:#9ca3af;"><span class="sp-n">0</span><br>Pend.</div>
       </div>
       <div class="sp-bar">
-        <div style="width:92%;background:#4BAD4E;height:100%;"></div>
-        <div style="width:8%;background:#3AABE3;height:100%;opacity:0.6;"></div>
+        <div style="width:98%;background:#4BAD4E;height:100%;"></div>
+        <div style="width:2%;background:#3AABE3;height:100%;opacity:0.6;"></div>
       </div>
-      <div class="sp-pct">92% completado</div>
+      <div class="sp-pct">98% completado</div>
     </div>
     <div class="session-panel">
       <div class="sp-top">
@@ -813,15 +860,15 @@
         </div>
       </div>
       <div class="sp-counts">
-        <div class="sp-count" style="color:#4BAD4E;"><span class="sp-n">18</span><br>Comp.</div>
-        <div class="sp-count" style="color:#3AABE3;"><span class="sp-n">17</span><br>Agend.</div>
-        <div class="sp-count" style="color:#9ca3af;"><span class="sp-n">5</span><br>Pend.</div>
+        <div class="sp-count" style="color:#4BAD4E;"><span class="sp-n">24</span><br>Comp.</div>
+        <div class="sp-count" style="color:#3AABE3;"><span class="sp-n">16</span><br>Agend.</div>
+        <div class="sp-count" style="color:#9ca3af;"><span class="sp-n">0</span><br>Pend.</div>
       </div>
       <div class="sp-bar">
-        <div style="width:45%;background:#4BAD4E;height:100%;"></div>
-        <div style="width:42%;background:#3AABE3;height:100%;opacity:0.6;"></div>
+        <div style="width:60%;background:#4BAD4E;height:100%;"></div>
+        <div style="width:40%;background:#3AABE3;height:100%;opacity:0.6;"></div>
       </div>
-      <div class="sp-pct">45% completado</div>
+      <div class="sp-pct">60% completado</div>
     </div>
     <div class="session-panel">
       <div class="sp-top">
@@ -832,15 +879,15 @@
         </div>
       </div>
       <div class="sp-counts">
-        <div class="sp-count" style="color:#4BAD4E;"><span class="sp-n">7</span><br>Comp.</div>
+        <div class="sp-count" style="color:#4BAD4E;"><span class="sp-n">10</span><br>Comp.</div>
         <div class="sp-count" style="color:#3AABE3;"><span class="sp-n">28</span><br>Agend.</div>
-        <div class="sp-count" style="color:#9ca3af;"><span class="sp-n">5</span><br>Pend.</div>
+        <div class="sp-count" style="color:#9ca3af;"><span class="sp-n">2</span><br>Pend.</div>
       </div>
       <div class="sp-bar">
-        <div style="width:18%;background:#4BAD4E;height:100%;"></div>
+        <div style="width:25%;background:#4BAD4E;height:100%;"></div>
         <div style="width:70%;background:#3AABE3;height:100%;opacity:0.6;"></div>
       </div>
-      <div class="sp-pct">18% completado</div>
+      <div class="sp-pct">25% completado</div>
     </div>
     <div class="session-panel">
       <div class="sp-top">
@@ -851,15 +898,15 @@
         </div>
       </div>
       <div class="sp-counts">
-        <div class="sp-count" style="color:#4BAD4E;"><span class="sp-n">2</span><br>Comp.</div>
-        <div class="sp-count" style="color:#3AABE3;"><span class="sp-n">33</span><br>Agend.</div>
-        <div class="sp-count" style="color:#9ca3af;"><span class="sp-n">5</span><br>Pend.</div>
+        <div class="sp-count" style="color:#4BAD4E;"><span class="sp-n">3</span><br>Comp.</div>
+        <div class="sp-count" style="color:#3AABE3;"><span class="sp-n">34</span><br>Agend.</div>
+        <div class="sp-count" style="color:#9ca3af;"><span class="sp-n">3</span><br>Pend.</div>
       </div>
       <div class="sp-bar">
-        <div style="width:5%;background:#4BAD4E;height:100%;"></div>
-        <div style="width:82%;background:#3AABE3;height:100%;opacity:0.6;"></div>
+        <div style="width:8%;background:#4BAD4E;height:100%;"></div>
+        <div style="width:85%;background:#3AABE3;height:100%;opacity:0.6;"></div>
       </div>
-      <div class="sp-pct">5% completado</div>
+      <div class="sp-pct">8% completado</div>
     </div>
     <div class="session-panel">
       <div class="sp-top">
@@ -871,12 +918,12 @@
       </div>
       <div class="sp-counts">
         <div class="sp-count" style="color:#4BAD4E;"><span class="sp-n">0</span><br>Comp.</div>
-        <div class="sp-count" style="color:#3AABE3;"><span class="sp-n">35</span><br>Agend.</div>
-        <div class="sp-count" style="color:#9ca3af;"><span class="sp-n">5</span><br>Pend.</div>
+        <div class="sp-count" style="color:#3AABE3;"><span class="sp-n">37</span><br>Agend.</div>
+        <div class="sp-count" style="color:#9ca3af;"><span class="sp-n">3</span><br>Pend.</div>
       </div>
       <div class="sp-bar">
         <div style="width:0%;background:#4BAD4E;height:100%;"></div>
-        <div style="width:88%;background:#3AABE3;height:100%;opacity:0.6;"></div>
+        <div style="width:92%;background:#3AABE3;height:100%;opacity:0.6;"></div>
       </div>
       <div class="sp-pct">0% completado</div>
     </div>
@@ -972,7 +1019,7 @@
                 <span class="cal-day-num">14</span>
                 <span class="day-n-badge">8</span>
               </div>
-              <div class="cal-chips"><div class="ev-chip" style="background:#8B4EA6;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Tania V - Luisa · COLEGIO BOSANOVA (IED) · Aula 702 · S0 · Completada"><div class="ev-chip-top"><span class="ev-sess">S0</span><span class="ev-dupla">Tania V - Luisa ✓</span></div><div class="ev-chip-school">COLEGIO BOSANOVA (IE… · A702</div></div><div class="ev-chip" style="background:#8B4EA6;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Wendy - Wilmer · COLEGIO SIERRA MORENA (IED) · Aula 802 · S0 · Completada"><div class="ev-chip-top"><span class="ev-sess">S0</span><span class="ev-dupla">Wendy - Wilmer ✓</span></div><div class="ev-chip-school">COLEGIO SIERRA MOREN… · A802</div></div><div class="ev-chip" style="background:#8B4EA6;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Tania V - Luisa · COLEGIO NELSON MANDELA (IED) · Aula 701 · S0 · Completada"><div class="ev-chip-top"><span class="ev-sess">S0</span><span class="ev-dupla">Tania V - Luisa ✓</span></div><div class="ev-chip-school">COLEGIO NELSON MANDE… · A701</div></div><div class="ev-chip" style="background:#8B4EA6;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Maravy - Leidy- Yulieth · COLEGIO ATENAS (IED) · Aula 801 · S0 · Completada"><div class="ev-chip-top"><span class="ev-sess">S0</span><span class="ev-dupla">Maravy - Leidy- Yulieth ✓</span></div><div class="ev-chip-school">COLEGIO ATENAS (IED) · A801</div></div><div class="ev-chip" style="background:#8B4EA6;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Maravy - Leidy- Yulieth · COLEGIO GLORIA VALENCIA DE CASTAÑO (IED) · Aula 702 · S0 · Completada"><div class="ev-chip-top"><span class="ev-sess">S0</span><span class="ev-dupla">Maravy - Leidy- Yulieth ✓</span></div><div class="ev-chip-school">COLEGIO GLORIA VALEN… · A702</div></div><div class="ev-chip" style="background:#8B4EA6;color:#fff;opacity:1;border:none;" title="Jorge - Shirley · COLEGIO RUFINO JOSE CUERVO (IED) · Aula 805 · S0 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S0</span><span class="ev-dupla">Jorge - Shirley</span></div><div class="ev-chip-school">COLEGIO RUFINO JOSE … · A805</div></div><div class="ev-chip" style="background:#8B4EA6;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Jorge - Shirley · COLEGIO ISABEL II (IED) · Aula 802 · S0 · Completada"><div class="ev-chip-top"><span class="ev-sess">S0</span><span class="ev-dupla">Jorge - Shirley ✓</span></div><div class="ev-chip-school">COLEGIO ISABEL II (I… · A802</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Laura H - Nathalia · COLEGIO RAMON DE ZUBIRIA (IED) · Aula 802 · S1 · Completada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Laura H - Nathalia ✓</span></div><div class="ev-chip-school">COLEGIO RAMON DE ZUB… · A802</div></div></div>
+              <div class="cal-chips"><div class="ev-chip" style="background:#8B4EA6;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Tania V - Luisa · COLEGIO BOSANOVA (IED) · Aula 702 · S0 · Completada"><div class="ev-chip-top"><span class="ev-sess">S0</span><span class="ev-dupla">Tania V - Luisa ✓</span></div><div class="ev-chip-school">COLEGIO BOSANOVA (IE… · A702</div></div><div class="ev-chip" style="background:#8B4EA6;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Wendy - Wilmer · COLEGIO SIERRA MORENA (IED) · Aula 802 · S0 · Completada"><div class="ev-chip-top"><span class="ev-sess">S0</span><span class="ev-dupla">Wendy - Wilmer ✓</span></div><div class="ev-chip-school">COLEGIO SIERRA MOREN… · A802</div></div><div class="ev-chip" style="background:#8B4EA6;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Tania V - Luisa · COLEGIO NELSON MANDELA (IED) · Aula 701 · S0 · Completada"><div class="ev-chip-top"><span class="ev-sess">S0</span><span class="ev-dupla">Tania V - Luisa ✓</span></div><div class="ev-chip-school">COLEGIO NELSON MANDE… · A701</div></div><div class="ev-chip" style="background:#8B4EA6;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Maravy - Leidy- Yulieth · COLEGIO ATENAS (IED) · Aula 801 · S0 · Completada"><div class="ev-chip-top"><span class="ev-sess">S0</span><span class="ev-dupla">Maravy - Leidy- Yulieth ✓</span></div><div class="ev-chip-school">COLEGIO ATENAS (IED) · A801</div></div><div class="ev-chip" style="background:#8B4EA6;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Maravy - Leidy- Yulieth · COLEGIO GLORIA VALENCIA DE CASTAÑO (IED) · Aula 702 · S0 · Completada"><div class="ev-chip-top"><span class="ev-sess">S0</span><span class="ev-dupla">Maravy - Leidy- Yulieth ✓</span></div><div class="ev-chip-school">COLEGIO GLORIA VALEN… · A702</div></div><div class="ev-chip" style="background:#8B4EA6;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Jorge - Shirley · COLEGIO RUFINO JOSE CUERVO (IED) · Aula 805 · S0 · Completada"><div class="ev-chip-top"><span class="ev-sess">S0</span><span class="ev-dupla">Jorge - Shirley ✓</span></div><div class="ev-chip-school">COLEGIO RUFINO JOSE … · A805</div></div><div class="ev-chip" style="background:#8B4EA6;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Jorge - Shirley · COLEGIO ISABEL II (IED) · Aula 802 · S0 · Completada"><div class="ev-chip-top"><span class="ev-sess">S0</span><span class="ev-dupla">Jorge - Shirley ✓</span></div><div class="ev-chip-school">COLEGIO ISABEL II (I… · A802</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Laura H - Nathalia · COLEGIO RAMON DE ZUBIRIA (IED) · Aula 802 · S1 · Completada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Laura H - Nathalia ✓</span></div><div class="ev-chip-school">COLEGIO RAMON DE ZUB… · A802</div></div></div>
             </div>
             <div class="cal-cell">
               <div class="cal-cell-top">
@@ -1007,7 +1054,7 @@
                 <span class="cal-day-num">21</span>
                 <span class="day-n-badge">8</span>
               </div>
-              <div class="cal-chips"><div class="ev-chip" style="background:#8B4EA6;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Vanne - Conny · COLEGIO ANTONIO VAN UDEN (IED) · Aula 701 · S0 · Completada"><div class="ev-chip-top"><span class="ev-sess">S0</span><span class="ev-dupla">Vanne - Conny ✓</span></div><div class="ev-chip-school">COLEGIO ANTONIO VAN … · A701</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Camila - Paula V · COLEGIO FRANCISCO DE PAULA SANTANDER (IED) · Aula 802 · S1 · Completada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Camila - Paula V ✓</span></div><div class="ev-chip-school">COLEGIO FRANCISCO DE… · A802</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Wendy - Wilmer · COLEGIO LA ESTANCIA - SAN ISIDRO LABRADOR (IED) · Aula 903 · S1 · Completada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Wendy - Wilmer ✓</span></div><div class="ev-chip-school">COLEGIO LA ESTANCIA … · A903</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Wendy - Wilmer · COLEGIO SIERRA MORENA (IED) · Aula 802 · S1 · Completada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Wendy - Wilmer ✓</span></div><div class="ev-chip-school">COLEGIO SIERRA MOREN… · A802</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Naiara - Loren · COLEGIO INSTITUTO TECNICO JUAN DEL CORRAL (IED) · Aula 701 · S1 · Completada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Naiara - Loren ✓</span></div><div class="ev-chip-school">COLEGIO INSTITUTO TE… · A701</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Vanne - Conny · COLEGIO RODRIGO ARENAS BETANCOURT (IED) · Aula 701 · S1 · Completada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Vanne - Conny ✓</span></div><div class="ev-chip-school">COLEGIO RODRIGO AREN… · A701</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Tania V - Luisa · COLEGIO PROSPERO PINZON (IED) · Aula 803 · S1 · Completada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Tania V - Luisa ✓</span></div><div class="ev-chip-school">COLEGIO PROSPERO PIN… · A803</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:0.35;border:none;" title="Jorge - Shirley · COLEGIO EL LIBERTADOR (IED) · Aula 901 · S1 · Por agendar"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Jorge - Shirley</span></div><div class="ev-chip-school">COLEGIO EL LIBERTADO… · A901</div></div></div>
+              <div class="cal-chips"><div class="ev-chip" style="background:#8B4EA6;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Vanne - Conny · COLEGIO ANTONIO VAN UDEN (IED) · Aula 701 · S0 · Completada"><div class="ev-chip-top"><span class="ev-sess">S0</span><span class="ev-dupla">Vanne - Conny ✓</span></div><div class="ev-chip-school">COLEGIO ANTONIO VAN … · A701</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Camila - Paula V · COLEGIO FRANCISCO DE PAULA SANTANDER (IED) · Aula 802 · S1 · Completada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Camila - Paula V ✓</span></div><div class="ev-chip-school">COLEGIO FRANCISCO DE… · A802</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Wendy - Wilmer · COLEGIO LA ESTANCIA - SAN ISIDRO LABRADOR (IED) · Aula 903 · S1 · Completada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Wendy - Wilmer ✓</span></div><div class="ev-chip-school">COLEGIO LA ESTANCIA … · A903</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Wendy - Wilmer · COLEGIO SIERRA MORENA (IED) · Aula 802 · S1 · Completada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Wendy - Wilmer ✓</span></div><div class="ev-chip-school">COLEGIO SIERRA MOREN… · A802</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Naiara - Loren · COLEGIO INSTITUTO TECNICO JUAN DEL CORRAL (IED) · Aula 701 · S1 · Completada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Naiara - Loren ✓</span></div><div class="ev-chip-school">COLEGIO INSTITUTO TE… · A701</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Vanne - Conny · COLEGIO RODRIGO ARENAS BETANCOURT (IED) · Aula 701 · S1 · Completada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Vanne - Conny ✓</span></div><div class="ev-chip-school">COLEGIO RODRIGO AREN… · A701</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Tania V - Luisa · COLEGIO PROSPERO PINZON (IED) · Aula 803 · S1 · Completada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Tania V - Luisa ✓</span></div><div class="ev-chip-school">COLEGIO PROSPERO PIN… · A803</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Jorge - Shirley · COLEGIO EL LIBERTADOR (IED) · Aula 901 · S1 · Completada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Jorge - Shirley ✓</span></div><div class="ev-chip-school">COLEGIO EL LIBERTADO… · A901</div></div></div>
             </div>
             <div class="cal-cell">
               <div class="cal-cell-top">
@@ -1033,23 +1080,23 @@
             <div class="cal-cell">
               <div class="cal-cell-top">
                 <span class="cal-day-num">27</span>
-                <span class="day-n-badge">9</span>
+                <span class="day-n-badge">10</span>
               </div>
-              <div class="cal-chips"><div class="ev-chip" style="background:#8B4EA6;color:#fff;opacity:1;border:none;" title="Naiara - Loren · COLEGIO LA MERCED (IED) · Aula 802 · S0 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S0</span><span class="ev-dupla">Naiara - Loren</span></div><div class="ev-chip-school">COLEGIO LA MERCED (I… · A802</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Camila - Paula V · COLEGIO ESCUELA NORMAL SUPERIOR DISTRITAL MARIA MONTESSORI (IED) · Aula 804 · S1 · Completada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Camila - Paula V ✓</span></div><div class="ev-chip-school">COLEGIO ESCUELA NORM… · A804</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:none;" title="Laura H - Nathalia · COLEGIO DELIA ZAPATA OLIVELLA (IED) · Aula 701 · S1 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Laura H - Nathalia</span></div><div class="ev-chip-school">COLEGIO DELIA ZAPATA… · A701</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:none;" title="Naiara - Loren · COLEGIO INSTITUTO TECNICO DISTRITAL JULIO FLOREZ (IED) · Aula 902 · S1 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Naiara - Loren</span></div><div class="ev-chip-school">COLEGIO INSTITUTO TE… · A902</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:none;" title="Jeny - Lizeth · COLEGIO EL CORTIJO - VIANEY (IED) · Aula 802 · S1 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Jeny - Lizeth</span></div><div class="ev-chip-school">COLEGIO EL CORTIJO -… · A802</div></div><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:none;" title="Tania V - Luisa · COLEGIO GABRIEL BETANCOURT MEJIA (IED) · Aula 801 · S2 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Tania V - Luisa</span></div><div class="ev-chip-school">COLEGIO GABRIEL BETA… · A801</div></div><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Maravy - Leidy- Yulieth · COLEGIO GLORIA VALENCIA DE CASTAÑO (IED) · Aula 702 · S2 · Completada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Maravy - Leidy- Yulieth ✓</span></div><div class="ev-chip-school">COLEGIO GLORIA VALEN… · A702</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:none;" title="Juliana - Tania M · COLEGIO SAN FRANCISCO DE ASIS (IED) · Aula 701 · S3 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Juliana - Tania M</span></div><div class="ev-chip-school">COLEGIO SAN FRANCISC… · A701</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:none;" title="Laura H - Nathalia · COLEGIO RAMON DE ZUBIRIA (IED) · Aula 802 · S3 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Laura H - Nathalia</span></div><div class="ev-chip-school">COLEGIO RAMON DE ZUB… · A802</div></div></div>
+              <div class="cal-chips"><div class="ev-chip" style="background:#8B4EA6;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Naiara - Loren · COLEGIO LA MERCED (IED) · Aula 802 · S0 · Completada"><div class="ev-chip-top"><span class="ev-sess">S0</span><span class="ev-dupla">Naiara - Loren ✓</span></div><div class="ev-chip-school">COLEGIO LA MERCED (I… · A802</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Camila - Paula V · COLEGIO ESCUELA NORMAL SUPERIOR DISTRITAL MARIA MONTESSORI (IED) · Aula 804 · S1 · Completada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Camila - Paula V ✓</span></div><div class="ev-chip-school">COLEGIO ESCUELA NORM… · A804</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:none;" title="Laura H - Nathalia · COLEGIO DELIA ZAPATA OLIVELLA (IED) · Aula 701 · S1 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Laura H - Nathalia</span></div><div class="ev-chip-school">COLEGIO DELIA ZAPATA… · A701</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:none;" title="Naiara - Loren · COLEGIO INSTITUTO TECNICO DISTRITAL JULIO FLOREZ (IED) · Aula 902 · S1 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Naiara - Loren</span></div><div class="ev-chip-school">COLEGIO INSTITUTO TE… · A902</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:none;" title="Jeny - Lizeth · COLEGIO EL CORTIJO - VIANEY (IED) · Aula 802 · S1 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Jeny - Lizeth</span></div><div class="ev-chip-school">COLEGIO EL CORTIJO -… · A802</div></div><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Juliana - Tania M · COLEGIO RODRIGO LARA BONILLA (IED) · Aula 705 · S2 · Completada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Juliana - Tania M ✓</span></div><div class="ev-chip-school">COLEGIO RODRIGO LARA… · A705</div></div><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:none;" title="Tania V - Luisa · COLEGIO GABRIEL BETANCOURT MEJIA (IED) · Aula 801 · S2 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Tania V - Luisa</span></div><div class="ev-chip-school">COLEGIO GABRIEL BETA… · A801</div></div><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Maravy - Leidy- Yulieth · COLEGIO GLORIA VALENCIA DE CASTAÑO (IED) · Aula 702 · S2 · Completada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Maravy - Leidy- Yulieth ✓</span></div><div class="ev-chip-school">COLEGIO GLORIA VALEN… · A702</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Juliana - Tania M · COLEGIO SAN FRANCISCO DE ASIS (IED) · Aula 701 · S3 · Completada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Juliana - Tania M ✓</span></div><div class="ev-chip-school">COLEGIO SAN FRANCISC… · A701</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:none;" title="Laura H - Nathalia · COLEGIO RAMON DE ZUBIRIA (IED) · Aula 802 · S3 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Laura H - Nathalia</span></div><div class="ev-chip-school">COLEGIO RAMON DE ZUB… · A802</div></div></div>
             </div>
             <div class="cal-cell">
               <div class="cal-cell-top">
                 <span class="cal-day-num">28</span>
-                <span class="day-n-badge">8</span>
+                <span class="day-n-badge">7</span>
               </div>
-              <div class="cal-chips"><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Maravy - Leidy- Yulieth · COLEGIO LA BELLEZA LOS LIBERTADORES (IED) · Aula 9903 · S1 · Completada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Maravy - Leidy- Yulieth ✓</span></div><div class="ev-chip-school">COLEGIO LA BELLEZA L… · A9903</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:none;" title="Juliana - Tania M · COLEGIO EL VERJON (IED) · Aula 702 · S1 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Juliana - Tania M</span></div><div class="ev-chip-school">COLEGIO EL VERJON (I… · A702</div></div><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:none;" title="Wendy - Wilmer · COLEGIO LA ESTANCIA - SAN ISIDRO LABRADOR (IED) · Aula 903 · S2 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Wendy - Wilmer</span></div><div class="ev-chip-school">COLEGIO LA ESTANCIA … · A903</div></div><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:none;" title="Wendy - Wilmer · COLEGIO SIERRA MORENA (IED) · Aula 802 · S2 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Wendy - Wilmer</span></div><div class="ev-chip-school">COLEGIO SIERRA MOREN… · A802</div></div><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:none;" title="Tania V - Luisa · COLEGIO PROSPERO PINZON (IED) · Aula 803 · S2 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Tania V - Luisa</span></div><div class="ev-chip-school">COLEGIO PROSPERO PIN… · A803</div></div><div class="ev-chip" style="background:#F47920;color:#fff;opacity:0.35;border:none;" title="Jorge - Shirley · COLEGIO EL LIBERTADOR (IED) · Aula 901 · S2 · Por agendar"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Jorge - Shirley</span></div><div class="ev-chip-school">COLEGIO EL LIBERTADO… · A901</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Vanne - Conny · COLEGIO NIDIA QUINTERO DE TURBAY (IED) · Aula 701 · S3 · Completada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Vanne - Conny ✓</span></div><div class="ev-chip-school">COLEGIO NIDIA QUINTE… · A701</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Vanne - Conny · COLEGIO MIGUEL ANTONIO CARO (IED) · Aula 702 · S3 · Completada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Vanne - Conny ✓</span></div><div class="ev-chip-school">COLEGIO MIGUEL ANTON… · A702</div></div></div>
+              <div class="cal-chips"><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Maravy - Leidy- Yulieth · COLEGIO LA BELLEZA LOS LIBERTADORES (IED) · Aula 9903 · S1 · Completada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Maravy - Leidy- Yulieth ✓</span></div><div class="ev-chip-school">COLEGIO LA BELLEZA L… · A9903</div></div><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:none;" title="Wendy - Wilmer · COLEGIO LA ESTANCIA - SAN ISIDRO LABRADOR (IED) · Aula 903 · S2 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Wendy - Wilmer</span></div><div class="ev-chip-school">COLEGIO LA ESTANCIA … · A903</div></div><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:none;" title="Wendy - Wilmer · COLEGIO SIERRA MORENA (IED) · Aula 802 · S2 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Wendy - Wilmer</span></div><div class="ev-chip-school">COLEGIO SIERRA MOREN… · A802</div></div><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:none;" title="Tania V - Luisa · COLEGIO PROSPERO PINZON (IED) · Aula 803 · S2 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Tania V - Luisa</span></div><div class="ev-chip-school">COLEGIO PROSPERO PIN… · A803</div></div><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Jorge - Shirley · COLEGIO EL LIBERTADOR (IED) · Aula 901 · S2 · Completada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Jorge - Shirley ✓</span></div><div class="ev-chip-school">COLEGIO EL LIBERTADO… · A901</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Vanne - Conny · COLEGIO NIDIA QUINTERO DE TURBAY (IED) · Aula 701 · S3 · Completada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Vanne - Conny ✓</span></div><div class="ev-chip-school">COLEGIO NIDIA QUINTE… · A701</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Vanne - Conny · COLEGIO MIGUEL ANTONIO CARO (IED) · Aula 702 · S3 · Completada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Vanne - Conny ✓</span></div><div class="ev-chip-school">COLEGIO MIGUEL ANTON… · A702</div></div></div>
             </div>
             <div class="cal-cell cal-today">
               <div class="cal-cell-top">
                 <span class="cal-day-num">29</span>
-                <span class="day-n-badge">7</span>
+                <span class="day-n-badge">8</span>
               </div>
-              <div class="cal-chips"><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:none;" title="Jeny - Lizeth · COLEGIO LUIS EDUARDO MORA OSEJO (IED) · Aula 702 · S1 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Jeny - Lizeth</span></div><div class="ev-chip-school">COLEGIO LUIS EDUARDO… · A702</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:none;" title="Jeny - Lizeth · COLEGIO EL UVAL (IED) · Aula 701 · S1 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Jeny - Lizeth</span></div><div class="ev-chip-school">COLEGIO EL UVAL (IED… · A701</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:none;" title="Vanne - Conny · COLEGIO ANTONIO VAN UDEN (IED) · Aula 701 · S1 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Vanne - Conny</span></div><div class="ev-chip-school">COLEGIO ANTONIO VAN … · A701</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:none;" title="Camila - Paula V · COLEGIO MARIA CANO (IED) · Aula 701 · S1 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Camila - Paula V</span></div><div class="ev-chip-school">COLEGIO MARIA CANO (… · A701</div></div><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:none;" title="Juliana - Tania M · COLEGIO RODRIGO LARA BONILLA (IED) · Aula 705 · S2 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Juliana - Tania M</span></div><div class="ev-chip-school">COLEGIO RODRIGO LARA… · A705</div></div><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:none;" title="Naiara - Loren · COLEGIO INSTITUTO TECNICO JUAN DEL CORRAL (IED) · Aula 701 · S2 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Naiara - Loren</span></div><div class="ev-chip-school">COLEGIO INSTITUTO TE… · A701</div></div><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:none;" title="Tania V - Luisa · COLEGIO NELSON MANDELA (IED) · Aula 701 · S2 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Tania V - Luisa</span></div><div class="ev-chip-school">COLEGIO NELSON MANDE… · A701</div></div></div>
+              <div class="cal-chips"><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:none;" title="Jeny - Lizeth · COLEGIO LUIS EDUARDO MORA OSEJO (IED) · Aula 702 · S1 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Jeny - Lizeth</span></div><div class="ev-chip-school">COLEGIO LUIS EDUARDO… · A702</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:none;" title="Jeny - Lizeth · COLEGIO EL UVAL (IED) · Aula 701 · S1 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Jeny - Lizeth</span></div><div class="ev-chip-school">COLEGIO EL UVAL (IED… · A701</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Jorge - Shirley · COLEGIO PABLO DE TARSO (IED) · Aula 903 · S1 · Completada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Jorge - Shirley ✓</span></div><div class="ev-chip-school">COLEGIO PABLO DE TAR… · A903</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Vanne - Conny · COLEGIO ANTONIO VAN UDEN (IED) · Aula 701 · S1 · Completada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Vanne - Conny ✓</span></div><div class="ev-chip-school">COLEGIO ANTONIO VAN … · A701</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Jorge - Shirley · COLEGIO ISABEL II (IED) · Aula 802 · S1 · Completada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Jorge - Shirley ✓</span></div><div class="ev-chip-school">COLEGIO ISABEL II (I… · A802</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Camila - Paula V · COLEGIO MARIA CANO (IED) · Aula 701 · S1 · Completada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Camila - Paula V ✓</span></div><div class="ev-chip-school">COLEGIO MARIA CANO (… · A701</div></div><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:none;" title="Naiara - Loren · COLEGIO INSTITUTO TECNICO JUAN DEL CORRAL (IED) · Aula 701 · S2 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Naiara - Loren</span></div><div class="ev-chip-school">COLEGIO INSTITUTO TE… · A701</div></div><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:none;" title="Tania V - Luisa · COLEGIO NELSON MANDELA (IED) · Aula 701 · S2 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Tania V - Luisa</span></div><div class="ev-chip-school">COLEGIO NELSON MANDE… · A701</div></div></div>
             </div>
             <div class="cal-cell">
               <div class="cal-cell-top">
@@ -1084,16 +1131,16 @@
             <div class="cal-cell">
               <div class="cal-cell-top">
                 <span class="cal-day-num">5</span>
-                <span class="day-n-badge">11</span>
+                <span class="day-n-badge">10</span>
               </div>
-              <div class="cal-chips"><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:none;" title="Jeny - Lizeth · COLEGIO FEDERICO GARCIA LORCA (IED) · Aula 902 · S1 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Jeny - Lizeth</span></div><div class="ev-chip-school">COLEGIO FEDERICO GAR… · A902</div></div><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:none;" title="Maravy - Leidy- Yulieth · COLEGIO LA BELLEZA LOS LIBERTADORES (IED) · Aula 9903 · S2 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Maravy - Leidy- Yulieth</span></div><div class="ev-chip-school">COLEGIO LA BELLEZA L… · A9903</div></div><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:none;" title="Laura H - Nathalia · COLEGIO DELIA ZAPATA OLIVELLA (IED) · Aula 701 · S2 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Laura H - Nathalia</span></div><div class="ev-chip-school">COLEGIO DELIA ZAPATA… · A701</div></div><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:none;" title="Juliana - Tania M · COLEGIO EL VERJON (IED) · Aula 702 · S2 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Juliana - Tania M</span></div><div class="ev-chip-school">COLEGIO EL VERJON (I… · A702</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:none;" title="Camila - Paula V · COLEGIO ESCUELA NORMAL SUPERIOR DISTRITAL MARIA MONTESSORI (IED) · Aula 804 · S3 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Camila - Paula V</span></div><div class="ev-chip-school">COLEGIO ESCUELA NORM… · A804</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:none;" title="Wendy - Wilmer · COLEGIO LA ESTANCIA - SAN ISIDRO LABRADOR (IED) · Aula 903 · S3 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Wendy - Wilmer</span></div><div class="ev-chip-school">COLEGIO LA ESTANCIA … · A903</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:none;" title="Wendy - Wilmer · COLEGIO SIERRA MORENA (IED) · Aula 802 · S3 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Wendy - Wilmer</span></div><div class="ev-chip-school">COLEGIO SIERRA MOREN… · A802</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:none;" title="Tania V - Luisa · COLEGIO PROSPERO PINZON (IED) · Aula 803 · S3 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Tania V - Luisa</span></div><div class="ev-chip-school">COLEGIO PROSPERO PIN… · A803</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:0.35;border:none;" title="Jorge - Shirley · COLEGIO EL LIBERTADOR (IED) · Aula 901 · S3 · Por agendar"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Jorge - Shirley</span></div><div class="ev-chip-school">COLEGIO EL LIBERTADO… · A901</div></div><div class="ev-chip" style="background:#3AABE3;color:#fff;opacity:1;border:none;" title="Vanne - Conny · COLEGIO NIDIA QUINTERO DE TURBAY (IED) · Aula 701 · S4 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S4</span><span class="ev-dupla">Vanne - Conny</span></div><div class="ev-chip-school">COLEGIO NIDIA QUINTE… · A701</div></div><div class="ev-chip" style="background:#3AABE3;color:#fff;opacity:1;border:none;" title="Vanne - Conny · COLEGIO MIGUEL ANTONIO CARO (IED) · Aula 702 · S4 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S4</span><span class="ev-dupla">Vanne - Conny</span></div><div class="ev-chip-school">COLEGIO MIGUEL ANTON… · A702</div></div></div>
+              <div class="cal-chips"><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:none;" title="Jeny - Lizeth · COLEGIO FEDERICO GARCIA LORCA (IED) · Aula 902 · S1 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Jeny - Lizeth</span></div><div class="ev-chip-school">COLEGIO FEDERICO GAR… · A902</div></div><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:none;" title="Maravy - Leidy- Yulieth · COLEGIO LA BELLEZA LOS LIBERTADORES (IED) · Aula 9903 · S2 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Maravy - Leidy- Yulieth</span></div><div class="ev-chip-school">COLEGIO LA BELLEZA L… · A9903</div></div><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:none;" title="Laura H - Nathalia · COLEGIO DELIA ZAPATA OLIVELLA (IED) · Aula 701 · S2 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Laura H - Nathalia</span></div><div class="ev-chip-school">COLEGIO DELIA ZAPATA… · A701</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:none;" title="Camila - Paula V · COLEGIO ESCUELA NORMAL SUPERIOR DISTRITAL MARIA MONTESSORI (IED) · Aula 804 · S3 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Camila - Paula V</span></div><div class="ev-chip-school">COLEGIO ESCUELA NORM… · A804</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:none;" title="Wendy - Wilmer · COLEGIO LA ESTANCIA - SAN ISIDRO LABRADOR (IED) · Aula 903 · S3 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Wendy - Wilmer</span></div><div class="ev-chip-school">COLEGIO LA ESTANCIA … · A903</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:none;" title="Wendy - Wilmer · COLEGIO SIERRA MORENA (IED) · Aula 802 · S3 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Wendy - Wilmer</span></div><div class="ev-chip-school">COLEGIO SIERRA MOREN… · A802</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:none;" title="Tania V - Luisa · COLEGIO PROSPERO PINZON (IED) · Aula 803 · S3 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Tania V - Luisa</span></div><div class="ev-chip-school">COLEGIO PROSPERO PIN… · A803</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:none;" title="Jorge - Shirley · COLEGIO EL LIBERTADOR (IED) · Aula 901 · S3 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Jorge - Shirley</span></div><div class="ev-chip-school">COLEGIO EL LIBERTADO… · A901</div></div><div class="ev-chip" style="background:#3AABE3;color:#fff;opacity:1;border:none;" title="Vanne - Conny · COLEGIO NIDIA QUINTERO DE TURBAY (IED) · Aula 701 · S4 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S4</span><span class="ev-dupla">Vanne - Conny</span></div><div class="ev-chip-school">COLEGIO NIDIA QUINTE… · A701</div></div><div class="ev-chip" style="background:#3AABE3;color:#fff;opacity:1;border:none;" title="Vanne - Conny · COLEGIO MIGUEL ANTONIO CARO (IED) · Aula 702 · S4 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S4</span><span class="ev-dupla">Vanne - Conny</span></div><div class="ev-chip-school">COLEGIO MIGUEL ANTON… · A702</div></div></div>
             </div>
             <div class="cal-cell">
               <div class="cal-cell-top">
                 <span class="cal-day-num">6</span>
-                <span class="day-n-badge">6</span>
+                <span class="day-n-badge">7</span>
               </div>
-              <div class="cal-chips"><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:none;" title="Laura H - Nathalia · COLEGIO TABORA (IED) · Aula 701 · S1 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Laura H - Nathalia</span></div><div class="ev-chip-school">COLEGIO TABORA (IED) · A701</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:none;" title="Naiara - Loren · COLEGIO PAULO VI (IED) · Aula 902 · S1 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Naiara - Loren</span></div><div class="ev-chip-school">COLEGIO PAULO VI (IE… · A902</div></div><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:none;" title="Camila - Paula V · COLEGIO MARIA CANO (IED) · Aula 701 · S2 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Camila - Paula V</span></div><div class="ev-chip-school">COLEGIO MARIA CANO (… · A701</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:none;" title="Naiara - Loren · COLEGIO INSTITUTO TECNICO JUAN DEL CORRAL (IED) · Aula 701 · S3 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Naiara - Loren</span></div><div class="ev-chip-school">COLEGIO INSTITUTO TE… · A701</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:none;" title="Tania V - Luisa · COLEGIO NELSON MANDELA (IED) · Aula 701 · S3 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Tania V - Luisa</span></div><div class="ev-chip-school">COLEGIO NELSON MANDE… · A701</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:none;" title="Maravy - Leidy- Yulieth · COLEGIO JOSE ACEVEDO Y GOMEZ (IED) · Aula 901 · S3 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Maravy - Leidy- Yulieth</span></div><div class="ev-chip-school">COLEGIO JOSE ACEVEDO… · A901</div></div></div>
+              <div class="cal-chips"><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:none;" title="Laura H - Nathalia · COLEGIO TABORA (IED) · Aula 701 · S1 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Laura H - Nathalia</span></div><div class="ev-chip-school">COLEGIO TABORA (IED) · A701</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:none;" title="Naiara - Loren · COLEGIO PAULO VI (IED) · Aula 902 · S1 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Naiara - Loren</span></div><div class="ev-chip-school">COLEGIO PAULO VI (IE… · A902</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:none;" title="Juliana - Tania M · COLEGIO EL VERJON (IED) · Aula 702 · S1 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Juliana - Tania M</span></div><div class="ev-chip-school">COLEGIO EL VERJON (I… · A702</div></div><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:none;" title="Camila - Paula V · COLEGIO MARIA CANO (IED) · Aula 701 · S2 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Camila - Paula V</span></div><div class="ev-chip-school">COLEGIO MARIA CANO (… · A701</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:none;" title="Naiara - Loren · COLEGIO INSTITUTO TECNICO JUAN DEL CORRAL (IED) · Aula 701 · S3 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Naiara - Loren</span></div><div class="ev-chip-school">COLEGIO INSTITUTO TE… · A701</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:none;" title="Tania V - Luisa · COLEGIO NELSON MANDELA (IED) · Aula 701 · S3 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Tania V - Luisa</span></div><div class="ev-chip-school">COLEGIO NELSON MANDE… · A701</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:none;" title="Maravy - Leidy- Yulieth · COLEGIO JOSE ACEVEDO Y GOMEZ (IED) · Aula 901 · S3 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Maravy - Leidy- Yulieth</span></div><div class="ev-chip-school">COLEGIO JOSE ACEVEDO… · A901</div></div></div>
             </div>
             <div class="cal-cell">
               <div class="cal-cell-top">
@@ -1119,16 +1166,16 @@
             <div class="cal-cell">
               <div class="cal-cell-top">
                 <span class="cal-day-num">12</span>
-                <span class="day-n-badge">12</span>
+                <span class="day-n-badge">11</span>
               </div>
-              <div class="cal-chips"><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:none;" title="Laura H - Nathalia · COLEGIO COMPARTIR RECUERDO (IED) · Aula 701 · S1 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Laura H - Nathalia</span></div><div class="ev-chip-school">COLEGIO COMPARTIR RE… · A701</div></div><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:none;" title="Jeny - Lizeth · COLEGIO FEDERICO GARCIA LORCA (IED) · Aula 902 · S2 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Jeny - Lizeth</span></div><div class="ev-chip-school">COLEGIO FEDERICO GAR… · A902</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:none;" title="Maravy - Leidy- Yulieth · COLEGIO LA BELLEZA LOS LIBERTADORES (IED) · Aula 9903 · S3 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Maravy - Leidy- Yulieth</span></div><div class="ev-chip-school">COLEGIO LA BELLEZA L… · A9903</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:none;" title="Vanne - Conny · COLEGIO ANTONIO VAN UDEN (IED) · Aula 701 · S3 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Vanne - Conny</span></div><div class="ev-chip-school">COLEGIO ANTONIO VAN … · A701</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:none;" title="Naiara - Loren · COLEGIO PAULO VI (IED) · Aula 902 · S3 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Naiara - Loren</span></div><div class="ev-chip-school">COLEGIO PAULO VI (IE… · A902</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:none;" title="Juliana - Tania M · COLEGIO EL VERJON (IED) · Aula 702 · S3 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Juliana - Tania M</span></div><div class="ev-chip-school">COLEGIO EL VERJON (I… · A702</div></div><div class="ev-chip" style="background:#3AABE3;color:#fff;opacity:1;border:none;" title="Camila - Paula V · COLEGIO ESCUELA NORMAL SUPERIOR DISTRITAL MARIA MONTESSORI (IED) · Aula 804 · S4 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S4</span><span class="ev-dupla">Camila - Paula V</span></div><div class="ev-chip-school">COLEGIO ESCUELA NORM… · A804</div></div><div class="ev-chip" style="background:#3AABE3;color:#fff;opacity:1;border:none;" title="Wendy - Wilmer · COLEGIO LA ESTANCIA - SAN ISIDRO LABRADOR (IED) · Aula 903 · S4 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S4</span><span class="ev-dupla">Wendy - Wilmer</span></div><div class="ev-chip-school">COLEGIO LA ESTANCIA … · A903</div></div><div class="ev-chip" style="background:#3AABE3;color:#fff;opacity:1;border:none;" title="Wendy - Wilmer · COLEGIO SIERRA MORENA (IED) · Aula 802 · S4 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S4</span><span class="ev-dupla">Wendy - Wilmer</span></div><div class="ev-chip-school">COLEGIO SIERRA MOREN… · A802</div></div><div class="ev-chip" style="background:#3AABE3;color:#fff;opacity:1;border:none;" title="Tania V - Luisa · COLEGIO NELSON MANDELA (IED) · Aula 701 · S4 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S4</span><span class="ev-dupla">Tania V - Luisa</span></div><div class="ev-chip-school">COLEGIO NELSON MANDE… · A701</div></div><div class="ev-chip" style="background:#3AABE3;color:#fff;opacity:1;border:none;" title="Tania V - Luisa · COLEGIO PROSPERO PINZON (IED) · Aula 803 · S4 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S4</span><span class="ev-dupla">Tania V - Luisa</span></div><div class="ev-chip-school">COLEGIO PROSPERO PIN… · A803</div></div><div class="ev-chip" style="background:#3AABE3;color:#fff;opacity:0.35;border:none;" title="Jorge - Shirley · COLEGIO EL LIBERTADOR (IED) · Aula 901 · S4 · Por agendar"><div class="ev-chip-top"><span class="ev-sess">S4</span><span class="ev-dupla">Jorge - Shirley</span></div><div class="ev-chip-school">COLEGIO EL LIBERTADO… · A901</div></div></div>
+              <div class="cal-chips"><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:none;" title="Laura H - Nathalia · COLEGIO COMPARTIR RECUERDO (IED) · Aula 701 · S1 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Laura H - Nathalia</span></div><div class="ev-chip-school">COLEGIO COMPARTIR RE… · A701</div></div><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:none;" title="Jeny - Lizeth · COLEGIO FEDERICO GARCIA LORCA (IED) · Aula 902 · S2 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Jeny - Lizeth</span></div><div class="ev-chip-school">COLEGIO FEDERICO GAR… · A902</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:none;" title="Maravy - Leidy- Yulieth · COLEGIO LA BELLEZA LOS LIBERTADORES (IED) · Aula 9903 · S3 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Maravy - Leidy- Yulieth</span></div><div class="ev-chip-school">COLEGIO LA BELLEZA L… · A9903</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:none;" title="Vanne - Conny · COLEGIO ANTONIO VAN UDEN (IED) · Aula 701 · S3 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Vanne - Conny</span></div><div class="ev-chip-school">COLEGIO ANTONIO VAN … · A701</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:none;" title="Naiara - Loren · COLEGIO PAULO VI (IED) · Aula 902 · S3 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Naiara - Loren</span></div><div class="ev-chip-school">COLEGIO PAULO VI (IE… · A902</div></div><div class="ev-chip" style="background:#3AABE3;color:#fff;opacity:1;border:none;" title="Camila - Paula V · COLEGIO ESCUELA NORMAL SUPERIOR DISTRITAL MARIA MONTESSORI (IED) · Aula 804 · S4 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S4</span><span class="ev-dupla">Camila - Paula V</span></div><div class="ev-chip-school">COLEGIO ESCUELA NORM… · A804</div></div><div class="ev-chip" style="background:#3AABE3;color:#fff;opacity:1;border:none;" title="Wendy - Wilmer · COLEGIO LA ESTANCIA - SAN ISIDRO LABRADOR (IED) · Aula 903 · S4 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S4</span><span class="ev-dupla">Wendy - Wilmer</span></div><div class="ev-chip-school">COLEGIO LA ESTANCIA … · A903</div></div><div class="ev-chip" style="background:#3AABE3;color:#fff;opacity:1;border:none;" title="Wendy - Wilmer · COLEGIO SIERRA MORENA (IED) · Aula 802 · S4 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S4</span><span class="ev-dupla">Wendy - Wilmer</span></div><div class="ev-chip-school">COLEGIO SIERRA MOREN… · A802</div></div><div class="ev-chip" style="background:#3AABE3;color:#fff;opacity:1;border:none;" title="Tania V - Luisa · COLEGIO NELSON MANDELA (IED) · Aula 701 · S4 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S4</span><span class="ev-dupla">Tania V - Luisa</span></div><div class="ev-chip-school">COLEGIO NELSON MANDE… · A701</div></div><div class="ev-chip" style="background:#3AABE3;color:#fff;opacity:1;border:none;" title="Tania V - Luisa · COLEGIO PROSPERO PINZON (IED) · Aula 803 · S4 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S4</span><span class="ev-dupla">Tania V - Luisa</span></div><div class="ev-chip-school">COLEGIO PROSPERO PIN… · A803</div></div><div class="ev-chip" style="background:#3AABE3;color:#fff;opacity:1;border:none;" title="Jorge - Shirley · COLEGIO EL LIBERTADOR (IED) · Aula 901 · S4 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S4</span><span class="ev-dupla">Jorge - Shirley</span></div><div class="ev-chip-school">COLEGIO EL LIBERTADO… · A901</div></div></div>
             </div>
             <div class="cal-cell">
               <div class="cal-cell-top">
                 <span class="cal-day-num">13</span>
-                <span class="day-n-badge">5</span>
+                <span class="day-n-badge">6</span>
               </div>
-              <div class="cal-chips"><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:none;" title="Jeny - Lizeth · COLEGIO LUIS EDUARDO MORA OSEJO (IED) · Aula 702 · S2 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Jeny - Lizeth</span></div><div class="ev-chip-school">COLEGIO LUIS EDUARDO… · A702</div></div><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:none;" title="Jeny - Lizeth · COLEGIO EL UVAL (IED) · Aula 701 · S2 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Jeny - Lizeth</span></div><div class="ev-chip-school">COLEGIO EL UVAL (IED… · A701</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:none;" title="Naiara - Loren · COLEGIO INSTITUTO TECNICO DISTRITAL JULIO FLOREZ (IED) · Aula 902 · S3 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Naiara - Loren</span></div><div class="ev-chip-school">COLEGIO INSTITUTO TE… · A902</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:none;" title="Camila - Paula V · COLEGIO MARIA CANO (IED) · Aula 701 · S3 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Camila - Paula V</span></div><div class="ev-chip-school">COLEGIO MARIA CANO (… · A701</div></div><div class="ev-chip" style="background:#3AABE3;color:#fff;opacity:1;border:none;" title="Maravy - Leidy- Yulieth · COLEGIO JOSE ACEVEDO Y GOMEZ (IED) · Aula 901 · S4 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S4</span><span class="ev-dupla">Maravy - Leidy- Yulieth</span></div><div class="ev-chip-school">COLEGIO JOSE ACEVEDO… · A901</div></div></div>
+              <div class="cal-chips"><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:none;" title="Jeny - Lizeth · COLEGIO LUIS EDUARDO MORA OSEJO (IED) · Aula 702 · S2 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Jeny - Lizeth</span></div><div class="ev-chip-school">COLEGIO LUIS EDUARDO… · A702</div></div><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:none;" title="Jeny - Lizeth · COLEGIO EL UVAL (IED) · Aula 701 · S2 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Jeny - Lizeth</span></div><div class="ev-chip-school">COLEGIO EL UVAL (IED… · A701</div></div><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:none;" title="Juliana - Tania M · COLEGIO EL VERJON (IED) · Aula 702 · S2 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Juliana - Tania M</span></div><div class="ev-chip-school">COLEGIO EL VERJON (I… · A702</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:none;" title="Naiara - Loren · COLEGIO INSTITUTO TECNICO DISTRITAL JULIO FLOREZ (IED) · Aula 902 · S3 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Naiara - Loren</span></div><div class="ev-chip-school">COLEGIO INSTITUTO TE… · A902</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:none;" title="Camila - Paula V · COLEGIO MARIA CANO (IED) · Aula 701 · S3 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Camila - Paula V</span></div><div class="ev-chip-school">COLEGIO MARIA CANO (… · A701</div></div><div class="ev-chip" style="background:#3AABE3;color:#fff;opacity:1;border:none;" title="Maravy - Leidy- Yulieth · COLEGIO JOSE ACEVEDO Y GOMEZ (IED) · Aula 901 · S4 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S4</span><span class="ev-dupla">Maravy - Leidy- Yulieth</span></div><div class="ev-chip-school">COLEGIO JOSE ACEVEDO… · A901</div></div></div>
             </div>
             <div class="cal-cell">
               <div class="cal-cell-top">
@@ -1147,23 +1194,23 @@
             <div class="cal-cell">
               <div class="cal-cell-top">
                 <span class="cal-day-num">18</span>
-                
+                <span class="day-n-badge">1</span>
               </div>
-              <div class="cal-chips"></div>
+              <div class="cal-chips"><div class="ev-chip" style="background:#3AABE3;color:#fff;opacity:1;border:none;" title="Juliana - Tania M · COLEGIO RODRIGO LARA BONILLA (IED) · Aula 705 · S4 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S4</span><span class="ev-dupla">Juliana - Tania M</span></div><div class="ev-chip-school">COLEGIO RODRIGO LARA… · A705</div></div></div>
             </div>
             <div class="cal-cell">
               <div class="cal-cell-top">
                 <span class="cal-day-num">19</span>
-                <span class="day-n-badge">3</span>
+                <span class="day-n-badge">4</span>
               </div>
-              <div class="cal-chips"><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:none;" title="Laura H - Nathalia · COLEGIO DELIA ZAPATA OLIVELLA (IED) · Aula 701 · S3 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Laura H - Nathalia</span></div><div class="ev-chip-school">COLEGIO DELIA ZAPATA… · A701</div></div><div class="ev-chip" style="background:#3AABE3;color:#fff;opacity:1;border:none;" title="Maravy - Leidy- Yulieth · COLEGIO LA BELLEZA LOS LIBERTADORES (IED) · Aula 9903 · S4 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S4</span><span class="ev-dupla">Maravy - Leidy- Yulieth</span></div><div class="ev-chip-school">COLEGIO LA BELLEZA L… · A9903</div></div><div class="ev-chip" style="background:#3AABE3;color:#fff;opacity:1;border:none;" title="Juliana - Tania M · COLEGIO EL VERJON (IED) · Aula 702 · S4 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S4</span><span class="ev-dupla">Juliana - Tania M</span></div><div class="ev-chip-school">COLEGIO EL VERJON (I… · A702</div></div></div>
+              <div class="cal-chips"><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:none;" title="Laura H - Nathalia · COLEGIO DELIA ZAPATA OLIVELLA (IED) · Aula 701 · S3 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Laura H - Nathalia</span></div><div class="ev-chip-school">COLEGIO DELIA ZAPATA… · A701</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:none;" title="Juliana - Tania M · COLEGIO EL VERJON (IED) · Aula 702 · S3 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Juliana - Tania M</span></div><div class="ev-chip-school">COLEGIO EL VERJON (I… · A702</div></div><div class="ev-chip" style="background:#3AABE3;color:#fff;opacity:1;border:none;" title="Maravy - Leidy- Yulieth · COLEGIO LA BELLEZA LOS LIBERTADORES (IED) · Aula 9903 · S4 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S4</span><span class="ev-dupla">Maravy - Leidy- Yulieth</span></div><div class="ev-chip-school">COLEGIO LA BELLEZA L… · A9903</div></div><div class="ev-chip" style="background:#3AABE3;color:#fff;opacity:1;border:none;" title="Vanne - Conny · COLEGIO ANTONIO VAN UDEN (IED) · Aula 701 · S4 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S4</span><span class="ev-dupla">Vanne - Conny</span></div><div class="ev-chip-school">COLEGIO ANTONIO VAN … · A701</div></div></div>
             </div>
             <div class="cal-cell">
               <div class="cal-cell-top">
                 <span class="cal-day-num">20</span>
-                <span class="day-n-badge">4</span>
+                <span class="day-n-badge">3</span>
               </div>
-              <div class="cal-chips"><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:none;" title="Laura H - Nathalia · COLEGIO COMPARTIR RECUERDO (IED) · Aula 701 · S2 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Laura H - Nathalia</span></div><div class="ev-chip-school">COLEGIO COMPARTIR RE… · A701</div></div><div class="ev-chip" style="background:#3AABE3;color:#fff;opacity:1;border:none;" title="Juliana - Tania M · COLEGIO RODRIGO LARA BONILLA (IED) · Aula 705 · S4 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S4</span><span class="ev-dupla">Juliana - Tania M</span></div><div class="ev-chip-school">COLEGIO RODRIGO LARA… · A705</div></div><div class="ev-chip" style="background:#3AABE3;color:#fff;opacity:1;border:none;" title="Naiara - Loren · COLEGIO INSTITUTO TECNICO DISTRITAL JULIO FLOREZ (IED) · Aula 902 · S4 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S4</span><span class="ev-dupla">Naiara - Loren</span></div><div class="ev-chip-school">COLEGIO INSTITUTO TE… · A902</div></div><div class="ev-chip" style="background:#3AABE3;color:#fff;opacity:1;border:none;" title="Camila - Paula V · COLEGIO MARIA CANO (IED) · Aula 701 · S4 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S4</span><span class="ev-dupla">Camila - Paula V</span></div><div class="ev-chip-school">COLEGIO MARIA CANO (… · A701</div></div></div>
+              <div class="cal-chips"><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:none;" title="Laura H - Nathalia · COLEGIO COMPARTIR RECUERDO (IED) · Aula 701 · S2 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Laura H - Nathalia</span></div><div class="ev-chip-school">COLEGIO COMPARTIR RE… · A701</div></div><div class="ev-chip" style="background:#3AABE3;color:#fff;opacity:1;border:none;" title="Naiara - Loren · COLEGIO INSTITUTO TECNICO DISTRITAL JULIO FLOREZ (IED) · Aula 902 · S4 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S4</span><span class="ev-dupla">Naiara - Loren</span></div><div class="ev-chip-school">COLEGIO INSTITUTO TE… · A902</div></div><div class="ev-chip" style="background:#3AABE3;color:#fff;opacity:1;border:none;" title="Camila - Paula V · COLEGIO MARIA CANO (IED) · Aula 701 · S4 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S4</span><span class="ev-dupla">Camila - Paula V</span></div><div class="ev-chip-school">COLEGIO MARIA CANO (… · A701</div></div></div>
             </div>
             <div class="cal-cell">
               <div class="cal-cell-top">
@@ -1189,9 +1236,9 @@
             <div class="cal-cell">
               <div class="cal-cell-top">
                 <span class="cal-day-num">26</span>
-                <span class="day-n-badge">1</span>
+                <span class="day-n-badge">2</span>
               </div>
-              <div class="cal-chips"><div class="ev-chip" style="background:#3AABE3;color:#fff;opacity:1;border:none;" title="Jeny - Lizeth · COLEGIO FEDERICO GARCIA LORCA (IED) · Aula 902 · S4 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S4</span><span class="ev-dupla">Jeny - Lizeth</span></div><div class="ev-chip-school">COLEGIO FEDERICO GAR… · A902</div></div></div>
+              <div class="cal-chips"><div class="ev-chip" style="background:#3AABE3;color:#fff;opacity:1;border:none;" title="Jeny - Lizeth · COLEGIO FEDERICO GARCIA LORCA (IED) · Aula 902 · S4 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S4</span><span class="ev-dupla">Jeny - Lizeth</span></div><div class="ev-chip-school">COLEGIO FEDERICO GAR… · A902</div></div><div class="ev-chip" style="background:#3AABE3;color:#fff;opacity:1;border:none;" title="Juliana - Tania M · COLEGIO EL VERJON (IED) · Aula 702 · S4 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S4</span><span class="ev-dupla">Juliana - Tania M</span></div><div class="ev-chip-school">COLEGIO EL VERJON (I… · A702</div></div></div>
             </div>
             <div class="cal-cell">
               <div class="cal-cell-top">
@@ -1404,15 +1451,15 @@
           <span class="dupla-badge" style="background:#3AABE3;color:#fff;">Camila - Paula V</span>
         </td>
         <td class="tc">4</td>
-        <td class="tc" style="color:#4BAD4E;font-weight:700;">6</td>
-        <td class="tc" style="color:#3AABE3;font-weight:700;">14</td>
+        <td class="tc" style="color:#4BAD4E;font-weight:700;">7</td>
+        <td class="tc" style="color:#3AABE3;font-weight:700;">13</td>
         <td class="tc" style="color:#9ca3af;">0</td>
         <td>
           <div class="pbar-wrap">
             <div class="pbar-track">
-              <div style="width:30%;background:#4BAD4E;height:100%;border-radius:4px;"></div>
+              <div style="width:35%;background:#4BAD4E;height:100%;border-radius:4px;"></div>
             </div>
-            <span class="pbar-pct" style="color:#4BAD4E;">30%</span>
+            <span class="pbar-pct" style="color:#4BAD4E;">35%</span>
           </div>
         </td>
       </tr>
@@ -1438,15 +1485,15 @@
           <span class="dupla-badge" style="background:#e5e7eb;color:#555;">Jorge - Shirley</span>
         </td>
         <td class="tc">4</td>
-        <td class="tc" style="color:#4BAD4E;font-weight:700;">3</td>
-        <td class="tc" style="color:#3AABE3;font-weight:700;">1</td>
-        <td class="tc" style="color:#9ca3af;">16</td>
+        <td class="tc" style="color:#4BAD4E;font-weight:700;">10</td>
+        <td class="tc" style="color:#3AABE3;font-weight:700;">2</td>
+        <td class="tc" style="color:#9ca3af;">8</td>
         <td>
           <div class="pbar-wrap">
             <div class="pbar-track">
-              <div style="width:15%;background:#4BAD4E;height:100%;border-radius:4px;"></div>
+              <div style="width:50%;background:#4BAD4E;height:100%;border-radius:4px;"></div>
             </div>
-            <span class="pbar-pct" style="color:#4BAD4E;">15%</span>
+            <span class="pbar-pct" style="color:#4BAD4E;">50%</span>
           </div>
         </td>
       </tr>
@@ -1455,15 +1502,15 @@
           <span class="dupla-badge" style="background:#8B4EA6;color:#fff;">Juliana - Tania M</span>
         </td>
         <td class="tc">4</td>
-        <td class="tc" style="color:#4BAD4E;font-weight:700;">9</td>
-        <td class="tc" style="color:#3AABE3;font-weight:700;">11</td>
+        <td class="tc" style="color:#4BAD4E;font-weight:700;">11</td>
+        <td class="tc" style="color:#3AABE3;font-weight:700;">9</td>
         <td class="tc" style="color:#9ca3af;">0</td>
         <td>
           <div class="pbar-wrap">
             <div class="pbar-track">
-              <div style="width:45%;background:#4BAD4E;height:100%;border-radius:4px;"></div>
+              <div style="width:55%;background:#4BAD4E;height:100%;border-radius:4px;"></div>
             </div>
-            <span class="pbar-pct" style="color:#4BAD4E;">45%</span>
+            <span class="pbar-pct" style="color:#4BAD4E;">55%</span>
           </div>
         </td>
       </tr>
@@ -1506,15 +1553,15 @@
           <span class="dupla-badge" style="background:#E8302A;color:#fff;">Naiara - Loren</span>
         </td>
         <td class="tc">4</td>
-        <td class="tc" style="color:#4BAD4E;font-weight:700;">4</td>
-        <td class="tc" style="color:#3AABE3;font-weight:700;">12</td>
-        <td class="tc" style="color:#9ca3af;">4</td>
+        <td class="tc" style="color:#4BAD4E;font-weight:700;">5</td>
+        <td class="tc" style="color:#3AABE3;font-weight:700;">15</td>
+        <td class="tc" style="color:#9ca3af;">0</td>
         <td>
           <div class="pbar-wrap">
             <div class="pbar-track">
-              <div style="width:20%;background:#4BAD4E;height:100%;border-radius:4px;"></div>
+              <div style="width:25%;background:#4BAD4E;height:100%;border-radius:4px;"></div>
             </div>
-            <span class="pbar-pct" style="color:#4BAD4E;">20%</span>
+            <span class="pbar-pct" style="color:#4BAD4E;">25%</span>
           </div>
         </td>
       </tr>
@@ -1540,15 +1587,15 @@
           <span class="dupla-badge" style="background:#F9C200;color:#1a1a2e;">Vanne - Conny</span>
         </td>
         <td class="tc">4</td>
-        <td class="tc" style="color:#4BAD4E;font-weight:700;">11</td>
-        <td class="tc" style="color:#3AABE3;font-weight:700;">9</td>
+        <td class="tc" style="color:#4BAD4E;font-weight:700;">12</td>
+        <td class="tc" style="color:#3AABE3;font-weight:700;">8</td>
         <td class="tc" style="color:#9ca3af;">0</td>
         <td>
           <div class="pbar-wrap">
             <div class="pbar-track">
-              <div style="width:55%;background:#4BAD4E;height:100%;border-radius:4px;"></div>
+              <div style="width:60%;background:#4BAD4E;height:100%;border-radius:4px;"></div>
             </div>
-            <span class="pbar-pct" style="color:#4BAD4E;">55%</span>
+            <span class="pbar-pct" style="color:#4BAD4E;">60%</span>
           </div>
         </td>
       </tr>
@@ -1601,6 +1648,15 @@
         <td class="tc" style="font-weight:800;color:#3AABE3;">4/5</td>
       </tr>
       <tr>
+        <td class="tc">14</td>
+        <td><a href="#school-14">COLEGIO SAN FRANCISCO DE ASIS (IED)</a></td>
+        <td>Los Martires</td>
+        <td class="tc">701</td>
+        <td><span class="dupla-badge sm" style="background:#8B4EA6;color:#fff;">Juliana - Tania M</span></td>
+        <td style="white-space:nowrap;"><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span></td>
+        <td class="tc" style="font-weight:800;color:#3AABE3;">4/5</td>
+      </tr>
+      <tr>
         <td class="tc">31</td>
         <td><a href="#school-31">COLEGIO MIGUEL ANTONIO CARO (IED)</a></td>
         <td>Engativa</td>
@@ -1610,10 +1666,10 @@
         <td class="tc" style="font-weight:800;color:#3AABE3;">4/5</td>
       </tr>
       <tr>
-        <td class="tc">14</td>
-        <td><a href="#school-14">COLEGIO SAN FRANCISCO DE ASIS (IED)</a></td>
-        <td>Los Martires</td>
-        <td class="tc">701</td>
+        <td class="tc">6</td>
+        <td><a href="#school-6">COLEGIO RODRIGO LARA BONILLA (IED)</a></td>
+        <td>Ciudad Bolivar</td>
+        <td class="tc">705</td>
         <td><span class="dupla-badge sm" style="background:#8B4EA6;color:#fff;">Juliana - Tania M</span></td>
         <td style="white-space:nowrap;"><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span></td>
         <td class="tc" style="font-weight:800;color:#3AABE3;">3/5</td>
@@ -1624,6 +1680,15 @@
         <td>Puente Aranda</td>
         <td class="tc">903</td>
         <td><span class="dupla-badge sm" style="background:#8B4EA6;color:#fff;">Juliana - Tania M</span></td>
+        <td style="white-space:nowrap;"><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span></td>
+        <td class="tc" style="font-weight:800;color:#3AABE3;">3/5</td>
+      </tr>
+      <tr>
+        <td class="tc">16</td>
+        <td><a href="#school-16">COLEGIO EL LIBERTADOR (IED)</a></td>
+        <td>Rafael Uribe Uribe</td>
+        <td class="tc">901</td>
+        <td><span class="dupla-badge sm" style="background:#e5e7eb;color:#555;">Jorge - Shirley</span></td>
         <td style="white-space:nowrap;"><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span></td>
         <td class="tc" style="font-weight:800;color:#3AABE3;">3/5</td>
       </tr>
@@ -1652,6 +1717,15 @@
         <td class="tc">802</td>
         <td><span class="dupla-badge sm" style="background:#1A8C7A;color:#fff;">Laura H - Nathalia</span></td>
         <td style="white-space:nowrap;"><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span></td>
+        <td class="tc" style="font-weight:800;color:#3AABE3;">3/5</td>
+      </tr>
+      <tr>
+        <td class="tc">24</td>
+        <td><a href="#school-24">COLEGIO RUFINO JOSE CUERVO (IED)</a></td>
+        <td>Tunjuelito</td>
+        <td class="tc">805</td>
+        <td><span class="dupla-badge sm" style="background:#e5e7eb;color:#555;">Jorge - Shirley</span></td>
+        <td style="white-space:nowrap;"><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">○</span><span class="tbl-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">○</span></td>
         <td class="tc" style="font-weight:800;color:#3AABE3;">3/5</td>
       </tr>
       <tr>
@@ -1687,15 +1761,6 @@
         <td>Ciudad Bolivar</td>
         <td class="tc">802</td>
         <td><span class="dupla-badge sm" style="background:#4BAD4E;color:#fff;">Wendy - Wilmer</span></td>
-        <td style="white-space:nowrap;"><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span></td>
-        <td class="tc" style="font-weight:800;color:#3AABE3;">2/5</td>
-      </tr>
-      <tr>
-        <td class="tc">6</td>
-        <td><a href="#school-6">COLEGIO RODRIGO LARA BONILLA (IED)</a></td>
-        <td>Ciudad Bolivar</td>
-        <td class="tc">705</td>
-        <td><span class="dupla-badge sm" style="background:#8B4EA6;color:#fff;">Juliana - Tania M</span></td>
         <td style="white-space:nowrap;"><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span></td>
         <td class="tc" style="font-weight:800;color:#3AABE3;">2/5</td>
       </tr>
@@ -1754,6 +1819,42 @@
         <td class="tc" style="font-weight:800;color:#3AABE3;">2/5</td>
       </tr>
       <tr>
+        <td class="tc">29</td>
+        <td><a href="#school-29">COLEGIO PABLO DE TARSO (IED)</a></td>
+        <td>Bosa</td>
+        <td class="tc">903</td>
+        <td><span class="dupla-badge sm" style="background:#e5e7eb;color:#555;">Jorge - Shirley</span></td>
+        <td style="white-space:nowrap;"><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">○</span><span class="tbl-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">○</span><span class="tbl-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">○</span></td>
+        <td class="tc" style="font-weight:800;color:#3AABE3;">2/5</td>
+      </tr>
+      <tr>
+        <td class="tc">33</td>
+        <td><a href="#school-33">COLEGIO ANTONIO VAN UDEN (IED)</a></td>
+        <td>Fontibon</td>
+        <td class="tc">701</td>
+        <td><span class="dupla-badge sm" style="background:#F9C200;color:#1a1a2e;">Vanne - Conny</span></td>
+        <td style="white-space:nowrap;"><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span></td>
+        <td class="tc" style="font-weight:800;color:#3AABE3;">2/5</td>
+      </tr>
+      <tr>
+        <td class="tc">34</td>
+        <td><a href="#school-34">COLEGIO ISABEL II (IED)</a></td>
+        <td>Kennedy</td>
+        <td class="tc">802</td>
+        <td><span class="dupla-badge sm" style="background:#e5e7eb;color:#555;">Jorge - Shirley</span></td>
+        <td style="white-space:nowrap;"><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">○</span><span class="tbl-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">○</span><span class="tbl-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">○</span></td>
+        <td class="tc" style="font-weight:800;color:#3AABE3;">2/5</td>
+      </tr>
+      <tr>
+        <td class="tc">38</td>
+        <td><a href="#school-38">COLEGIO MARIA CANO (IED)</a></td>
+        <td>Rafael Uribe Uribe</td>
+        <td class="tc">701</td>
+        <td><span class="dupla-badge sm" style="background:#3AABE3;color:#fff;">Camila - Paula V</span></td>
+        <td style="white-space:nowrap;"><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span></td>
+        <td class="tc" style="font-weight:800;color:#3AABE3;">2/5</td>
+      </tr>
+      <tr>
         <td class="tc">3</td>
         <td><a href="#school-3">COLEGIO BOSANOVA (IED)</a></td>
         <td>Bosa</td>
@@ -1778,15 +1879,6 @@
         <td class="tc">701</td>
         <td><span class="dupla-badge sm" style="background:#e5e7eb;color:#555;">Tania V - Luisa</span></td>
         <td style="white-space:nowrap;"><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span></td>
-        <td class="tc" style="font-weight:800;color:#3AABE3;">1/5</td>
-      </tr>
-      <tr>
-        <td class="tc">16</td>
-        <td><a href="#school-16">COLEGIO EL LIBERTADOR (IED)</a></td>
-        <td>Rafael Uribe Uribe</td>
-        <td class="tc">901</td>
-        <td><span class="dupla-badge sm" style="background:#e5e7eb;color:#555;">Jorge - Shirley</span></td>
-        <td style="white-space:nowrap;"><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">○</span><span class="tbl-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">○</span><span class="tbl-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">○</span><span class="tbl-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">○</span></td>
         <td class="tc" style="font-weight:800;color:#3AABE3;">1/5</td>
       </tr>
       <tr>
@@ -1835,15 +1927,6 @@
         <td class="tc" style="font-weight:800;color:#3AABE3;">1/5</td>
       </tr>
       <tr>
-        <td class="tc">29</td>
-        <td><a href="#school-29">COLEGIO PABLO DE TARSO (IED)</a></td>
-        <td>Bosa</td>
-        <td class="tc">903</td>
-        <td><span class="dupla-badge sm" style="background:#e5e7eb;color:#555;">Jorge - Shirley</span></td>
-        <td style="white-space:nowrap;"><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">○</span><span class="tbl-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">○</span><span class="tbl-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">○</span><span class="tbl-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">○</span></td>
-        <td class="tc" style="font-weight:800;color:#3AABE3;">1/5</td>
-      </tr>
-      <tr>
         <td class="tc">30</td>
         <td><a href="#school-30">COLEGIO EL MINUTO DE BUENOS AIRES (IED)</a></td>
         <td>Ciudad Bolivar</td>
@@ -1862,24 +1945,6 @@
         <td class="tc" style="font-weight:800;color:#3AABE3;">1/5</td>
       </tr>
       <tr>
-        <td class="tc">33</td>
-        <td><a href="#school-33">COLEGIO ANTONIO VAN UDEN (IED)</a></td>
-        <td>Fontibon</td>
-        <td class="tc">701</td>
-        <td><span class="dupla-badge sm" style="background:#F9C200;color:#1a1a2e;">Vanne - Conny</span></td>
-        <td style="white-space:nowrap;"><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span></td>
-        <td class="tc" style="font-weight:800;color:#3AABE3;">1/5</td>
-      </tr>
-      <tr>
-        <td class="tc">34</td>
-        <td><a href="#school-34">COLEGIO ISABEL II (IED)</a></td>
-        <td>Kennedy</td>
-        <td class="tc">802</td>
-        <td><span class="dupla-badge sm" style="background:#e5e7eb;color:#555;">Jorge - Shirley</span></td>
-        <td style="white-space:nowrap;"><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">○</span><span class="tbl-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">○</span><span class="tbl-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">○</span><span class="tbl-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">○</span></td>
-        <td class="tc" style="font-weight:800;color:#3AABE3;">1/5</td>
-      </tr>
-      <tr>
         <td class="tc">35</td>
         <td><a href="#school-35">COLEGIO PAULO VI (IED)</a></td>
         <td>Kennedy</td>
@@ -1889,19 +1954,19 @@
         <td class="tc" style="font-weight:800;color:#3AABE3;">1/5</td>
       </tr>
       <tr>
-        <td class="tc">37</td>
-        <td><a href="#school-37">COLEGIO ALFREDO IRIARTE (IED)</a></td>
-        <td>Rafael Uribe Uribe</td>
-        <td class="tc">903</td>
-        <td><span class="dupla-badge sm" style="background:#3AABE3;color:#fff;">Camila - Paula V</span></td>
+        <td class="tc">36</td>
+        <td><a href="#school-36">COLEGIO LA MERCED (IED)</a></td>
+        <td>Puente Aranda</td>
+        <td class="tc">802</td>
+        <td><span class="dupla-badge sm" style="background:#E8302A;color:#fff;">Naiara - Loren</span></td>
         <td style="white-space:nowrap;"><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span></td>
         <td class="tc" style="font-weight:800;color:#3AABE3;">1/5</td>
       </tr>
       <tr>
-        <td class="tc">38</td>
-        <td><a href="#school-38">COLEGIO MARIA CANO (IED)</a></td>
+        <td class="tc">37</td>
+        <td><a href="#school-37">COLEGIO ALFREDO IRIARTE (IED)</a></td>
         <td>Rafael Uribe Uribe</td>
-        <td class="tc">701</td>
+        <td class="tc">903</td>
         <td><span class="dupla-badge sm" style="background:#3AABE3;color:#fff;">Camila - Paula V</span></td>
         <td style="white-space:nowrap;"><span class="tbl-dot" style="background:#4BAD4E;color:#fff;" title="Completada">✓</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span></td>
         <td class="tc" style="font-weight:800;color:#3AABE3;">1/5</td>
@@ -1925,30 +1990,12 @@
         <td class="tc" style="font-weight:800;color:#3AABE3;">1/5</td>
       </tr>
       <tr>
-        <td class="tc">24</td>
-        <td><a href="#school-24">COLEGIO RUFINO JOSE CUERVO (IED)</a></td>
-        <td>Tunjuelito</td>
-        <td class="tc">805</td>
-        <td><span class="dupla-badge sm" style="background:#e5e7eb;color:#555;">Jorge - Shirley</span></td>
-        <td style="white-space:nowrap;"><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span><span class="tbl-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">○</span><span class="tbl-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">○</span><span class="tbl-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">○</span><span class="tbl-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">○</span></td>
-        <td class="tc" style="font-weight:800;color:#9ca3af;">0/5</td>
-      </tr>
-      <tr>
         <td class="tc">28</td>
         <td><a href="#school-28">COLEGIO FEDERICO GARCIA LORCA (IED)</a></td>
         <td>Usme</td>
         <td class="tc">902</td>
         <td><span class="dupla-badge sm" style="background:#e5e7eb;color:#555;">Jeny - Lizeth</span></td>
         <td style="white-space:nowrap;"><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span></td>
-        <td class="tc" style="font-weight:800;color:#9ca3af;">0/5</td>
-      </tr>
-      <tr>
-        <td class="tc">36</td>
-        <td><a href="#school-36">COLEGIO LA MERCED (IED)</a></td>
-        <td>Puente Aranda</td>
-        <td class="tc">802</td>
-        <td><span class="dupla-badge sm" style="background:#E8302A;color:#fff;">Naiara - Loren</span></td>
-        <td style="white-space:nowrap;"><span class="tbl-dot" style="background:#3AABE3;color:#fff;" title="Agendada">•</span><span class="tbl-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">○</span><span class="tbl-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">○</span><span class="tbl-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">○</span><span class="tbl-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">○</span></td>
         <td class="tc" style="font-weight:800;color:#9ca3af;">0/5</td>
       </tr></tbody>
         </table>
@@ -2066,6 +2113,109 @@
     </div>
   </div>
 
+  <div class="school-card" id="school-14" style="border-left:5px solid #3AABE3;">
+    <div class="card-rainbow-bar"></div>
+    <div class="card-body">
+
+      <!-- Card header -->
+      <div class="card-header-row">
+        <div class="card-title-area">
+          <div class="card-top-meta">
+            <span class="card-num">#14</span>
+            <span class="card-codigo">S008</span>
+            <span class="dupla-badge" style="background:#8B4EA6;color:#fff;">Juliana - Tania M</span>
+          </div>
+          <h2 class="card-title">COLEGIO SAN FRANCISCO DE ASIS (IED)</h2>
+          <div class="card-submeta">
+            <span>📍 Los Martires</span>
+            <span>⏰ Única</span>
+            <span>🏫 Aula 701</span>
+            <span>👥 38 est.</span>
+          </div>
+        </div>
+        <div class="card-progress-block">
+          <div class="prog-ring">
+            <span class="prog-num">4</span><span class="prog-den">/5</span>
+          </div>
+          <div class="prog-sub">sesiones</div>
+          <div class="prog-bar-track">
+            <div class="prog-bar-fill" style="width:80%;"></div>
+          </div>
+          <div class="prog-mini-stats">
+            <span style="color:#4BAD4E;">✓4</span>
+            <span style="color:#3AABE3;">📅1</span>
+            <span style="color:#9ca3af;">○0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Session tracker -->
+      <div class="session-track">
+        
+        <div class="track-step">
+          <div class="track-dot" style="background:#4BAD4E;color:#fff;" title="Completada">
+            <span class="track-icon">✓</span>
+            <span class="track-slabel">S0</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Diagnóstico</div>
+            <div class="track-date">martes, 7 de abril</div>
+          </div>
+        </div>
+        <div class="track-step">
+          <div class="track-dot" style="background:#4BAD4E;color:#fff;" title="Completada">
+            <span class="track-icon">✓</span>
+            <span class="track-slabel">S1</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Emociones</div>
+            <div class="track-date">lunes, 13 de abril</div>
+          </div>
+        </div>
+        <div class="track-step">
+          <div class="track-dot" style="background:#4BAD4E;color:#fff;" title="Completada">
+            <span class="track-icon">✓</span>
+            <span class="track-slabel">S2</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Empatía</div>
+            <div class="track-date">lunes, 20 de abril</div>
+          </div>
+        </div>
+        <div class="track-step">
+          <div class="track-dot" style="background:#4BAD4E;color:#fff;" title="Completada">
+            <span class="track-icon">✓</span>
+            <span class="track-slabel">S3</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Convivencia</div>
+            <div class="track-date">lunes, 27 de abril</div>
+          </div>
+        </div>
+        <div class="track-step">
+          <div class="track-dot" style="background:#3AABE3;color:#fff;" title="Agendada">
+            <span class="track-icon">📅</span>
+            <span class="track-slabel">S4</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Herramientas</div>
+            <div class="track-date">lunes, 4 de mayo</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer info -->
+      <div class="card-info-row">
+        <div class="info-item"><span class="info-lbl">Director/a:</span> Diana Marcela Riveros</div>
+        <div class="info-item"><span class="info-lbl">Contacto:</span> Elizabeth Sara Eliana Sánchez Cáceres
+          <span class="role-chip">Coordinador(a)</span>
+        </div>
+        <div class="info-item"><span class="info-lbl">Teléfono:</span> <a href="tel:3194241216">3194241216</a></div>
+      </div>
+
+    </div>
+  </div>
+
   <div class="school-card" id="school-31" style="border-left:5px solid #3AABE3;">
     <div class="card-rainbow-bar"></div>
     <div class="card-body">
@@ -2169,7 +2319,7 @@
     </div>
   </div>
 
-  <div class="school-card" id="school-14" style="border-left:5px solid #3AABE3;">
+  <div class="school-card" id="school-6" style="border-left:5px solid #3AABE3;">
     <div class="card-rainbow-bar"></div>
     <div class="card-body">
 
@@ -2177,16 +2327,16 @@
       <div class="card-header-row">
         <div class="card-title-area">
           <div class="card-top-meta">
-            <span class="card-num">#14</span>
-            <span class="card-codigo">S008</span>
+            <span class="card-num">#6</span>
+            <span class="card-codigo">S061</span>
             <span class="dupla-badge" style="background:#8B4EA6;color:#fff;">Juliana - Tania M</span>
           </div>
-          <h2 class="card-title">COLEGIO SAN FRANCISCO DE ASIS (IED)</h2>
+          <h2 class="card-title">COLEGIO RODRIGO LARA BONILLA (IED)</h2>
           <div class="card-submeta">
-            <span>📍 Los Martires</span>
-            <span>⏰ Única</span>
-            <span>🏫 Aula 701</span>
-            <span>👥 38 est.</span>
+            <span>📍 Ciudad Bolivar</span>
+            <span>⏰ Tarde</span>
+            <span>🏫 Aula 705</span>
+            <span>👥 39 est.</span>
           </div>
         </div>
         <div class="card-progress-block">
@@ -2215,7 +2365,7 @@
           </div>
           <div class="track-info">
             <div class="track-theme">Diagnóstico</div>
-            <div class="track-date">martes, 7 de abril</div>
+            <div class="track-date">miércoles, 15 de abril</div>
           </div>
         </div>
         <div class="track-step">
@@ -2225,7 +2375,7 @@
           </div>
           <div class="track-info">
             <div class="track-theme">Emociones</div>
-            <div class="track-date">lunes, 13 de abril</div>
+            <div class="track-date">lunes, 20 de abril</div>
           </div>
         </div>
         <div class="track-step">
@@ -2235,7 +2385,7 @@
           </div>
           <div class="track-info">
             <div class="track-theme">Empatía</div>
-            <div class="track-date">lunes, 20 de abril</div>
+            <div class="track-date">lunes, 27 de abril</div>
           </div>
         </div>
         <div class="track-step">
@@ -2245,7 +2395,7 @@
           </div>
           <div class="track-info">
             <div class="track-theme">Convivencia</div>
-            <div class="track-date">lunes, 27 de abril</div>
+            <div class="track-date">lunes, 11 de mayo</div>
           </div>
         </div>
         <div class="track-step">
@@ -2255,18 +2405,18 @@
           </div>
           <div class="track-info">
             <div class="track-theme">Herramientas</div>
-            <div class="track-date">lunes, 4 de mayo</div>
+            <div class="track-date">lunes, 18 de mayo</div>
           </div>
         </div>
       </div>
 
       <!-- Footer info -->
       <div class="card-info-row">
-        <div class="info-item"><span class="info-lbl">Director/a:</span> Diana Marcela Riveros</div>
-        <div class="info-item"><span class="info-lbl">Contacto:</span> Elizabeth Sara Eliana Sánchez Cáceres
+        <div class="info-item"><span class="info-lbl">Director/a:</span> Paola Lopez</div>
+        <div class="info-item"><span class="info-lbl">Contacto:</span> Ruth Eliced Baracaldo Rivera
           <span class="role-chip">Coordinador(a)</span>
         </div>
-        <div class="info-item"><span class="info-lbl">Teléfono:</span> <a href="tel:3194241216">3194241216</a></div>
+        <div class="info-item"><span class="info-lbl">Teléfono:</span> <a href="tel:3102225846">3102225846</a></div>
       </div>
 
     </div>
@@ -2370,6 +2520,109 @@
           <span class="role-chip">Coordinador(a)</span>
         </div>
         <div class="info-item"><span class="info-lbl">Teléfono:</span> <a href="tel:3232431709">3232431709</a></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="school-card" id="school-16" style="border-left:5px solid #3AABE3;">
+    <div class="card-rainbow-bar"></div>
+    <div class="card-body">
+
+      <!-- Card header -->
+      <div class="card-header-row">
+        <div class="card-title-area">
+          <div class="card-top-meta">
+            <span class="card-num">#16</span>
+            <span class="card-codigo">S066</span>
+            <span class="dupla-badge" style="background:#e5e7eb;color:#555;">Jorge - Shirley</span>
+          </div>
+          <h2 class="card-title">COLEGIO EL LIBERTADOR (IED)</h2>
+          <div class="card-submeta">
+            <span>📍 Rafael Uribe Uribe</span>
+            <span>⏰ Única</span>
+            <span>🏫 Aula 901</span>
+            <span>👥 28 est.</span>
+          </div>
+        </div>
+        <div class="card-progress-block">
+          <div class="prog-ring">
+            <span class="prog-num">3</span><span class="prog-den">/5</span>
+          </div>
+          <div class="prog-sub">sesiones</div>
+          <div class="prog-bar-track">
+            <div class="prog-bar-fill" style="width:60%;"></div>
+          </div>
+          <div class="prog-mini-stats">
+            <span style="color:#4BAD4E;">✓3</span>
+            <span style="color:#3AABE3;">📅2</span>
+            <span style="color:#9ca3af;">○0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Session tracker -->
+      <div class="session-track">
+        
+        <div class="track-step">
+          <div class="track-dot" style="background:#4BAD4E;color:#fff;" title="Completada">
+            <span class="track-icon">✓</span>
+            <span class="track-slabel">S0</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Diagnóstico</div>
+            <div class="track-date">lunes, 13 de abril</div>
+          </div>
+        </div>
+        <div class="track-step">
+          <div class="track-dot" style="background:#4BAD4E;color:#fff;" title="Completada">
+            <span class="track-icon">✓</span>
+            <span class="track-slabel">S1</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Emociones</div>
+            <div class="track-date">martes, 21 de abril</div>
+          </div>
+        </div>
+        <div class="track-step">
+          <div class="track-dot" style="background:#4BAD4E;color:#fff;" title="Completada">
+            <span class="track-icon">✓</span>
+            <span class="track-slabel">S2</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Empatía</div>
+            <div class="track-date">martes, 28 de abril</div>
+          </div>
+        </div>
+        <div class="track-step">
+          <div class="track-dot" style="background:#3AABE3;color:#fff;" title="Agendada">
+            <span class="track-icon">📅</span>
+            <span class="track-slabel">S3</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Convivencia</div>
+            <div class="track-date">martes, 5 de mayo</div>
+          </div>
+        </div>
+        <div class="track-step">
+          <div class="track-dot" style="background:#3AABE3;color:#fff;" title="Agendada">
+            <span class="track-icon">📅</span>
+            <span class="track-slabel">S4</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Herramientas</div>
+            <div class="track-date">martes, 12 de mayo</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer info -->
+      <div class="card-info-row">
+        <div class="info-item"><span class="info-lbl">Director/a:</span> Luis Eduardo Bueno</div>
+        <div class="info-item"><span class="info-lbl">Contacto:</span> Yeny Cubides
+          <span class="role-chip">Director(a) de curso</span>
+        </div>
+        <div class="info-item"><span class="info-lbl">Teléfono:</span> <a href="tel:3115328571">3115328571</a></div>
       </div>
 
     </div>
@@ -2679,6 +2932,109 @@
           <span class="role-chip">Coordinador(a)</span>
         </div>
         <div class="info-item"><span class="info-lbl">Teléfono:</span> <a href="tel:3124029599">3124029599</a></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="school-card" id="school-24" style="border-left:5px solid #3AABE3;">
+    <div class="card-rainbow-bar"></div>
+    <div class="card-body">
+
+      <!-- Card header -->
+      <div class="card-header-row">
+        <div class="card-title-area">
+          <div class="card-top-meta">
+            <span class="card-num">#24</span>
+            <span class="card-codigo">S004</span>
+            <span class="dupla-badge" style="background:#e5e7eb;color:#555;">Jorge - Shirley</span>
+          </div>
+          <h2 class="card-title">COLEGIO RUFINO JOSE CUERVO (IED)</h2>
+          <div class="card-submeta">
+            <span>📍 Tunjuelito</span>
+            <span>⏰ Tarde</span>
+            <span>🏫 Aula 805</span>
+            <span>👥 26 est.</span>
+          </div>
+        </div>
+        <div class="card-progress-block">
+          <div class="prog-ring">
+            <span class="prog-num">3</span><span class="prog-den">/5</span>
+          </div>
+          <div class="prog-sub">sesiones</div>
+          <div class="prog-bar-track">
+            <div class="prog-bar-fill" style="width:60%;"></div>
+          </div>
+          <div class="prog-mini-stats">
+            <span style="color:#4BAD4E;">✓3</span>
+            <span style="color:#3AABE3;">📅0</span>
+            <span style="color:#9ca3af;">○2</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Session tracker -->
+      <div class="session-track">
+        
+        <div class="track-step">
+          <div class="track-dot" style="background:#4BAD4E;color:#fff;" title="Completada">
+            <span class="track-icon">✓</span>
+            <span class="track-slabel">S0</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Diagnóstico</div>
+            <div class="track-date">martes, 14 de abril</div>
+          </div>
+        </div>
+        <div class="track-step">
+          <div class="track-dot" style="background:#4BAD4E;color:#fff;" title="Completada">
+            <span class="track-icon">✓</span>
+            <span class="track-slabel">S1</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Emociones</div>
+            <div class="track-date">—</div>
+          </div>
+        </div>
+        <div class="track-step">
+          <div class="track-dot" style="background:#4BAD4E;color:#fff;" title="Completada">
+            <span class="track-icon">✓</span>
+            <span class="track-slabel">S2</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Empatía</div>
+            <div class="track-date">—</div>
+          </div>
+        </div>
+        <div class="track-step">
+          <div class="track-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">
+            <span class="track-icon">○</span>
+            <span class="track-slabel">S3</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Convivencia</div>
+            <div class="track-date">—</div>
+          </div>
+        </div>
+        <div class="track-step">
+          <div class="track-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">
+            <span class="track-icon">○</span>
+            <span class="track-slabel">S4</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Herramientas</div>
+            <div class="track-date">—</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer info -->
+      <div class="card-info-row">
+        <div class="info-item"><span class="info-lbl">Director/a:</span> Lucila Arteta</div>
+        <div class="info-item"><span class="info-lbl">Contacto:</span> Marisol Cuy Herrera
+          <span class="role-chip">Director(a) de curso</span>
+        </div>
+        <div class="info-item"><span class="info-lbl">Teléfono:</span> <a href="tel:3152036381">3152036381</a></div>
       </div>
 
     </div>
@@ -3091,109 +3447,6 @@
           <span class="role-chip">Orientador(a)</span>
         </div>
         <div class="info-item"><span class="info-lbl">Teléfono:</span> <a href="tel:3156010794">3156010794</a></div>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="school-card" id="school-6" style="border-left:5px solid #3AABE3;">
-    <div class="card-rainbow-bar"></div>
-    <div class="card-body">
-
-      <!-- Card header -->
-      <div class="card-header-row">
-        <div class="card-title-area">
-          <div class="card-top-meta">
-            <span class="card-num">#6</span>
-            <span class="card-codigo">S061</span>
-            <span class="dupla-badge" style="background:#8B4EA6;color:#fff;">Juliana - Tania M</span>
-          </div>
-          <h2 class="card-title">COLEGIO RODRIGO LARA BONILLA (IED)</h2>
-          <div class="card-submeta">
-            <span>📍 Ciudad Bolivar</span>
-            <span>⏰ Tarde</span>
-            <span>🏫 Aula 705</span>
-            <span>👥 39 est.</span>
-          </div>
-        </div>
-        <div class="card-progress-block">
-          <div class="prog-ring">
-            <span class="prog-num">2</span><span class="prog-den">/5</span>
-          </div>
-          <div class="prog-sub">sesiones</div>
-          <div class="prog-bar-track">
-            <div class="prog-bar-fill" style="width:40%;"></div>
-          </div>
-          <div class="prog-mini-stats">
-            <span style="color:#4BAD4E;">✓2</span>
-            <span style="color:#3AABE3;">📅3</span>
-            <span style="color:#9ca3af;">○0</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Session tracker -->
-      <div class="session-track">
-        
-        <div class="track-step">
-          <div class="track-dot" style="background:#4BAD4E;color:#fff;" title="Completada">
-            <span class="track-icon">✓</span>
-            <span class="track-slabel">S0</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Diagnóstico</div>
-            <div class="track-date">miércoles, 15 de abril</div>
-          </div>
-        </div>
-        <div class="track-step">
-          <div class="track-dot" style="background:#4BAD4E;color:#fff;" title="Completada">
-            <span class="track-icon">✓</span>
-            <span class="track-slabel">S1</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Emociones</div>
-            <div class="track-date">lunes, 20 de abril</div>
-          </div>
-        </div>
-        <div class="track-step">
-          <div class="track-dot" style="background:#3AABE3;color:#fff;" title="Agendada">
-            <span class="track-icon">📅</span>
-            <span class="track-slabel">S2</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Empatía</div>
-            <div class="track-date">miércoles, 29 de abril</div>
-          </div>
-        </div>
-        <div class="track-step">
-          <div class="track-dot" style="background:#3AABE3;color:#fff;" title="Agendada">
-            <span class="track-icon">📅</span>
-            <span class="track-slabel">S3</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Convivencia</div>
-            <div class="track-date">lunes, 11 de mayo</div>
-          </div>
-        </div>
-        <div class="track-step">
-          <div class="track-dot" style="background:#3AABE3;color:#fff;" title="Agendada">
-            <span class="track-icon">📅</span>
-            <span class="track-slabel">S4</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Herramientas</div>
-            <div class="track-date">miércoles, 20 de mayo</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Footer info -->
-      <div class="card-info-row">
-        <div class="info-item"><span class="info-lbl">Director/a:</span> Paola Lopez</div>
-        <div class="info-item"><span class="info-lbl">Contacto:</span> Ruth Eliced Baracaldo Rivera
-          <span class="role-chip">Coordinador(a)</span>
-        </div>
-        <div class="info-item"><span class="info-lbl">Teléfono:</span> <a href="tel:3102225846">3102225846</a></div>
       </div>
 
     </div>
@@ -3817,6 +4070,418 @@
     </div>
   </div>
 
+  <div class="school-card" id="school-29" style="border-left:5px solid #3AABE3;">
+    <div class="card-rainbow-bar"></div>
+    <div class="card-body">
+
+      <!-- Card header -->
+      <div class="card-header-row">
+        <div class="card-title-area">
+          <div class="card-top-meta">
+            <span class="card-num">#29</span>
+            <span class="card-codigo">S097</span>
+            <span class="dupla-badge" style="background:#e5e7eb;color:#555;">Jorge - Shirley</span>
+          </div>
+          <h2 class="card-title">COLEGIO PABLO DE TARSO (IED)</h2>
+          <div class="card-submeta">
+            <span>📍 Bosa</span>
+            <span>⏰ Tarde</span>
+            <span>🏫 Aula 903</span>
+            <span>👥 26 est.</span>
+          </div>
+        </div>
+        <div class="card-progress-block">
+          <div class="prog-ring">
+            <span class="prog-num">2</span><span class="prog-den">/5</span>
+          </div>
+          <div class="prog-sub">sesiones</div>
+          <div class="prog-bar-track">
+            <div class="prog-bar-fill" style="width:40%;"></div>
+          </div>
+          <div class="prog-mini-stats">
+            <span style="color:#4BAD4E;">✓2</span>
+            <span style="color:#3AABE3;">📅0</span>
+            <span style="color:#9ca3af;">○3</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Session tracker -->
+      <div class="session-track">
+        
+        <div class="track-step">
+          <div class="track-dot" style="background:#4BAD4E;color:#fff;" title="Completada">
+            <span class="track-icon">✓</span>
+            <span class="track-slabel">S0</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Diagnóstico</div>
+            <div class="track-date">lunes, 13 de abril</div>
+          </div>
+        </div>
+        <div class="track-step">
+          <div class="track-dot" style="background:#4BAD4E;color:#fff;" title="Completada">
+            <span class="track-icon">✓</span>
+            <span class="track-slabel">S1</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Emociones</div>
+            <div class="track-date">miércoles, 29 de abril</div>
+          </div>
+        </div>
+        <div class="track-step">
+          <div class="track-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">
+            <span class="track-icon">○</span>
+            <span class="track-slabel">S2</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Empatía</div>
+            <div class="track-date">—</div>
+          </div>
+        </div>
+        <div class="track-step">
+          <div class="track-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">
+            <span class="track-icon">○</span>
+            <span class="track-slabel">S3</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Convivencia</div>
+            <div class="track-date">—</div>
+          </div>
+        </div>
+        <div class="track-step">
+          <div class="track-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">
+            <span class="track-icon">○</span>
+            <span class="track-slabel">S4</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Herramientas</div>
+            <div class="track-date">—</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer info -->
+      <div class="card-info-row">
+        <div class="info-item"><span class="info-lbl">Director/a:</span> Alfonso Sanchez Ana Milena</div>
+        <div class="info-item"><span class="info-lbl">Contacto:</span> Javier Enrique Muñozz Lara
+          <span class="role-chip">Orientador(a)</span>
+        </div>
+        <div class="info-item"><span class="info-lbl">Teléfono:</span> <a href="tel:3125320493">3125320493</a></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="school-card" id="school-33" style="border-left:5px solid #3AABE3;">
+    <div class="card-rainbow-bar"></div>
+    <div class="card-body">
+
+      <!-- Card header -->
+      <div class="card-header-row">
+        <div class="card-title-area">
+          <div class="card-top-meta">
+            <span class="card-num">#33</span>
+            <span class="card-codigo">S096</span>
+            <span class="dupla-badge" style="background:#F9C200;color:#1a1a2e;">Vanne - Conny</span>
+          </div>
+          <h2 class="card-title">COLEGIO ANTONIO VAN UDEN (IED)</h2>
+          <div class="card-submeta">
+            <span>📍 Fontibon</span>
+            <span>⏰ Tarde</span>
+            <span>🏫 Aula 701</span>
+            <span>👥 25 est.</span>
+          </div>
+        </div>
+        <div class="card-progress-block">
+          <div class="prog-ring">
+            <span class="prog-num">2</span><span class="prog-den">/5</span>
+          </div>
+          <div class="prog-sub">sesiones</div>
+          <div class="prog-bar-track">
+            <div class="prog-bar-fill" style="width:40%;"></div>
+          </div>
+          <div class="prog-mini-stats">
+            <span style="color:#4BAD4E;">✓2</span>
+            <span style="color:#3AABE3;">📅3</span>
+            <span style="color:#9ca3af;">○0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Session tracker -->
+      <div class="session-track">
+        
+        <div class="track-step">
+          <div class="track-dot" style="background:#4BAD4E;color:#fff;" title="Completada">
+            <span class="track-icon">✓</span>
+            <span class="track-slabel">S0</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Diagnóstico</div>
+            <div class="track-date">martes, 21 de abril</div>
+          </div>
+        </div>
+        <div class="track-step">
+          <div class="track-dot" style="background:#4BAD4E;color:#fff;" title="Completada">
+            <span class="track-icon">✓</span>
+            <span class="track-slabel">S1</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Emociones</div>
+            <div class="track-date">miércoles, 29 de abril</div>
+          </div>
+        </div>
+        <div class="track-step">
+          <div class="track-dot" style="background:#3AABE3;color:#fff;" title="Agendada">
+            <span class="track-icon">📅</span>
+            <span class="track-slabel">S2</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Empatía</div>
+            <div class="track-date">lunes, 4 de mayo</div>
+          </div>
+        </div>
+        <div class="track-step">
+          <div class="track-dot" style="background:#3AABE3;color:#fff;" title="Agendada">
+            <span class="track-icon">📅</span>
+            <span class="track-slabel">S3</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Convivencia</div>
+            <div class="track-date">martes, 12 de mayo</div>
+          </div>
+        </div>
+        <div class="track-step">
+          <div class="track-dot" style="background:#3AABE3;color:#fff;" title="Agendada">
+            <span class="track-icon">📅</span>
+            <span class="track-slabel">S4</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Herramientas</div>
+            <div class="track-date">martes, 19 de mayo</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer info -->
+      <div class="card-info-row">
+        <div class="info-item"><span class="info-lbl">Director/a:</span> Lina Aragon</div>
+        <div class="info-item"><span class="info-lbl">Contacto:</span> Yesid  Alejandro Molina Perilla
+          <span class="role-chip">Director(a) de curso</span>
+        </div>
+        <div class="info-item"><span class="info-lbl">Teléfono:</span> <a href="tel:3144239797">3144239797</a></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="school-card" id="school-34" style="border-left:5px solid #3AABE3;">
+    <div class="card-rainbow-bar"></div>
+    <div class="card-body">
+
+      <!-- Card header -->
+      <div class="card-header-row">
+        <div class="card-title-area">
+          <div class="card-top-meta">
+            <span class="card-num">#34</span>
+            <span class="card-codigo">S091</span>
+            <span class="dupla-badge" style="background:#e5e7eb;color:#555;">Jorge - Shirley</span>
+          </div>
+          <h2 class="card-title">COLEGIO ISABEL II (IED)</h2>
+          <div class="card-submeta">
+            <span>📍 Kennedy</span>
+            <span>⏰ Mañana</span>
+            <span>🏫 Aula 802</span>
+            <span>👥 34 est.</span>
+          </div>
+        </div>
+        <div class="card-progress-block">
+          <div class="prog-ring">
+            <span class="prog-num">2</span><span class="prog-den">/5</span>
+          </div>
+          <div class="prog-sub">sesiones</div>
+          <div class="prog-bar-track">
+            <div class="prog-bar-fill" style="width:40%;"></div>
+          </div>
+          <div class="prog-mini-stats">
+            <span style="color:#4BAD4E;">✓2</span>
+            <span style="color:#3AABE3;">📅0</span>
+            <span style="color:#9ca3af;">○3</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Session tracker -->
+      <div class="session-track">
+        
+        <div class="track-step">
+          <div class="track-dot" style="background:#4BAD4E;color:#fff;" title="Completada">
+            <span class="track-icon">✓</span>
+            <span class="track-slabel">S0</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Diagnóstico</div>
+            <div class="track-date">martes, 14 de abril</div>
+          </div>
+        </div>
+        <div class="track-step">
+          <div class="track-dot" style="background:#4BAD4E;color:#fff;" title="Completada">
+            <span class="track-icon">✓</span>
+            <span class="track-slabel">S1</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Emociones</div>
+            <div class="track-date">miércoles, 29 de abril</div>
+          </div>
+        </div>
+        <div class="track-step">
+          <div class="track-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">
+            <span class="track-icon">○</span>
+            <span class="track-slabel">S2</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Empatía</div>
+            <div class="track-date">—</div>
+          </div>
+        </div>
+        <div class="track-step">
+          <div class="track-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">
+            <span class="track-icon">○</span>
+            <span class="track-slabel">S3</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Convivencia</div>
+            <div class="track-date">—</div>
+          </div>
+        </div>
+        <div class="track-step">
+          <div class="track-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">
+            <span class="track-icon">○</span>
+            <span class="track-slabel">S4</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Herramientas</div>
+            <div class="track-date">—</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer info -->
+      <div class="card-info-row">
+        <div class="info-item"><span class="info-lbl">Director/a:</span> Sandra Castelblanco</div>
+        <div class="info-item"><span class="info-lbl">Contacto:</span> Sandra Castelblanco
+          <span class="role-chip">Rector(a)</span>
+        </div>
+        <div class="info-item"><span class="info-lbl">Teléfono:</span> <a href="tel:3002092449">3002092449</a></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="school-card" id="school-38" style="border-left:5px solid #3AABE3;">
+    <div class="card-rainbow-bar"></div>
+    <div class="card-body">
+
+      <!-- Card header -->
+      <div class="card-header-row">
+        <div class="card-title-area">
+          <div class="card-top-meta">
+            <span class="card-num">#38</span>
+            <span class="card-codigo">S109</span>
+            <span class="dupla-badge" style="background:#3AABE3;color:#fff;">Camila - Paula V</span>
+          </div>
+          <h2 class="card-title">COLEGIO MARIA CANO (IED)</h2>
+          <div class="card-submeta">
+            <span>📍 Rafael Uribe Uribe</span>
+            <span>⏰ Única</span>
+            <span>🏫 Aula 701</span>
+            <span>👥 42 est.</span>
+          </div>
+        </div>
+        <div class="card-progress-block">
+          <div class="prog-ring">
+            <span class="prog-num">2</span><span class="prog-den">/5</span>
+          </div>
+          <div class="prog-sub">sesiones</div>
+          <div class="prog-bar-track">
+            <div class="prog-bar-fill" style="width:40%;"></div>
+          </div>
+          <div class="prog-mini-stats">
+            <span style="color:#4BAD4E;">✓2</span>
+            <span style="color:#3AABE3;">📅3</span>
+            <span style="color:#9ca3af;">○0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Session tracker -->
+      <div class="session-track">
+        
+        <div class="track-step">
+          <div class="track-dot" style="background:#4BAD4E;color:#fff;" title="Completada">
+            <span class="track-icon">✓</span>
+            <span class="track-slabel">S0</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Diagnóstico</div>
+            <div class="track-date">viernes, 17 de abril</div>
+          </div>
+        </div>
+        <div class="track-step">
+          <div class="track-dot" style="background:#4BAD4E;color:#fff;" title="Completada">
+            <span class="track-icon">✓</span>
+            <span class="track-slabel">S1</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Emociones</div>
+            <div class="track-date">miércoles, 29 de abril</div>
+          </div>
+        </div>
+        <div class="track-step">
+          <div class="track-dot" style="background:#3AABE3;color:#fff;" title="Agendada">
+            <span class="track-icon">📅</span>
+            <span class="track-slabel">S2</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Empatía</div>
+            <div class="track-date">miércoles, 6 de mayo</div>
+          </div>
+        </div>
+        <div class="track-step">
+          <div class="track-dot" style="background:#3AABE3;color:#fff;" title="Agendada">
+            <span class="track-icon">📅</span>
+            <span class="track-slabel">S3</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Convivencia</div>
+            <div class="track-date">miércoles, 13 de mayo</div>
+          </div>
+        </div>
+        <div class="track-step">
+          <div class="track-dot" style="background:#3AABE3;color:#fff;" title="Agendada">
+            <span class="track-icon">📅</span>
+            <span class="track-slabel">S4</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Herramientas</div>
+            <div class="track-date">miércoles, 20 de mayo</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer info -->
+      <div class="card-info-row">
+        <div class="info-item"><span class="info-lbl">Director/a:</span> Claudia Moreno</div>
+        <div class="info-item"><span class="info-lbl">Contacto:</span> Lina Jimenez
+          <span class="role-chip">Orientador(a)</span>
+        </div>
+        <div class="info-item"><span class="info-lbl">Teléfono:</span> <a href="tel:319 5377897">319 5377897</a></div>
+      </div>
+
+    </div>
+  </div>
+
   <div class="school-card" id="school-3" style="border-left:5px solid #3AABE3;">
     <div class="card-rainbow-bar"></div>
     <div class="card-body">
@@ -4121,109 +4786,6 @@
           <span class="role-chip">Rector(a)</span>
         </div>
         <div class="info-item"><span class="info-lbl">Teléfono:</span> <a href="tel:3208394238">3208394238</a></div>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="school-card" id="school-16" style="border-left:5px solid #3AABE3;">
-    <div class="card-rainbow-bar"></div>
-    <div class="card-body">
-
-      <!-- Card header -->
-      <div class="card-header-row">
-        <div class="card-title-area">
-          <div class="card-top-meta">
-            <span class="card-num">#16</span>
-            <span class="card-codigo">S066</span>
-            <span class="dupla-badge" style="background:#e5e7eb;color:#555;">Jorge - Shirley</span>
-          </div>
-          <h2 class="card-title">COLEGIO EL LIBERTADOR (IED)</h2>
-          <div class="card-submeta">
-            <span>📍 Rafael Uribe Uribe</span>
-            <span>⏰ Única</span>
-            <span>🏫 Aula 901</span>
-            <span>👥 28 est.</span>
-          </div>
-        </div>
-        <div class="card-progress-block">
-          <div class="prog-ring">
-            <span class="prog-num">1</span><span class="prog-den">/5</span>
-          </div>
-          <div class="prog-sub">sesiones</div>
-          <div class="prog-bar-track">
-            <div class="prog-bar-fill" style="width:20%;"></div>
-          </div>
-          <div class="prog-mini-stats">
-            <span style="color:#4BAD4E;">✓1</span>
-            <span style="color:#3AABE3;">📅0</span>
-            <span style="color:#9ca3af;">○4</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Session tracker -->
-      <div class="session-track">
-        
-        <div class="track-step">
-          <div class="track-dot" style="background:#4BAD4E;color:#fff;" title="Completada">
-            <span class="track-icon">✓</span>
-            <span class="track-slabel">S0</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Diagnóstico</div>
-            <div class="track-date">lunes, 13 de abril</div>
-          </div>
-        </div>
-        <div class="track-step">
-          <div class="track-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">
-            <span class="track-icon">○</span>
-            <span class="track-slabel">S1</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Emociones</div>
-            <div class="track-date">martes, 21 de abril</div>
-          </div>
-        </div>
-        <div class="track-step">
-          <div class="track-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">
-            <span class="track-icon">○</span>
-            <span class="track-slabel">S2</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Empatía</div>
-            <div class="track-date">martes, 28 de abril</div>
-          </div>
-        </div>
-        <div class="track-step">
-          <div class="track-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">
-            <span class="track-icon">○</span>
-            <span class="track-slabel">S3</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Convivencia</div>
-            <div class="track-date">martes, 5 de mayo</div>
-          </div>
-        </div>
-        <div class="track-step">
-          <div class="track-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">
-            <span class="track-icon">○</span>
-            <span class="track-slabel">S4</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Herramientas</div>
-            <div class="track-date">martes, 12 de mayo</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Footer info -->
-      <div class="card-info-row">
-        <div class="info-item"><span class="info-lbl">Director/a:</span> Luis Eduardo Bueno</div>
-        <div class="info-item"><span class="info-lbl">Contacto:</span> Yeny Cubides
-          <span class="role-chip">Director(a) de curso</span>
-        </div>
-        <div class="info-item"><span class="info-lbl">Teléfono:</span> <a href="tel:3115328571">3115328571</a></div>
       </div>
 
     </div>
@@ -4744,109 +5306,6 @@
     </div>
   </div>
 
-  <div class="school-card" id="school-29" style="border-left:5px solid #3AABE3;">
-    <div class="card-rainbow-bar"></div>
-    <div class="card-body">
-
-      <!-- Card header -->
-      <div class="card-header-row">
-        <div class="card-title-area">
-          <div class="card-top-meta">
-            <span class="card-num">#29</span>
-            <span class="card-codigo">S097</span>
-            <span class="dupla-badge" style="background:#e5e7eb;color:#555;">Jorge - Shirley</span>
-          </div>
-          <h2 class="card-title">COLEGIO PABLO DE TARSO (IED)</h2>
-          <div class="card-submeta">
-            <span>📍 Bosa</span>
-            <span>⏰ Tarde</span>
-            <span>🏫 Aula 903</span>
-            <span>👥 26 est.</span>
-          </div>
-        </div>
-        <div class="card-progress-block">
-          <div class="prog-ring">
-            <span class="prog-num">1</span><span class="prog-den">/5</span>
-          </div>
-          <div class="prog-sub">sesiones</div>
-          <div class="prog-bar-track">
-            <div class="prog-bar-fill" style="width:20%;"></div>
-          </div>
-          <div class="prog-mini-stats">
-            <span style="color:#4BAD4E;">✓1</span>
-            <span style="color:#3AABE3;">📅0</span>
-            <span style="color:#9ca3af;">○4</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Session tracker -->
-      <div class="session-track">
-        
-        <div class="track-step">
-          <div class="track-dot" style="background:#4BAD4E;color:#fff;" title="Completada">
-            <span class="track-icon">✓</span>
-            <span class="track-slabel">S0</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Diagnóstico</div>
-            <div class="track-date">lunes, 13 de abril</div>
-          </div>
-        </div>
-        <div class="track-step">
-          <div class="track-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">
-            <span class="track-icon">○</span>
-            <span class="track-slabel">S1</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Emociones</div>
-            <div class="track-date">—</div>
-          </div>
-        </div>
-        <div class="track-step">
-          <div class="track-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">
-            <span class="track-icon">○</span>
-            <span class="track-slabel">S2</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Empatía</div>
-            <div class="track-date">—</div>
-          </div>
-        </div>
-        <div class="track-step">
-          <div class="track-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">
-            <span class="track-icon">○</span>
-            <span class="track-slabel">S3</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Convivencia</div>
-            <div class="track-date">—</div>
-          </div>
-        </div>
-        <div class="track-step">
-          <div class="track-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">
-            <span class="track-icon">○</span>
-            <span class="track-slabel">S4</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Herramientas</div>
-            <div class="track-date">—</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Footer info -->
-      <div class="card-info-row">
-        <div class="info-item"><span class="info-lbl">Director/a:</span> Alfonso Sanchez Ana Milena</div>
-        <div class="info-item"><span class="info-lbl">Contacto:</span> Javier Enrique Muñozz Lara
-          <span class="role-chip">Orientador(a)</span>
-        </div>
-        <div class="info-item"><span class="info-lbl">Teléfono:</span> <a href="tel:3125320493">3125320493</a></div>
-      </div>
-
-    </div>
-  </div>
-
   <div class="school-card" id="school-30" style="border-left:5px solid #3AABE3;">
     <div class="card-rainbow-bar"></div>
     <div class="card-body">
@@ -5053,212 +5512,6 @@
     </div>
   </div>
 
-  <div class="school-card" id="school-33" style="border-left:5px solid #3AABE3;">
-    <div class="card-rainbow-bar"></div>
-    <div class="card-body">
-
-      <!-- Card header -->
-      <div class="card-header-row">
-        <div class="card-title-area">
-          <div class="card-top-meta">
-            <span class="card-num">#33</span>
-            <span class="card-codigo">S096</span>
-            <span class="dupla-badge" style="background:#F9C200;color:#1a1a2e;">Vanne - Conny</span>
-          </div>
-          <h2 class="card-title">COLEGIO ANTONIO VAN UDEN (IED)</h2>
-          <div class="card-submeta">
-            <span>📍 Fontibon</span>
-            <span>⏰ Tarde</span>
-            <span>🏫 Aula 701</span>
-            <span>👥 25 est.</span>
-          </div>
-        </div>
-        <div class="card-progress-block">
-          <div class="prog-ring">
-            <span class="prog-num">1</span><span class="prog-den">/5</span>
-          </div>
-          <div class="prog-sub">sesiones</div>
-          <div class="prog-bar-track">
-            <div class="prog-bar-fill" style="width:20%;"></div>
-          </div>
-          <div class="prog-mini-stats">
-            <span style="color:#4BAD4E;">✓1</span>
-            <span style="color:#3AABE3;">📅4</span>
-            <span style="color:#9ca3af;">○0</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Session tracker -->
-      <div class="session-track">
-        
-        <div class="track-step">
-          <div class="track-dot" style="background:#4BAD4E;color:#fff;" title="Completada">
-            <span class="track-icon">✓</span>
-            <span class="track-slabel">S0</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Diagnóstico</div>
-            <div class="track-date">martes, 21 de abril</div>
-          </div>
-        </div>
-        <div class="track-step">
-          <div class="track-dot" style="background:#3AABE3;color:#fff;" title="Agendada">
-            <span class="track-icon">📅</span>
-            <span class="track-slabel">S1</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Emociones</div>
-            <div class="track-date">miércoles, 29 de abril</div>
-          </div>
-        </div>
-        <div class="track-step">
-          <div class="track-dot" style="background:#3AABE3;color:#fff;" title="Agendada">
-            <span class="track-icon">📅</span>
-            <span class="track-slabel">S2</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Empatía</div>
-            <div class="track-date">lunes, 4 de mayo</div>
-          </div>
-        </div>
-        <div class="track-step">
-          <div class="track-dot" style="background:#3AABE3;color:#fff;" title="Agendada">
-            <span class="track-icon">📅</span>
-            <span class="track-slabel">S3</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Convivencia</div>
-            <div class="track-date">martes, 12 de mayo</div>
-          </div>
-        </div>
-        <div class="track-step">
-          <div class="track-dot" style="background:#3AABE3;color:#fff;" title="Agendada">
-            <span class="track-icon">📅</span>
-            <span class="track-slabel">S4</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Herramientas</div>
-            <div class="track-date">domingo, 19 de abril</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Footer info -->
-      <div class="card-info-row">
-        <div class="info-item"><span class="info-lbl">Director/a:</span> Lina Aragon</div>
-        <div class="info-item"><span class="info-lbl">Contacto:</span> Yesid  Alejandro Molina Perilla
-          <span class="role-chip">Director(a) de curso</span>
-        </div>
-        <div class="info-item"><span class="info-lbl">Teléfono:</span> <a href="tel:3144239797">3144239797</a></div>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="school-card" id="school-34" style="border-left:5px solid #3AABE3;">
-    <div class="card-rainbow-bar"></div>
-    <div class="card-body">
-
-      <!-- Card header -->
-      <div class="card-header-row">
-        <div class="card-title-area">
-          <div class="card-top-meta">
-            <span class="card-num">#34</span>
-            <span class="card-codigo">S091</span>
-            <span class="dupla-badge" style="background:#e5e7eb;color:#555;">Jorge - Shirley</span>
-          </div>
-          <h2 class="card-title">COLEGIO ISABEL II (IED)</h2>
-          <div class="card-submeta">
-            <span>📍 Kennedy</span>
-            <span>⏰ Mañana</span>
-            <span>🏫 Aula 802</span>
-            <span>👥 34 est.</span>
-          </div>
-        </div>
-        <div class="card-progress-block">
-          <div class="prog-ring">
-            <span class="prog-num">1</span><span class="prog-den">/5</span>
-          </div>
-          <div class="prog-sub">sesiones</div>
-          <div class="prog-bar-track">
-            <div class="prog-bar-fill" style="width:20%;"></div>
-          </div>
-          <div class="prog-mini-stats">
-            <span style="color:#4BAD4E;">✓1</span>
-            <span style="color:#3AABE3;">📅0</span>
-            <span style="color:#9ca3af;">○4</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Session tracker -->
-      <div class="session-track">
-        
-        <div class="track-step">
-          <div class="track-dot" style="background:#4BAD4E;color:#fff;" title="Completada">
-            <span class="track-icon">✓</span>
-            <span class="track-slabel">S0</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Diagnóstico</div>
-            <div class="track-date">martes, 14 de abril</div>
-          </div>
-        </div>
-        <div class="track-step">
-          <div class="track-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">
-            <span class="track-icon">○</span>
-            <span class="track-slabel">S1</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Emociones</div>
-            <div class="track-date">—</div>
-          </div>
-        </div>
-        <div class="track-step">
-          <div class="track-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">
-            <span class="track-icon">○</span>
-            <span class="track-slabel">S2</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Empatía</div>
-            <div class="track-date">—</div>
-          </div>
-        </div>
-        <div class="track-step">
-          <div class="track-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">
-            <span class="track-icon">○</span>
-            <span class="track-slabel">S3</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Convivencia</div>
-            <div class="track-date">—</div>
-          </div>
-        </div>
-        <div class="track-step">
-          <div class="track-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">
-            <span class="track-icon">○</span>
-            <span class="track-slabel">S4</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Herramientas</div>
-            <div class="track-date">—</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Footer info -->
-      <div class="card-info-row">
-        <div class="info-item"><span class="info-lbl">Director/a:</span> Sandra Castelblanco</div>
-        <div class="info-item"><span class="info-lbl">Contacto:</span> Sandra Castelblanco
-          <span class="role-chip">Rector(a)</span>
-        </div>
-        <div class="info-item"><span class="info-lbl">Teléfono:</span> <a href="tel:3002092449">3002092449</a></div>
-      </div>
-
-    </div>
-  </div>
-
   <div class="school-card" id="school-35" style="border-left:5px solid #3AABE3;">
     <div class="card-rainbow-bar"></div>
     <div class="card-body">
@@ -5357,6 +5610,109 @@
           <span class="role-chip">Coordinador(a)</span>
         </div>
         <div class="info-item"><span class="info-lbl">Teléfono:</span> <a href="tel:3219171788">3219171788</a></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="school-card" id="school-36" style="border-left:5px solid #3AABE3;">
+    <div class="card-rainbow-bar"></div>
+    <div class="card-body">
+
+      <!-- Card header -->
+      <div class="card-header-row">
+        <div class="card-title-area">
+          <div class="card-top-meta">
+            <span class="card-num">#36</span>
+            <span class="card-codigo">S017</span>
+            <span class="dupla-badge" style="background:#E8302A;color:#fff;">Naiara - Loren</span>
+          </div>
+          <h2 class="card-title">COLEGIO LA MERCED (IED)</h2>
+          <div class="card-submeta">
+            <span>📍 Puente Aranda</span>
+            <span>⏰ Única</span>
+            <span>🏫 Aula 802</span>
+            <span>👥 24 est.</span>
+          </div>
+        </div>
+        <div class="card-progress-block">
+          <div class="prog-ring">
+            <span class="prog-num">1</span><span class="prog-den">/5</span>
+          </div>
+          <div class="prog-sub">sesiones</div>
+          <div class="prog-bar-track">
+            <div class="prog-bar-fill" style="width:20%;"></div>
+          </div>
+          <div class="prog-mini-stats">
+            <span style="color:#4BAD4E;">✓1</span>
+            <span style="color:#3AABE3;">📅4</span>
+            <span style="color:#9ca3af;">○0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Session tracker -->
+      <div class="session-track">
+        
+        <div class="track-step">
+          <div class="track-dot" style="background:#4BAD4E;color:#fff;" title="Completada">
+            <span class="track-icon">✓</span>
+            <span class="track-slabel">S0</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Diagnóstico</div>
+            <div class="track-date">lunes, 27 de abril</div>
+          </div>
+        </div>
+        <div class="track-step">
+          <div class="track-dot" style="background:#3AABE3;color:#fff;" title="Agendada">
+            <span class="track-icon">📅</span>
+            <span class="track-slabel">S1</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Emociones</div>
+            <div class="track-date">lunes, 13 de julio</div>
+          </div>
+        </div>
+        <div class="track-step">
+          <div class="track-dot" style="background:#3AABE3;color:#fff;" title="Agendada">
+            <span class="track-icon">📅</span>
+            <span class="track-slabel">S2</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Empatía</div>
+            <div class="track-date">lunes, 27 de julio</div>
+          </div>
+        </div>
+        <div class="track-step">
+          <div class="track-dot" style="background:#3AABE3;color:#fff;" title="Agendada">
+            <span class="track-icon">📅</span>
+            <span class="track-slabel">S3</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Convivencia</div>
+            <div class="track-date">lunes, 3 de agosto</div>
+          </div>
+        </div>
+        <div class="track-step">
+          <div class="track-dot" style="background:#3AABE3;color:#fff;" title="Agendada">
+            <span class="track-icon">📅</span>
+            <span class="track-slabel">S4</span>
+          </div>
+          <div class="track-info">
+            <div class="track-theme">Herramientas</div>
+            <div class="track-date">lunes, 10 de agosto</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer info -->
+      <div class="card-info-row">
+        <div class="info-item"><span class="info-lbl">Director/a:</span> Fredy Enrique Díaz Díaz</div>
+        <div class="info-item"><span class="info-lbl">Contacto:</span> Nancy Franco Ruiz
+          <span class="role-chip">Coordinador(a)</span>
+        </div>
+        <div class="info-item"><span class="info-lbl">Teléfono:</span> <a href="tel:3105449205">3105449205</a></div>
       </div>
 
     </div>
@@ -5465,109 +5821,6 @@
     </div>
   </div>
 
-  <div class="school-card" id="school-38" style="border-left:5px solid #3AABE3;">
-    <div class="card-rainbow-bar"></div>
-    <div class="card-body">
-
-      <!-- Card header -->
-      <div class="card-header-row">
-        <div class="card-title-area">
-          <div class="card-top-meta">
-            <span class="card-num">#38</span>
-            <span class="card-codigo">S109</span>
-            <span class="dupla-badge" style="background:#3AABE3;color:#fff;">Camila - Paula V</span>
-          </div>
-          <h2 class="card-title">COLEGIO MARIA CANO (IED)</h2>
-          <div class="card-submeta">
-            <span>📍 Rafael Uribe Uribe</span>
-            <span>⏰ Única</span>
-            <span>🏫 Aula 701</span>
-            <span>👥 42 est.</span>
-          </div>
-        </div>
-        <div class="card-progress-block">
-          <div class="prog-ring">
-            <span class="prog-num">1</span><span class="prog-den">/5</span>
-          </div>
-          <div class="prog-sub">sesiones</div>
-          <div class="prog-bar-track">
-            <div class="prog-bar-fill" style="width:20%;"></div>
-          </div>
-          <div class="prog-mini-stats">
-            <span style="color:#4BAD4E;">✓1</span>
-            <span style="color:#3AABE3;">📅4</span>
-            <span style="color:#9ca3af;">○0</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Session tracker -->
-      <div class="session-track">
-        
-        <div class="track-step">
-          <div class="track-dot" style="background:#4BAD4E;color:#fff;" title="Completada">
-            <span class="track-icon">✓</span>
-            <span class="track-slabel">S0</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Diagnóstico</div>
-            <div class="track-date">viernes, 17 de abril</div>
-          </div>
-        </div>
-        <div class="track-step">
-          <div class="track-dot" style="background:#3AABE3;color:#fff;" title="Agendada">
-            <span class="track-icon">📅</span>
-            <span class="track-slabel">S1</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Emociones</div>
-            <div class="track-date">miércoles, 29 de abril</div>
-          </div>
-        </div>
-        <div class="track-step">
-          <div class="track-dot" style="background:#3AABE3;color:#fff;" title="Agendada">
-            <span class="track-icon">📅</span>
-            <span class="track-slabel">S2</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Empatía</div>
-            <div class="track-date">miércoles, 6 de mayo</div>
-          </div>
-        </div>
-        <div class="track-step">
-          <div class="track-dot" style="background:#3AABE3;color:#fff;" title="Agendada">
-            <span class="track-icon">📅</span>
-            <span class="track-slabel">S3</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Convivencia</div>
-            <div class="track-date">miércoles, 13 de mayo</div>
-          </div>
-        </div>
-        <div class="track-step">
-          <div class="track-dot" style="background:#3AABE3;color:#fff;" title="Agendada">
-            <span class="track-icon">📅</span>
-            <span class="track-slabel">S4</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Herramientas</div>
-            <div class="track-date">miércoles, 20 de mayo</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Footer info -->
-      <div class="card-info-row">
-        <div class="info-item"><span class="info-lbl">Director/a:</span> Claudia Moreno</div>
-        <div class="info-item"><span class="info-lbl">Contacto:</span> Lina Jimenez
-          <span class="role-chip">Orientador(a)</span>
-        </div>
-        <div class="info-item"><span class="info-lbl">Teléfono:</span> <a href="tel:319 5377897">319 5377897</a></div>
-      </div>
-
-    </div>
-  </div>
-
   <div class="school-card" id="school-39" style="border-left:5px solid #3AABE3;">
     <div class="card-rainbow-bar"></div>
     <div class="card-body">
@@ -5624,7 +5877,7 @@
           </div>
           <div class="track-info">
             <div class="track-theme">Emociones</div>
-            <div class="track-date">martes, 28 de abril</div>
+            <div class="track-date">miércoles, 6 de mayo</div>
           </div>
         </div>
         <div class="track-step">
@@ -5634,7 +5887,7 @@
           </div>
           <div class="track-info">
             <div class="track-theme">Empatía</div>
-            <div class="track-date">martes, 5 de mayo</div>
+            <div class="track-date">miércoles, 13 de mayo</div>
           </div>
         </div>
         <div class="track-step">
@@ -5644,7 +5897,7 @@
           </div>
           <div class="track-info">
             <div class="track-theme">Convivencia</div>
-            <div class="track-date">martes, 12 de mayo</div>
+            <div class="track-date">martes, 19 de mayo</div>
           </div>
         </div>
         <div class="track-step">
@@ -5654,7 +5907,7 @@
           </div>
           <div class="track-info">
             <div class="track-theme">Herramientas</div>
-            <div class="track-date">martes, 19 de mayo</div>
+            <div class="track-date">martes, 26 de mayo</div>
           </div>
         </div>
       </div>
@@ -5774,109 +6027,6 @@
     </div>
   </div>
 
-  <div class="school-card" id="school-24" style="border-left:5px solid #3AABE3;">
-    <div class="card-rainbow-bar"></div>
-    <div class="card-body">
-
-      <!-- Card header -->
-      <div class="card-header-row">
-        <div class="card-title-area">
-          <div class="card-top-meta">
-            <span class="card-num">#24</span>
-            <span class="card-codigo">S004</span>
-            <span class="dupla-badge" style="background:#e5e7eb;color:#555;">Jorge - Shirley</span>
-          </div>
-          <h2 class="card-title">COLEGIO RUFINO JOSE CUERVO (IED)</h2>
-          <div class="card-submeta">
-            <span>📍 Tunjuelito</span>
-            <span>⏰ Tarde</span>
-            <span>🏫 Aula 805</span>
-            <span>👥 26 est.</span>
-          </div>
-        </div>
-        <div class="card-progress-block">
-          <div class="prog-ring">
-            <span class="prog-num">0</span><span class="prog-den">/5</span>
-          </div>
-          <div class="prog-sub">sesiones</div>
-          <div class="prog-bar-track">
-            <div class="prog-bar-fill" style="width:0%;"></div>
-          </div>
-          <div class="prog-mini-stats">
-            <span style="color:#4BAD4E;">✓0</span>
-            <span style="color:#3AABE3;">📅1</span>
-            <span style="color:#9ca3af;">○4</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Session tracker -->
-      <div class="session-track">
-        
-        <div class="track-step">
-          <div class="track-dot" style="background:#3AABE3;color:#fff;" title="Agendada">
-            <span class="track-icon">📅</span>
-            <span class="track-slabel">S0</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Diagnóstico</div>
-            <div class="track-date">martes, 14 de abril</div>
-          </div>
-        </div>
-        <div class="track-step">
-          <div class="track-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">
-            <span class="track-icon">○</span>
-            <span class="track-slabel">S1</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Emociones</div>
-            <div class="track-date">—</div>
-          </div>
-        </div>
-        <div class="track-step">
-          <div class="track-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">
-            <span class="track-icon">○</span>
-            <span class="track-slabel">S2</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Empatía</div>
-            <div class="track-date">—</div>
-          </div>
-        </div>
-        <div class="track-step">
-          <div class="track-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">
-            <span class="track-icon">○</span>
-            <span class="track-slabel">S3</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Convivencia</div>
-            <div class="track-date">—</div>
-          </div>
-        </div>
-        <div class="track-step">
-          <div class="track-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">
-            <span class="track-icon">○</span>
-            <span class="track-slabel">S4</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Herramientas</div>
-            <div class="track-date">—</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Footer info -->
-      <div class="card-info-row">
-        <div class="info-item"><span class="info-lbl">Director/a:</span> Lucila Arteta</div>
-        <div class="info-item"><span class="info-lbl">Contacto:</span> Marisol Cuy Herrera
-          <span class="role-chip">Director(a) de curso</span>
-        </div>
-        <div class="info-item"><span class="info-lbl">Teléfono:</span> <a href="tel:3152036381">3152036381</a></div>
-      </div>
-
-    </div>
-  </div>
-
   <div class="school-card" id="school-28" style="border-left:5px solid #3AABE3;">
     <div class="card-rainbow-bar"></div>
     <div class="card-body">
@@ -5979,109 +6129,6 @@
 
     </div>
   </div>
-
-  <div class="school-card" id="school-36" style="border-left:5px solid #3AABE3;">
-    <div class="card-rainbow-bar"></div>
-    <div class="card-body">
-
-      <!-- Card header -->
-      <div class="card-header-row">
-        <div class="card-title-area">
-          <div class="card-top-meta">
-            <span class="card-num">#36</span>
-            <span class="card-codigo">S017</span>
-            <span class="dupla-badge" style="background:#E8302A;color:#fff;">Naiara - Loren</span>
-          </div>
-          <h2 class="card-title">COLEGIO LA MERCED (IED)</h2>
-          <div class="card-submeta">
-            <span>📍 Puente Aranda</span>
-            <span>⏰ Única</span>
-            <span>🏫 Aula 802</span>
-            <span>👥 24 est.</span>
-          </div>
-        </div>
-        <div class="card-progress-block">
-          <div class="prog-ring">
-            <span class="prog-num">0</span><span class="prog-den">/5</span>
-          </div>
-          <div class="prog-sub">sesiones</div>
-          <div class="prog-bar-track">
-            <div class="prog-bar-fill" style="width:0%;"></div>
-          </div>
-          <div class="prog-mini-stats">
-            <span style="color:#4BAD4E;">✓0</span>
-            <span style="color:#3AABE3;">📅1</span>
-            <span style="color:#9ca3af;">○4</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Session tracker -->
-      <div class="session-track">
-        
-        <div class="track-step">
-          <div class="track-dot" style="background:#3AABE3;color:#fff;" title="Agendada">
-            <span class="track-icon">📅</span>
-            <span class="track-slabel">S0</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Diagnóstico</div>
-            <div class="track-date">lunes, 27 de abril</div>
-          </div>
-        </div>
-        <div class="track-step">
-          <div class="track-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">
-            <span class="track-icon">○</span>
-            <span class="track-slabel">S1</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Emociones</div>
-            <div class="track-date">—</div>
-          </div>
-        </div>
-        <div class="track-step">
-          <div class="track-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">
-            <span class="track-icon">○</span>
-            <span class="track-slabel">S2</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Empatía</div>
-            <div class="track-date">—</div>
-          </div>
-        </div>
-        <div class="track-step">
-          <div class="track-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">
-            <span class="track-icon">○</span>
-            <span class="track-slabel">S3</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Convivencia</div>
-            <div class="track-date">—</div>
-          </div>
-        </div>
-        <div class="track-step">
-          <div class="track-dot" style="background:#e5e7eb;color:#9ca3af;" title="Por agendar">
-            <span class="track-icon">○</span>
-            <span class="track-slabel">S4</span>
-          </div>
-          <div class="track-info">
-            <div class="track-theme">Herramientas</div>
-            <div class="track-date">—</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Footer info -->
-      <div class="card-info-row">
-        <div class="info-item"><span class="info-lbl">Director/a:</span> Fredy Enrique Díaz Díaz</div>
-        <div class="info-item"><span class="info-lbl">Contacto:</span> Nancy Franco Ruiz
-          <span class="role-chip">Coordinador(a)</span>
-        </div>
-        <div class="info-item"><span class="info-lbl">Teléfono:</span> <a href="tel:3105449205">3105449205</a></div>
-      </div>
-
-    </div>
-  </div>
     </div>
   </div>
 
@@ -6104,5 +6151,85 @@
   </div>
 </footer>
 
+<script>
+  const REPO  = 'oscarmdiazb/aulasenreconexion';
+  const WF    = 'update-dashboard.yml';
+  const BRANCH = 'main';
+
+  function getToken() {
+    let token = localStorage.getItem('gh_pat');
+    if (!token) {
+      token = prompt(
+        'Ingresa tu GitHub Personal Access Token (scope: workflow).
+' +
+        'Se guardará en este navegador y no se enviará a ningún servidor externo.'
+      );
+      if (token) localStorage.setItem('gh_pat', token.trim());
+    }
+    return token ? token.trim() : null;
+  }
+
+  async function triggerUpdate() {
+    const btn    = document.getElementById('refreshBtn');
+    const icon   = document.getElementById('refreshIcon');
+    const status = document.getElementById('refreshStatus');
+
+    const token = getToken();
+    if (!token) {
+      status.textContent = 'Se necesita un token para actualizar.';
+      status.className = 'refresh-status err';
+      return;
+    }
+
+    btn.disabled = true;
+    icon.textContent = '↻';
+    icon.className = 'spin';
+    status.textContent = 'Disparando actualización…';
+    status.className = 'refresh-status';
+
+    try {
+      const res = await fetch(
+        `https://api.github.com/repos/${REPO}/actions/workflows/${WF}/dispatches`,
+        {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Accept': 'application/vnd.github+json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ ref: BRANCH }),
+        }
+      );
+
+      if (res.status === 204) {
+        icon.className = '';
+        icon.textContent = '✓';
+        status.textContent = 'Actualización iniciada. La página se recargará en ~45 segundos.';
+        status.className = 'refresh-status ok';
+        setTimeout(() => location.reload(), 47000);
+      } else if (res.status === 401) {
+        localStorage.removeItem('gh_pat');
+        icon.className = '';
+        icon.textContent = '↻';
+        status.textContent = 'Token inválido o expirado. Haz clic para intentar de nuevo.';
+        status.className = 'refresh-status err';
+        btn.disabled = false;
+      } else {
+        const body = await res.json().catch(() => ({}));
+        icon.className = '';
+        icon.textContent = '↻';
+        status.textContent = `Error ${res.status}: ${body.message || 'intenta de nuevo'}`;
+        status.className = 'refresh-status err';
+        btn.disabled = false;
+      }
+    } catch (e) {
+      icon.className = '';
+      icon.textContent = '↻';
+      status.textContent = 'No se pudo conectar. Verifica tu conexión.';
+      status.className = 'refresh-status err';
+      btn.disabled = false;
+    }
+  }
+</script>
 </body>
 </html>

@@ -1293,6 +1293,49 @@ HTML = f"""<!DOCTYPE html>
       .navbar-nav {{ display: none; }}
       .session-panels {{ grid-template-columns: repeat(2, 1fr); }}
     }}
+
+    /* ===== REFRESH BUTTON ===== */
+    .refresh-btn {{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 1.25rem;
+      padding: 10px 24px;
+      background: var(--rojo);
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 2px 8px rgba(232,48,42,0.3);
+    }}
+    .refresh-btn:hover {{
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(232,48,42,0.4);
+    }}
+    .refresh-btn:disabled {{
+      background: #ccc;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }}
+    .refresh-btn .spin {{
+      display: inline-block;
+      animation: spin 1s linear infinite;
+    }}
+    @keyframes spin {{ to {{ transform: rotate(360deg); }} }}
+    .refresh-status {{
+      display: block;
+      margin-top: 0.6rem;
+      font-size: 12px;
+      color: var(--muted);
+      min-height: 1.2em;
+    }}
+    .refresh-status.ok   {{ color: var(--verde); font-weight: 600; }}
+    .refresh-status.err  {{ color: var(--rojo);  font-weight: 600; }}
   </style>
 </head>
 <body>
@@ -1323,6 +1366,10 @@ HTML = f"""<!DOCTYPE html>
   <p class="page-hero-label">Proyecto Violencia en Escuelas · PSE · SED Bogotá</p>
   <h1 class="page-hero-title">Progreso de Implementación — Ronda 3</h1>
   <p class="page-hero-sub">Monitoreo de sesiones por aula · Equipo facilitador · Abril–Junio 2026</p>
+  <button class="refresh-btn" id="refreshBtn" onclick="triggerUpdate()">
+    <span id="refreshIcon">↻</span> Actualizar datos
+  </button>
+  <span class="refresh-status" id="refreshStatus"></span>
   <div class="rainbow-divider"></div>
 </section>
 
@@ -1472,6 +1519,85 @@ HTML = f"""<!DOCTYPE html>
   </div>
 </footer>
 
+<script>
+  const REPO  = 'oscarmdiazb/aulasenreconexion';
+  const WF    = 'update-dashboard.yml';
+  const BRANCH = 'main';
+
+  function getToken() {{
+    let token = localStorage.getItem('gh_pat');
+    if (!token) {{
+      token = prompt(
+        'Ingresa tu GitHub Personal Access Token (scope: workflow).\n' +
+        'Se guardará en este navegador y no se enviará a ningún servidor externo.'
+      );
+      if (token) localStorage.setItem('gh_pat', token.trim());
+    }}
+    return token ? token.trim() : null;
+  }}
+
+  async function triggerUpdate() {{
+    const btn    = document.getElementById('refreshBtn');
+    const icon   = document.getElementById('refreshIcon');
+    const status = document.getElementById('refreshStatus');
+
+    const token = getToken();
+    if (!token) {{
+      status.textContent = 'Se necesita un token para actualizar.';
+      status.className = 'refresh-status err';
+      return;
+    }}
+
+    btn.disabled = true;
+    icon.textContent = '↻';
+    icon.className = 'spin';
+    status.textContent = 'Disparando actualización…';
+    status.className = 'refresh-status';
+
+    try {{
+      const res = await fetch(
+        `https://api.github.com/repos/${{REPO}}/actions/workflows/${{WF}}/dispatches`,
+        {{
+          method: 'POST',
+          headers: {{
+            'Authorization': `Bearer ${{token}}`,
+            'Accept': 'application/vnd.github+json',
+            'Content-Type': 'application/json',
+          }},
+          body: JSON.stringify({{ ref: BRANCH }}),
+        }}
+      );
+
+      if (res.status === 204) {{
+        icon.className = '';
+        icon.textContent = '✓';
+        status.textContent = 'Actualización iniciada. La página se recargará en ~45 segundos.';
+        status.className = 'refresh-status ok';
+        setTimeout(() => location.reload(), 47000);
+      }} else if (res.status === 401) {{
+        localStorage.removeItem('gh_pat');
+        icon.className = '';
+        icon.textContent = '↻';
+        status.textContent = 'Token inválido o expirado. Haz clic para intentar de nuevo.';
+        status.className = 'refresh-status err';
+        btn.disabled = false;
+      }} else {{
+        const body = await res.json().catch(() => ({{}}));
+        icon.className = '';
+        icon.textContent = '↻';
+        status.textContent = `Error ${{res.status}}: ${{body.message || 'intenta de nuevo'}}`;
+        status.className = 'refresh-status err';
+        btn.disabled = false;
+      }}
+    }} catch (e) {{
+      icon.className = '';
+      icon.textContent = '↻';
+      status.textContent = 'No se pudo conectar. Verifica tu conexión.';
+      status.className = 'refresh-status err';
+      btn.disabled = false;
+    }}
+  }}
+</script>
 </body>
 </html>"""
 
