@@ -775,6 +775,67 @@
 
       /* Facilitator table: hide % bar on small screens */
       .pbar-wrap { flex-direction: column; align-items: flex-start; gap: 3px; }
+
+      /* Show hamburger, hide desktop nav */
+      .navbar-nav { display: none !important; }
+      .nav-hamburger { display: flex; }
+      .nav-mobile-menu { top: 60px; }
+    }
+
+    /* ===== HAMBURGER MENU ===== */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 26px;
+      height: 19px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      flex-shrink: 0;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 100%;
+      height: 2.5px;
+      background: #333;
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      transform-origin: center;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(8.25px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-8.25px) rotate(-45deg); }
+    .nav-mobile-menu {
+      display: none;
+      position: fixed;
+      top: 70px;
+      left: 0; right: 0;
+      background: #1a1a2e;
+      z-index: 998;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-mobile-menu.open { display: block; }
+    .nav-mobile-menu ul { list-style: none; margin: 0; padding: 0.5rem 0 1rem; }
+    .nav-mobile-menu li a {
+      display: block;
+      padding: 13px 1.5rem;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-family: 'Nunito', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-mobile-menu li:last-child a { border-bottom: none; }
+    .nav-mobile-menu li a:hover { background: rgba(255,255,255,0.07); color: #fff; }
+    .nav-mobile-menu li a.active {
+      color: #fff; font-weight: 700;
+      border-left: 3px solid var(--rojo);
+      padding-left: calc(1.5rem - 3px);
     }
 
     /* ===== REFRESH BUTTON ===== */
@@ -841,8 +902,25 @@
       <li><a href="sesion4.html">Sesión 4</a></li>
       <li><a href="monitoreo.html" class="active">Monitoreo</a></li>
     </ul>
+    <button class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<!-- ── MOBILE DROPDOWN MENU ── -->
+<div class="nav-mobile-menu" id="navMobileMenu">
+  <ul>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="resumen.html">Resumen</a></li>
+    <li><a href="timeline.html">Línea de Tiempo</a></li>
+    <li><a href="sesion1.html">Sesión 1</a></li>
+    <li><a href="sesion2.html">Sesión 2</a></li>
+    <li><a href="sesion3.html">Sesión 3</a></li>
+    <li><a href="sesion4.html">Sesión 4</a></li>
+    <li><a href="monitoreo.html" class="active">Monitoreo</a></li>
+  </ul>
+</div>
 
 <!-- ── PAGE HERO ── -->
 <section class="page-hero">
@@ -885,7 +963,7 @@
       <div class="stat-num">0</div>
       <div class="stat-lbl">Aulas finalizadas</div>
     </div>
-    <div class="updated-tag">Actualizado: 29/04/2026 23:09</div>
+    <div class="updated-tag">Actualizado: 30/04/2026 13:55</div>
   </div>
 
   <!-- OVERALL PROGRESS -->
@@ -1169,14 +1247,14 @@
               </div>
               <div class="cal-chips"><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Maravy - Leidy- Yulieth · COLEGIO LA BELLEZA LOS LIBERTADORES (IED) · Aula 9903 · S1 · Completada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Maravy - Leidy- Yulieth ✓</span></div><div class="ev-chip-school">COLEGIO LA BELLEZA L… · A9903</div></div><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:none;" title="Wendy - Wilmer · COLEGIO LA ESTANCIA - SAN ISIDRO LABRADOR (IED) · Aula 903 · S2 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Wendy - Wilmer</span></div><div class="ev-chip-school">COLEGIO LA ESTANCIA … · A903</div></div><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:none;" title="Wendy - Wilmer · COLEGIO SIERRA MORENA (IED) · Aula 802 · S2 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Wendy - Wilmer</span></div><div class="ev-chip-school">COLEGIO SIERRA MOREN… · A802</div></div><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:none;" title="Tania V - Luisa · COLEGIO PROSPERO PINZON (IED) · Aula 803 · S2 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Tania V - Luisa</span></div><div class="ev-chip-school">COLEGIO PROSPERO PIN… · A803</div></div><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Jorge - Shirley · COLEGIO EL LIBERTADOR (IED) · Aula 901 · S2 · Completada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Jorge - Shirley ✓</span></div><div class="ev-chip-school">COLEGIO EL LIBERTADO… · A901</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Vanne - Conny · COLEGIO NIDIA QUINTERO DE TURBAY (IED) · Aula 701 · S3 · Completada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Vanne - Conny ✓</span></div><div class="ev-chip-school">COLEGIO NIDIA QUINTE… · A701</div></div><div class="ev-chip" style="background:#4BAD4E;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Vanne - Conny · COLEGIO MIGUEL ANTONIO CARO (IED) · Aula 702 · S3 · Completada"><div class="ev-chip-top"><span class="ev-sess">S3</span><span class="ev-dupla">Vanne - Conny ✓</span></div><div class="ev-chip-school">COLEGIO MIGUEL ANTON… · A702</div></div></div>
             </div>
-            <div class="cal-cell cal-today">
+            <div class="cal-cell">
               <div class="cal-cell-top">
                 <span class="cal-day-num">29</span>
                 <span class="day-n-badge">8</span>
               </div>
               <div class="cal-chips"><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:none;" title="Jeny - Lizeth · COLEGIO LUIS EDUARDO MORA OSEJO (IED) · Aula 702 · S1 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Jeny - Lizeth</span></div><div class="ev-chip-school">COLEGIO LUIS EDUARDO… · A702</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:none;" title="Jeny - Lizeth · COLEGIO EL UVAL (IED) · Aula 701 · S1 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Jeny - Lizeth</span></div><div class="ev-chip-school">COLEGIO EL UVAL (IED… · A701</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Jorge - Shirley · COLEGIO PABLO DE TARSO (IED) · Aula 903 · S1 · Completada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Jorge - Shirley ✓</span></div><div class="ev-chip-school">COLEGIO PABLO DE TAR… · A903</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Vanne - Conny · COLEGIO ANTONIO VAN UDEN (IED) · Aula 701 · S1 · Completada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Vanne - Conny ✓</span></div><div class="ev-chip-school">COLEGIO ANTONIO VAN … · A701</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Jorge - Shirley · COLEGIO ISABEL II (IED) · Aula 802 · S1 · Completada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Jorge - Shirley ✓</span></div><div class="ev-chip-school">COLEGIO ISABEL II (I… · A802</div></div><div class="ev-chip" style="background:#E8302A;color:#fff;opacity:1;border:2px solid rgba(0,0,0,0.25);" title="Camila - Paula V · COLEGIO MARIA CANO (IED) · Aula 701 · S1 · Completada"><div class="ev-chip-top"><span class="ev-sess">S1</span><span class="ev-dupla">Camila - Paula V ✓</span></div><div class="ev-chip-school">COLEGIO MARIA CANO (… · A701</div></div><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:none;" title="Naiara - Loren · COLEGIO INSTITUTO TECNICO JUAN DEL CORRAL (IED) · Aula 701 · S2 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Naiara - Loren</span></div><div class="ev-chip-school">COLEGIO INSTITUTO TE… · A701</div></div><div class="ev-chip" style="background:#F47920;color:#fff;opacity:1;border:none;" title="Tania V - Luisa · COLEGIO NELSON MANDELA (IED) · Aula 701 · S2 · Agendada"><div class="ev-chip-top"><span class="ev-sess">S2</span><span class="ev-dupla">Tania V - Luisa</span></div><div class="ev-chip-school">COLEGIO NELSON MANDE… · A701</div></div></div>
             </div>
-            <div class="cal-cell">
+            <div class="cal-cell cal-today">
               <div class="cal-cell-top">
                 <span class="cal-day-num">30</span>
                 <span class="day-n-badge">3</span>
@@ -6231,6 +6309,25 @@
 </footer>
 
 <script>
+  /* ── Hamburger menu ── */
+  function toggleMobileNav() {
+    var btn  = document.getElementById('navHamburger');
+    var menu = document.getElementById('navMobileMenu');
+    if (!btn || !menu) return;
+    btn.classList.toggle('open');
+    menu.classList.toggle('open');
+  }
+  document.addEventListener('click', function(e) {
+    var btn  = document.getElementById('navHamburger');
+    var menu = document.getElementById('navMobileMenu');
+    if (!menu || !menu.classList.contains('open')) return;
+    if (!menu.contains(e.target) && !btn.contains(e.target)) {
+      btn.classList.remove('open');
+      menu.classList.remove('open');
+    }
+  });
+
+  /* ── GitHub Actions trigger ── */
   const REPO  = 'oscarmdiazb/aulasenreconexion';
   const WF    = 'update-dashboard.yml';
   const BRANCH = 'main';
